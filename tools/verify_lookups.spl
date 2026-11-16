@@ -1,0 +1,22 @@
+| inputlookup attack_about.csv
+| search key="rows_*"
+| eval dataset = replace(key, "^rows_", ""), expected = tonumber(value)
+| fields dataset, expected
+| append [| inputlookup attack_techniques.csv | stats count as actual | eval dataset="techniques"]
+| append [| inputlookup attack_navigator.csv | stats count as actual | eval dataset="navigator"]
+| append [| inputlookup attack_tactics.csv | stats count as actual | eval dataset="tactics"]
+| append [| inputlookup attack_matrices.csv | stats count as actual | eval dataset="matrices"]
+| append [| inputlookup attack_groups.csv | stats count as actual | eval dataset="groups"]
+| append [| inputlookup attack_software.csv | stats count as actual | eval dataset="software"]
+| append [| inputlookup attack_mitigations.csv | stats count as actual | eval dataset="mitigations"]
+| append [| inputlookup attack_campaigns.csv | stats count as actual | eval dataset="campaigns"]
+| append [| inputlookup attack_datacomponents.csv | stats count as actual | eval dataset="datacomponents"]
+| append [| inputlookup attack_dc_log_sources.csv | stats count as actual | eval dataset="dc_log_sources"]
+| append [| inputlookup attack_detectionstrategies.csv | stats count as actual | eval dataset="detectionstrategies"]
+| append [| inputlookup attack_analytics.csv | stats count as actual | eval dataset="analytics"]
+| append [| inputlookup attack_detection_path.csv | stats count as actual | eval dataset="detection_path"]
+| append [| inputlookup attack_relationships.csv | stats count as actual | eval dataset="relationships"]
+| append [| inputlookup attack_entities.csv | stats count as actual | eval dataset="entities"]
+| stats sum(expected) as expected, sum(actual) as actual by dataset
+| eval actual = coalesce(actual, 0), status = if(actual == expected, "OK", "MISMATCH")
+| sort 0 status, dataset

@@ -1,0 +1,200 @@
+<dashboard version="2">
+  <label>Data Source Matrix</label>
+  <description>データソース × Tactic の Technique 数</description>
+  <definition><![CDATA[
+{
+    "title": "Data Source Matrix",
+    "description": "データソース × Tactic の Technique 数",
+    "inputs": {
+        "input_unit": {
+            "type": "input.dropdown",
+            "title": "データソースの単位",
+            "options": {
+                "token": "unit",
+                "defaultValue": "dc",
+                "items": [
+                    {
+                        "label": "Data Component",
+                        "value": "dc"
+                    },
+                    {
+                        "label": "Log Source",
+                        "value": "ls"
+                    }
+                ]
+            }
+        }
+    },
+    "defaults": {},
+    "visualizations": {
+        "viz_dsm_header": {
+            "type": "splunk.markdown",
+            "options": {
+                "markdown": "## Data Source Matrix\n行がデータソース、列が Tactic、セルはそのデータソースで検知できる Technique の数です（sub-technique を含む）。検知経路 Technique → Detection Strategy → Analytic → Data Component → Log Source（`attack_detection_path.csv`）から数えています。複数の Tactic に属する Technique は、それぞれの Tactic で 1 件ずつ数えます。\n\n「合計」と 2 つの円グラフの件数は、マトリクスのセルを行または列で足した値です。上の「データソースの単位」で Data Component と Log Source を切り替えられます。ATT&CK v18 以降は旧来の Data Source（Process など）が廃止されているため、この 2 つから選びます。"
+            }
+        },
+        "viz_dsm_matrix": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_dsm_matrix"
+            },
+            "title": "データソース × Tactic マトリクス（合計の多い順）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_dsm_column": {
+            "type": "splunk.column",
+            "dataSources": {
+                "primary": "ds_dsm_column"
+            },
+            "title": "データソース別・Tactic 別の Technique 数（合計の上位 30 件）",
+            "options": {
+                "xAxisTitleText": "データソース",
+                "yAxisTitleText": "Technique 数",
+                "legendDisplay": "right",
+                "stackMode": "stacked",
+                "xAxisLabelVisibility": "show",
+                "xAxisLabelRotation": -90
+            }
+        },
+        "viz_dsm_tactic_pie": {
+            "type": "splunk.pie",
+            "dataSources": {
+                "primary": "ds_dsm_tactic_pie"
+            },
+            "title": "Tactic 別の件数",
+            "options": {
+                "showDonutHole": false,
+                "labelDisplay": "valuesAndPercentage"
+            }
+        },
+        "viz_dsm_source_pie": {
+            "type": "splunk.pie",
+            "dataSources": {
+                "primary": "ds_dsm_source_pie"
+            },
+            "title": "データソース別の件数（上位 15 件）",
+            "options": {
+                "showDonutHole": false,
+                "labelDisplay": "valuesAndPercentage"
+            }
+        }
+    },
+    "dataSources": {
+        "ds_dsm_matrix": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| table source, total, *\n| rename source AS \"データソース\", total AS \"合計\" "
+            },
+            "name": "マトリクス"
+        },
+        "ds_dsm_column": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| head 30\n| fields - total"
+            },
+            "name": "縦棒グラフ"
+        },
+        "ds_dsm_tactic_pie": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by tactic\n| sort 0 - count"
+            },
+            "name": "Tactic 別件数"
+        },
+        "ds_dsm_source_pie": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by source\n| sort 0 -count, +source\n| streamstats count as rank\n| eval source = if(rank <= 15, source, \"その他（16 位以下）\")\n| stats sum(count) as count, min(rank) as rank by source\n| sort 0 rank\n| fields source, count"
+            },
+            "name": "データソース別件数"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_unit"
+        ],
+        "tabs": {
+            "items": [
+                {
+                    "label": "Data Source Matrix",
+                    "layoutId": "layout_dsm"
+                }
+            ],
+            "options": {
+                "barPosition": "top",
+                "showTabBar": false
+            }
+        },
+        "layoutDefinitions": {
+            "layout_dsm": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_dsm_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_dsm_matrix",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 760
+                        }
+                    },
+                    {
+                        "item": "viz_dsm_column",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 910,
+                            "w": 1200,
+                            "h": 720
+                        }
+                    },
+                    {
+                        "item": "viz_dsm_tactic_pie",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 1630,
+                            "w": 600,
+                            "h": 460
+                        }
+                    },
+                    {
+                        "item": "viz_dsm_source_pie",
+                        "type": "block",
+                        "position": {
+                            "x": 600,
+                            "y": 1630,
+                            "w": 600,
+                            "h": 460
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+  ]]></definition>
+  <meta type="hiddenElements"><![CDATA[
+{
+    "hideEdit": false,
+    "hideOpenInSearch": false,
+    "hideExport": false
+}
+  ]]></meta>
+</dashboard>

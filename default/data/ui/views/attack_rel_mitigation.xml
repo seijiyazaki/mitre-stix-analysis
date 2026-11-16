@@ -1,0 +1,286 @@
+<dashboard version="2">
+  <label>Relation - Mitigation</label>
+  <description>Mitigation 視点のリレーション</description>
+  <definition><![CDATA[
+{
+    "title": "Relation - Mitigation",
+    "description": "Mitigation を起点に relationships から他の観点をたどる",
+    "inputs": {
+        "input_entity": {
+            "type": "input.multiselect",
+            "title": "Mitigation",
+            "dataSources": {
+                "primary": "ds_entities"
+            },
+            "options": {
+                "token": "entity",
+                "items": ">frame(label, value) | objects()",
+                "defaultValue": "\"M1050\""
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"value\") | renameSeries(\"value\") | formatByType(formattedConfig)"
+            }
+        }
+    },
+    "defaults": {},
+    "visualizations": {
+        "viz_summary": {
+            "type": "splunk.column",
+            "dataSources": {
+                "primary": "ds_rel_summary"
+            },
+            "title": "関係の種別ごとの件数",
+            "options": {
+                "xAxisTitleText": "相手の種別",
+                "yAxisTitleText": "件数",
+                "legendDisplay": "right"
+            }
+        },
+        "viz_tech": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_rel_tech"
+            },
+            "title": "関連する Technique",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_actor_via": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_actor_via"
+            },
+            "title": "Technique 経由で関連する Software / Group / Campaign",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_mit_via": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_mit_via"
+            },
+            "title": "Technique 経由で関連する Mitigation",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_detect": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_rel_detect"
+            },
+            "title": "検知経路（Technique → Detection Strategy → Analytic → Data Component → Log Source）",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_raw": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_rel_raw"
+            },
+            "title": "リレーション生データ",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_rel_header": {
+            "type": "splunk.markdown",
+            "options": {
+                "markdown": "## Relation - Mitigation\n上の「Mitigation」は複数選択できます。選んだものすべてを起点に `attack_relationships.csv` を双方向でたどった結果を表示します。どの対象から出た行かは各表の「対象 ID」列で分かります。\n\n選んだ Mitigation が緩和する Technique と、その Technique の検知経路を表示します。"
+            }
+        },
+        "viz_rel_entity": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_entity"
+            },
+            "title": "選択した Mitigation の概要",
+            "options": {
+                "count": 20
+            }
+        }
+    },
+    "dataSources": {
+        "ds_rel_summary": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| search source_id IN ($entity$) OR target_id IN ($entity$)\n| eval is_source = if(source_id IN ($entity$), 1, 0)\n| eval self_id = if(is_source==1, source_id, target_id)\n| eval self_name = if(is_source==1, source_name, target_name)\n| eval direction = if(is_source==1, \"この対象 → 相手\", \"相手 → この対象\")\n| eval peer_id = if(is_source==1, target_id, source_id)\n| eval peer_name = if(is_source==1, target_name, source_name)\n| eval peer_type = if(is_source==1, target_type, source_type)\n| chart count over peer_type by relationship_type"
+            },
+            "name": "関係の種別ごとの件数"
+        },
+        "ds_rel_tech": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| search source_id IN ($entity$) OR target_id IN ($entity$)\n| eval is_source = if(source_id IN ($entity$), 1, 0)\n| eval self_id = if(is_source==1, source_id, target_id)\n| eval self_name = if(is_source==1, source_name, target_name)\n| eval direction = if(is_source==1, \"この対象 → 相手\", \"相手 → この対象\")\n| eval peer_id = if(is_source==1, target_id, source_id)\n| eval peer_name = if(is_source==1, target_name, source_name)\n| eval peer_type = if(is_source==1, target_type, source_type)\n| where peer_type == \"technique\"\n| lookup attack_techniques technique_id AS peer_id OUTPUT tactics, platforms, analytics, detection_strategies, data_component_count\n| stats values(relationship_type) as relationship, values(direction) as direction, values(description) as mapping_description by self_id, peer_id, peer_name, tactics, platforms, analytics, detection_strategies, data_component_count\n| eval relationship = mvjoin(relationship, \", \"), direction = mvjoin(direction, \", \"), mapping_description = mvjoin(mapping_description, \" / \")\n| sort 0 self_id, peer_id\n| table self_id, peer_id, peer_name, tactics, platforms, analytics, detection_strategies, data_component_count, relationship, direction, mapping_description\n| rename self_id AS \"対象 ID\", peer_id AS \"Technique ID\", peer_name AS \"Technique\", tactics AS \"Tactic\", platforms AS \"Platform\", analytics AS \"AN 数\", detection_strategies AS \"DET 数\", data_component_count AS \"DC 数\", relationship AS \"関係\", direction AS \"向き\", mapping_description AS \"関係の説明\" "
+            },
+            "name": "関連する Technique"
+        },
+        "ds_actor_via": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| search relationship_type=\"uses\" AND (source_type=\"software\" OR source_type=\"group\" OR source_type=\"campaign\") [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_type, source_id, source_name\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_type, source_id\n| table source_type, source_id, source_name, technique_hits, techniques\n| rename source_type AS \"種別\", source_id AS \"ID\", source_name AS \"名称\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\" "
+            },
+            "name": "Technique 経由で関連する Software / Group / Campaign"
+        },
+        "ds_mit_via": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| search relationship_type=\"mitigates\" AND source_type=\"mitigation\" [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| lookup attack_mitigations mitigation_id AS source_id OUTPUT description AS mitigation_description\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_id, source_name, mitigation_description\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_id\n| table source_id, source_name, technique_hits, techniques, mitigation_description\n| rename source_id AS \"Mitigation ID\", source_name AS \"Mitigation\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\", mitigation_description AS \"Mitigation の説明\" "
+            },
+            "name": "Technique 経由で関連する Mitigation"
+        },
+        "ds_rel_detect": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detection_path.csv\n| search technique_id IN ($entity$) OR dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) OR [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval technique_id = if(source_id IN ($entity$), target_id, source_id)\n    | eval peer_type = if(source_id IN ($entity$), target_type, source_type)\n    | where peer_type == \"technique\"\n    | append [| makeresults count=1 | eval technique_id=\"__none__\"]\n    | dedup technique_id\n    | fields technique_id ]\n| sort 0 technique_id, an_id, dc_id\n| table technique_id, technique_name, det_id, an_id, platforms, dc_id, dc_name, log_source_name, channel\n| rename technique_id AS \"Technique ID\", technique_name AS \"Technique\", det_id AS \"DET\", an_id AS \"AN\", platforms AS \"Platform\", dc_id AS \"DC\", dc_name AS \"Data Component\", log_source_name AS \"Log Source\", channel AS \"Channel（要求される内容）\" "
+            },
+            "name": "検知経路（Technique → Detection Strategy → Analytic → Data Component → Log Source）"
+        },
+        "ds_rel_raw": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| search source_id IN ($entity$) OR target_id IN ($entity$)\n| eval is_source = if(source_id IN ($entity$), 1, 0)\n| eval self_id = if(is_source==1, source_id, target_id)\n| eval self_name = if(is_source==1, source_name, target_name)\n| eval direction = if(is_source==1, \"この対象 → 相手\", \"相手 → この対象\")\n| eval peer_id = if(is_source==1, target_id, source_id)\n| eval peer_name = if(is_source==1, target_name, source_name)\n| eval peer_type = if(is_source==1, target_type, source_type)\n| sort 0 self_id, peer_type, relationship_type, peer_id\n| table self_id, relationship_type, direction, peer_type, peer_id, peer_name, description\n| rename self_id AS \"対象 ID\", relationship_type AS \"関係\", direction AS \"向き\", peer_type AS \"相手の種別\", peer_id AS \"相手 ID\", peer_name AS \"相手の名称\", description AS \"説明\" "
+            },
+            "name": "リレーション生データ"
+        },
+        "ds_entities": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_entities.csv\n| search entity_type=\"mitigation\"\n| sort 0 entity_id\n| eval value = \"\\\"\".entity_id.\"\\\"\"\n| fields label, value"
+            },
+            "name": "Mitigation 一覧"
+        },
+        "ds_entity": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_entities.csv\n| search entity_type=\"mitigation\" AND entity_id IN ($entity$)\n| sort 0 entity_id\n| table entity_id, entity_name, description, url\n| rename entity_id AS \"ID\", entity_name AS \"名称\", description AS \"説明\", url AS \"URL\" "
+            },
+            "name": "対象の概要"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_entity"
+        ],
+        "tabs": {
+            "items": [
+                {
+                    "label": "Mitigation",
+                    "layoutId": "layout_relation"
+                }
+            ],
+            "options": {
+                "barPosition": "top",
+                "showTabBar": false
+            }
+        },
+        "layoutDefinitions": {
+            "layout_relation": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_rel_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 180
+                        }
+                    },
+                    {
+                        "item": "viz_rel_entity",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 180,
+                            "w": 1200,
+                            "h": 360
+                        }
+                    },
+                    {
+                        "item": "viz_summary",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 540,
+                            "w": 1200,
+                            "h": 360
+                        }
+                    },
+                    {
+                        "item": "viz_tech",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 900,
+                            "w": 1200,
+                            "h": 460
+                        }
+                    },
+                    {
+                        "item": "viz_actor_via",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 1360,
+                            "w": 1200,
+                            "h": 440
+                        }
+                    },
+                    {
+                        "item": "viz_mit_via",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 1800,
+                            "w": 1200,
+                            "h": 440
+                        }
+                    },
+                    {
+                        "item": "viz_detect",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 2240,
+                            "w": 1200,
+                            "h": 500
+                        }
+                    },
+                    {
+                        "item": "viz_raw",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 2740,
+                            "w": 1200,
+                            "h": 500
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+  ]]></definition>
+  <meta type="hiddenElements"><![CDATA[
+{
+    "hideEdit": false,
+    "hideOpenInSearch": false,
+    "hideExport": false
+}
+  ]]></meta>
+</dashboard>

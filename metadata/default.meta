@@ -1,0 +1,13 @@
+[]
+access = read : [ * ], write : [ admin, power ]
+
+# lookup は他アプリ（ES の相関サーチなど）からも参照したいのでグローバル公開する。
+[transforms]
+export = system
+
+[lookups]
+export = system
+
+# ダッシュボードはこのアプリ内に留める。
+[views]
+export = none

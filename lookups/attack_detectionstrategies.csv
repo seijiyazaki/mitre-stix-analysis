@@ -1,0 +1,707 @@
+det_id,name,technique_id,technique_name,analytics,analytic_ids,platforms,url
+DET0001,Detect Access to Cloud Instance Metadata API (IaaS),T1552.005,Cloud Instance Metadata API,1,AN0001,IaaS,https://attack.mitre.org/detectionstrategies/DET0001
+DET0002,Behavioral Detection of Publish/Subscribe Protocol Misuse for C2,T1071.005,Publish/Subscribe Protocols,4,"AN0002, AN0003, AN0004, AN0005","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0002
+DET0003,T1136.002 Detection Strategy - Domain Account Creation Across Platforms,T1136.002,Domain Account,3,"AN0006, AN0007, AN0008","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0003
+DET0004,Detection Strategy for Hijack Execution Flow using Path Interception by PATH Environment Variable.,T1574.007,Path Interception by PATH Environment Variable,3,"AN0009, AN0010, AN0011","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0004
+DET0005,Renamed Legitimate Utility Execution with Metadata Mismatch and Suspicious Path,T1036.003,Rename Legitimate Utilities,3,"AN0012, AN0013, AN0014","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0005
+DET0006,Detection Strategy for Network Boundary Bridging,T1599,Network Boundary Bridging,1,AN0015,Network Devices,https://attack.mitre.org/detectionstrategies/DET0006
+DET0007,"Detection of Domain Trust Discovery via API, Script, and CLI Enumeration",T1482,Domain Trust Discovery,1,AN0016,Windows,https://attack.mitre.org/detectionstrategies/DET0007
+DET0008,Behavioral Detection of Remote Cloud Logins via Valid Accounts,T1021.007,Cloud Services,4,"AN0017, AN0018, AN0019, AN0020","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0008
+DET0009,Supply-chain tamper in dependencies/dev-tools (manager→write/install→first-run→egress),T1195.001,Compromise Software Dependencies and Development Tools,3,"AN0021, AN0022, AN0023","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0009
+DET0010,Behavioral Detection of Event Triggered Execution Across Platforms,T1546,Event Triggered Execution,6,"AN0024, AN0025, AN0026, AN0027, AN0028, AN0029","IaaS, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0010
+DET0011,Detecting Junk Data in C2 Channels via Behavioral Analysis,T1001.001,Junk Data,4,"AN0030, AN0031, AN0032, AN0033","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0011
+DET0012,Detection Strategy for VBA Stomping,T1564.007,VBA Stomping,3,"AN0034, AN0035, AN0036","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0012
+DET0013,Detection of Local Browser Artifact Access for Reconnaissance,T1217,Browser Information Discovery,3,"AN0037, AN0038, AN0039","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0013
+DET0014,Detection of Data Staging Prior to Exfiltration,T1074,Data Staged,5,"AN0040, AN0041, AN0042, AN0043, AN0044","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0014
+DET0015,Detection Strategy for Exclusive Control,T1668,Exclusive Control,3,"AN0045, AN0046, AN0047","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0015
+DET0016,Security Software Discovery Across Platforms,T1518.001,Security Software Discovery,3,"AN0048, AN0049, AN0050","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0016
+DET0017,Detection Strategy for Application Shimming via sdbinst.exe and Registry Artifacts (Windows),T1546.011,Application Shimming,1,AN0051,Windows,https://attack.mitre.org/detectionstrategies/DET0017
+DET0018,"Behavior-chain, platform-aware detection strategy for T1129 Shared Modules",T1129,Shared Modules,3,"AN0052, AN0053, AN0054","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0018
+DET0019,Detection Strategy for Stripped Payloads Across Platforms,T1027.008,Stripped Payloads,4,"AN0055, AN0056, AN0057, AN0058","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0019
+DET0020,Detect Shell Configuration Modification for Persistence via Event-Triggered Execution,T1546.004,Unix Shell Configuration Modification,2,"AN0059, AN0060","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0020
+DET0021,Behavioral Detection for Service Stop across Platforms,T1489,Service Stop,4,"AN0061, AN0062, AN0063, AN0064","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0021
+DET0022,Detect Forced SMB/WebDAV Authentication via lure files and outbound NTLM,T1187,Forced Authentication,1,AN0065,Windows,https://attack.mitre.org/detectionstrategies/DET0022
+DET0023,Obfuscated Binary Unpacking Detection via Behavioral Patterns,T1027.002,Software Packing,3,"AN0066, AN0067, AN0068","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0023
+DET0024,Detect Kerberos Ccache File Theft or Abuse (T1558.005),T1558.005,Ccache Files,2,"AN0069, AN0070","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0024
+DET0025,Detecting Electron Application Abuse for Proxy Execution,T1218.015,Electron Applications,3,"AN0071, AN0072, AN0073","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0025
+DET0026,Windows Detection Strategy for T1547.012 - Print Processor DLL Persistence,T1547.012,Print Processors,1,AN0074,Windows,https://attack.mitre.org/detectionstrategies/DET0026
+DET0027,"Detection of Web Protocol-Based C2 Over HTTP, HTTPS, or WebSockets",T1071.001,Web Protocols,5,"AN0075, AN0076, AN0077, AN0078, AN0079","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0027
+DET0028,"Detect Excessive or Unauthorized Bandwidth Usage for Botnet, Proxyjacking, or Scanning Purposes",T1496.002,Bandwidth Hijacking,5,"AN0080, AN0081, AN0082, AN0083, AN0084","Containers, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0028
+DET0029,Detect Persistence via Outlook Custom Forms Triggered by Malicious Email,T1137.003,Outlook Forms,2,"AN0085, AN0086","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0029
+DET0030,Detect Conditional Access Policy Modification in Identity and Cloud Platforms,T1556.009,Conditional Access Policies,2,"AN0087, AN0088","IaaS, Identity Provider",https://attack.mitre.org/detectionstrategies/DET0030
+DET0031,Invalid Code Signature Execution Detection via Metadata and Behavioral Context,T1036.001,Invalid Code Signature,2,"AN0089, AN0090","Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0031
+DET0032,Detection Strategy for Hidden Files and Directories,T1564.001,Hidden Files and Directories,3,"AN0091, AN0092, AN0093","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0032
+DET0033,Detection Strategy for Accessibility Feature Hijacking via Binary Replacement or Registry Modification,T1546.008,Accessibility Features,1,AN0094,Windows,https://attack.mitre.org/detectionstrategies/DET0033
+DET0034,Detection of Adversarial Process Discovery Behavior,T1057,Process Discovery,5,"AN0095, AN0096, AN0097, AN0098, AN0099","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0034
+DET0035,Detect Bidirectional Web Service C2 Channels via Process & Network Correlation,T1102.002,Bidirectional Communication,3,"AN0100, AN0101, AN0102","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0035
+DET0036,Suspicious Device Registration via Entra ID or MFA Platform,T1098.005,Device Registration,2,"AN0103, AN0104","Identity Provider, Windows",https://attack.mitre.org/detectionstrategies/DET0036
+DET0037,Detect Suspicious Access to Browser Credential Stores,T1555.003,Credentials from Web Browsers,3,"AN0105, AN0106, AN0107","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0037
+DET0038,Detection Strategy for Hijack Execution Flow using Executable Installer File Permissions Weakness,T1574.005,Executable Installer File Permissions Weakness,1,AN0108,Windows,https://attack.mitre.org/detectionstrategies/DET0038
+DET0039,Detection Strategy for Dynamic Resolution across OS Platforms,T1568,Dynamic Resolution,4,"AN0109, AN0110, AN0111, AN0112","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0039
+DET0040,Detection of Persistence Artifact Removal Across Host Platforms,T1070.009,Clear Persistence,4,"AN0113, AN0114, AN0115, AN0116","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0040
+DET0041,Detection of Lifecycle Policy Modifications for Triggered Deletion in IaaS Cloud Storage,T1485.001,Lifecycle-Triggered Deletion,1,AN0117,IaaS,https://attack.mitre.org/detectionstrategies/DET0041
+DET0042,Detection Strategy for T1218.012 Verclsid Abuse,T1218.012,Verclsid,1,AN0118,Windows,https://attack.mitre.org/detectionstrategies/DET0042
+DET0043,Detection Strategy for System Location Discovery,T1614,System Location Discovery,4,"AN0119, AN0120, AN0121, AN0122","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0043
+DET0044,Detecting Malicious Browser Extensions Across Platforms,T1176.001,Browser Extensions,3,"AN0123, AN0124, AN0125","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0044
+DET0045,Detection Strategy for Process Argument Spoofing on Windows,T1564.010,Process Argument Spoofing,1,AN0126,Windows,https://attack.mitre.org/detectionstrategies/DET0045
+DET0046,Detection Strategy for T1497 Virtualization/Sandbox Evasion,T1497,Virtualization/Sandbox Evasion,3,"AN0127, AN0128, AN0129","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0046
+DET0047,Detect Local Email Collection via Outlook Data File Access and Command Line Tooling,T1114.001,Local Email Collection,1,AN0130,Windows,https://attack.mitre.org/detectionstrategies/DET0047
+DET0048,Detect Remote Email Collection via Abnormal Login and Programmatic Access,T1114.002,Remote Email Collection,2,"AN0131, AN0132","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0048
+DET0049,Behavioral Detection of Network History and Configuration Tampering,T1070.007,Clear Network Connection History and Configurations,4,"AN0133, AN0134, AN0135, AN0136","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0049
+DET0050,Detect Persistence via Malicious Office Add-ins,T1137.006,Add-ins,2,"AN0137, AN0138","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0050
+DET0051,Detection Strategy for File/Path Exclusions,T1564.012,File/Path Exclusions,3,"AN0139, AN0140, AN0141","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0051
+DET0052,Behavioral Detection Strategy for Abuse of Sudo and Sudo Caching,T1548.003,Sudo and Sudo Caching,2,"AN0142, AN0143","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0052
+DET0053,Detect Obfuscated C2 via Network Traffic Analysis,T1001,Data Obfuscation,3,"AN0144, AN0145, AN0146","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0053
+DET0054,Internal Spearphishing via Trusted Accounts,T1534,Internal Spearphishing,5,"AN0147, AN0148, AN0149, AN0150, AN0151","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0054
+DET0055,Detection strategy for Group Policy Discovery on Windows,T1615,Group Policy Discovery,1,AN0152,Windows,https://attack.mitre.org/detectionstrategies/DET0055
+DET0056,Detection Strategy for Subvert Trust Controls via Install Root Certificate.,T1553.004,Install Root Certificate,3,"AN0153, AN0154, AN0155","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0056
+DET0057,Detect Suspicious Access to securityd Memory for Credential Extraction,T1555.002,Securityd Memory,2,"AN0156, AN0157","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0057
+DET0058,Detection Strategy for Web Service: Dead Drop Resolver,T1102.001,Dead Drop Resolver,4,"AN0158, AN0159, AN0160, AN0161","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0058
+DET0059,Detection Strategy for Data Manipulation,T1565,Data Manipulation,3,"AN0162, AN0163, AN0164","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0059
+DET0060,Detect Ingress Tool Transfers via Behavioral Chain,T1105,Ingress Tool Transfer,5,"AN0165, AN0166, AN0167, AN0168, AN0169","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0060
+DET0061,Detect Default File Association Hijack via Registry & Execution Correlation on Windows,T1546.001,Change Default File Association,1,AN0170,Windows,https://attack.mitre.org/detectionstrategies/DET0061
+DET0062,Detection Strategy for Disable or Modify Linux Audit System Log,T1685.004,Disable or Modify Linux Audit System Log,1,AN0171,Linux,https://attack.mitre.org/detectionstrategies/DET0062
+DET0063,Cross-Platform Behavioral Detection of Python Execution,T1059.006,Python,4,"AN0172, AN0173, AN0174, AN0175","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0063
+DET0064,Detection Strategy for Hijack Execution Flow through Path Interception by Unquoted Path,T1574.009,Path Interception by Unquoted Path,1,AN0176,Windows,https://attack.mitre.org/detectionstrategies/DET0064
+DET0065,Detection Strategy for Container Administration Command Abuse,T1609,Container Administration Command,1,AN0177,Containers,https://attack.mitre.org/detectionstrategies/DET0065
+DET0066,User Execution – Malicious Link (click → suspicious egress → download/write → follow-on activity),T1204.001,Malicious Link,3,"AN0178, AN0179, AN0180","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0066
+DET0067,Detection Strategy for Ignore Process Interrupts,T1564.011,Ignore Process Interrupts,3,"AN0181, AN0182, AN0183","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0067
+DET0068,Detection Strategy for T1505.004 - Malicious IIS Components,T1505.004,IIS Components,1,AN0184,Windows,https://attack.mitre.org/detectionstrategies/DET0068
+DET0069,Detect unauthorized or suspicious Hardware Additions (USB/Thunderbolt/Network),T1200,Hardware Additions,3,"AN0185, AN0186, AN0187","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0069
+DET0070,Detection Strategy for Phishing across platforms.,T1566,Phishing,6,"AN0188, AN0189, AN0190, AN0191, AN0192, AN0193","Identity Provider, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0070
+DET0071,Detection of Remote Data Staging Prior to Exfiltration,T1074.002,Remote Data Staging,5,"AN0194, AN0195, AN0196, AN0197, AN0198","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0071
+DET0072,Detect Logon Script Modifications and Execution,T1037.001,Logon Script (Windows),1,AN0199,Windows,https://attack.mitre.org/detectionstrategies/DET0072
+DET0073,Detection Strategy for System Services: Systemctl,T1569.003,Systemctl,1,AN0200,Linux,https://attack.mitre.org/detectionstrategies/DET0073
+DET0074,Detect Use of Stolen Web Session Cookies Across Platforms,T1550.004,Web Session Cookie,3,"AN0201, AN0202, AN0203","IaaS, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0074
+DET0075,Internal Proxy Behavior via Lateral Host-to-Host C2 Relay,T1090.001,Internal Proxy,5,"AN0204, AN0205, AN0206, AN0207, AN0208","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0075
+DET0076,Behavioral Detection of Visual Basic Execution (VBS/VBA/VBScript),T1059.005,Visual Basic,3,"AN0209, AN0210, AN0211","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0076
+DET0077,Detection of Exfiltration Over Alternate Network Interfaces,T1011,Exfiltration Over Other Network Medium,3,"AN0212, AN0213, AN0214","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0077
+DET0078,Behavioral Detection of Malicious Cloud API Scripting,T1059.009,Cloud API,1,AN0215,IaaS,https://attack.mitre.org/detectionstrategies/DET0078
+DET0079,Detection of Remote Service Session Hijacking,T1563,Remote Service Session Hijacking,3,"AN0216, AN0217, AN0218","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0079
+DET0080,Exploit Public-Facing Application – multi-signal correlation (request → error → post-exploit process/egress),T1190,Exploit Public-Facing Application,7,"AN0219, AN0220, AN0221, AN0222, AN0223, AN0224, AN0225","Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0080
+DET0081,Detection of Proxy Execution via Trusted Signed Binaries Across Platforms,T1218,System Binary Proxy Execution,3,"AN0226, AN0227, AN0228","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0081
+DET0082,Internal Website and System Content Defacement via UI or Messaging Modifications,T1491.001,Internal Defacement,4,"AN0229, AN0230, AN0231, AN0232","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0082
+DET0083,Container CLI and API Abuse via Docker/Kubernetes (T1059.013),T1059.013,Container CLI/API,1,AN0233,Containers,https://attack.mitre.org/detectionstrategies/DET0083
+DET0084,Detection Strategy for Modify Cloud Compute Infrastructure: Delete Cloud Instance,T1578.003,Delete Cloud Instance,1,AN0234,IaaS,https://attack.mitre.org/detectionstrategies/DET0084
+DET0085,Credential Dumping from SAM via Registry Dump and Local File Access,T1003.002,Security Account Manager,1,AN0235,Windows,https://attack.mitre.org/detectionstrategies/DET0085
+DET0086,Detect WMI Event Subscription for Persistence via WmiPrvSE Process and MOF Compilation,T1546.003,Windows Management Instrumentation Event Subscription,1,AN0236,Windows,https://attack.mitre.org/detectionstrategies/DET0086
+DET0087,Encrypted or Encoded File Payload Detection Strategy,T1027.013,Encrypted/Encoded File,3,"AN0237, AN0238, AN0239","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0087
+DET0088,"Backup Software Discovery via CLI, Registry, and Process Inspection (T1518.002)",T1518.002,Backup Software Discovery,3,"AN0240, AN0241, AN0242","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0088
+DET0089,Behavioral Detection of Keylogging Activity Across Platforms,T1056.001,Keylogging,4,"AN0243, AN0244, AN0245, AN0246","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0089
+DET0090,Cross-host C2 via Removable Media Relay,T1092,Communication Through Removable Media,3,"AN0247, AN0248, AN0249","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0090
+DET0091,Detection Strategy for Dynamic API Resolution via Hash-Based Function Lookups,T1027.007,Dynamic API Resolution,1,AN0250,Windows,https://attack.mitre.org/detectionstrategies/DET0091
+DET0092,Detection of Malicious or Unauthorized Software Extensions,T1176,Software Extensions,3,"AN0251, AN0252, AN0253","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0092
+DET0093,Behavioral Detection of User Discovery via Local and Remote Enumeration,T1033,System Owner/User Discovery,4,"AN0254, AN0255, AN0256, AN0257","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0093
+DET0094,Cross-Platform Behavioral Detection of Scheduled Task/Job Abuse,T1053,Scheduled Task/Job,5,"AN0258, AN0259, AN0260, AN0261, AN0262","Containers, ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0094
+DET0095,Detect Persistence via Malicious Outlook Rules,T1137.005,Outlook Rules,2,"AN0263, AN0264","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0095
+DET0096,Account Manipulation Behavior Chain Detection,T1098,Account Manipulation,6,"AN0265, AN0266, AN0267, AN0268, AN0269, AN0270","ESXi, Identity Provider, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0096
+DET0097,Detection of Application Window Enumeration via API or Scripting,T1010,Application Window Discovery,3,"AN0271, AN0272, AN0273","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0097
+DET0098,"Detect abuse of Windows BITS Jobs for download, execution and persistence",T1197,BITS Jobs,1,AN0274,Windows,https://attack.mitre.org/detectionstrategies/DET0098
+DET0099,Detection Strategy for T1542.001 Pre-OS Boot: System Firmware,T1542.001,System Firmware,2,"AN0275, AN0276","Network Devices, Windows",https://attack.mitre.org/detectionstrategies/DET0099
+DET0100,Behavioral Detection of Asynchronous Procedure Call (APC) Injection via Remote Thread Queuing,T1055.004,Asynchronous Procedure Call,1,AN0277,Windows,https://attack.mitre.org/detectionstrategies/DET0100
+DET0101,Detection Strategy for Lua Scripting Abuse,T1059.011,Lua,4,"AN0278, AN0279, AN0280, AN0281","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0101
+DET0102,Behavioral Detection of Input Capture Across Platforms,T1056,Input Capture,4,"AN0282, AN0283, AN0284, AN0285","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0102
+DET0103,Behavioral Detection of Network Share Connection Removal via CLI and SMB Disconnects,T1070.005,Network Share Connection Removal,1,AN0286,Windows,https://attack.mitre.org/detectionstrategies/DET0103
+DET0104,Detect Modification of Authentication Processes Across Platforms,T1556,Modify Authentication Process,5,"AN0287, AN0288, AN0289, AN0290, AN0291","IaaS, Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0104
+DET0105,Post-Credential Dump Password Cracking Detection via Suspicious File Access and Hash Analysis Tools,T1110.002,Password Cracking,5,"AN0292, AN0293, AN0294, AN0295, AN0296","Identity Provider, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0105
+DET0106,Behavioral Detection of PE Injection via Remote Memory Mapping,T1055.002,Portable Executable Injection,1,AN0297,Windows,https://attack.mitre.org/detectionstrategies/DET0106
+DET0107,Detection Strategy for Spearphishing Links,T1566.002,Spearphishing Link,4,"AN0298, AN0299, AN0300, AN0301","Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0107
+DET0108,Detection Strategy for Data Encoding in C2 Channels,T1132,Data Encoding,4,"AN0302, AN0303, AN0304, AN0305","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0108
+DET0109,Detection Strategy for Plist File Modification (T1647),T1647,Plist File Modification,1,AN0306,macOS,https://attack.mitre.org/detectionstrategies/DET0109
+DET0110,Setuid/Setgid Privilege Abuse Detection (Linux/macOS),T1548.001,Setuid and Setgid,2,"AN0307, AN0308","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0110
+DET0111,Detect Unsecured Credentials Shared in Chat Messages,T1552.008,Chat Messages,2,"AN0309, AN0310","Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0111
+DET0112,Boot or Logon Initialization Scripts Detection Strategy,T1037,Boot or Logon Initialization Scripts,5,"AN0311, AN0312, AN0313, AN0314, AN0315","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0112
+DET0113,Detect AS-REP Roasting Attempts (T1558.004),T1558.004,AS-REP Roasting,1,AN0316,Windows,https://attack.mitre.org/detectionstrategies/DET0113
+DET0114,Behavioral Detection of Local Group Enumeration Across OS Platforms,T1069.001,Local Groups,3,"AN0317, AN0318, AN0319","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0114
+DET0115,Detection Strategy for Spearphishing via a Service across OS Platforms,T1566.003,Spearphishing via Service,3,"AN0320, AN0321, AN0322","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0115
+DET0116,Detection Strategy for Safe Mode Boot Abuse,T1688,Safe Mode Boot,1,AN0323,Windows,https://attack.mitre.org/detectionstrategies/DET0116
+DET0117,Detection of Masqueraded Tasks or Services with Suspicious Naming and Execution,T1036.004,Masquerade Task or Service,3,"AN0324, AN0325, AN0326","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0117
+DET0118,Exploitation of Remote Services – multi-platform lateral movement detection,T1210,Exploitation of Remote Services,4,"AN0327, AN0328, AN0329, AN0330","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0118
+DET0119,Detection Strategy for Steganographic Abuse in File & Script Execution,T1027.003,Steganography,3,"AN0331, AN0332, AN0333","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0119
+DET0120,Account Access Removal via Multi-Platform Audit Correlation,T1531,Account Access Removal,6,"AN0334, AN0335, AN0336, AN0337, AN0338, AN0339","ESXi, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0120
+DET0121,Detection Strategy for T1547.015 – Login Items on macOS,T1547.015,Login Items,1,AN0340,macOS,https://attack.mitre.org/detectionstrategies/DET0121
+DET0122,Detect Abuse of Windows Time Providers for Persistence,T1547.003,Time Providers,1,AN0341,Windows,https://attack.mitre.org/detectionstrategies/DET0122
+DET0123,Detection of Data Exfiltration via Removable Media,T1052,Exfiltration Over Physical Medium,3,"AN0342, AN0343, AN0344","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0123
+DET0124,"Behavior-chain detection for T1132.001 Data Encoding: Standard Encoding (Base64/Hex/MIME) across Windows, Linux, macOS, ESXi",T1132.001,Standard Encoding,4,"AN0345, AN0346, AN0347, AN0348","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0124
+DET0125,Detect persistence via reopened application plist modification (macOS),T1547.007,Re-opened Applications,1,AN0349,macOS,https://attack.mitre.org/detectionstrategies/DET0125
+DET0126,Detection Strategy for SSH Key Injection in Authorized Keys,T1098.004,SSH Authorized Keys,5,"AN0350, AN0351, AN0352, AN0353, AN0354","ESXi, IaaS, Linux, Network Devices, macOS",https://attack.mitre.org/detectionstrategies/DET0126
+DET0127,Behavioral Detection of Masquerading Across Platforms via Metadata and Execution Discrepancy,T1036,Masquerading,5,"AN0355, AN0356, AN0357, AN0358, AN0359","Containers, ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0127
+DET0128,Detection Strategy for Hidden Windows,T1564.003,Hidden Window,3,"AN0360, AN0361, AN0362","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0128
+DET0129,Domain Account Enumeration Across Platforms,T1087.002,Domain Account,3,"AN0363, AN0364, AN0365","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0129
+DET0130,Detect Unauthorized Access to Cloud Secrets Management Stores,T1555.006,Cloud Secrets Management Stores,1,AN0366,IaaS,https://attack.mitre.org/detectionstrategies/DET0130
+DET0131,Behavioral Detection Strategy for Exfiltration Over Alternative Protocol,T1048,Exfiltration Over Alternative Protocol,5,"AN0367, AN0368, AN0369, AN0370, AN0371","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0131
+DET0132,Detection of Mutex-Based Execution Guardrails Across Platforms,T1480.002,Mutual Exclusion,3,"AN0372, AN0373, AN0374","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0132
+DET0133,"IDE Tunneling Detection via Process, File, and Network Behaviors",T1219.001,IDE Tunneling,3,"AN0375, AN0376, AN0377","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0133
+DET0134,Detect Suspicious Access to Windows Credential Manager,T1555.004,Windows Credential Manager,1,AN0378,Windows,https://attack.mitre.org/detectionstrategies/DET0134
+DET0135,"Detection of Mail Protocol-Based C2 Activity (SMTP, IMAP, POP3)",T1071.003,Mail Protocols,4,"AN0379, AN0380, AN0381, AN0382","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0135
+DET0136,Behavior-chain detection for T1134.005 Access Token Manipulation: SID-History Injection (Windows),T1134.005,SID-History Injection,1,AN0383,Windows,https://attack.mitre.org/detectionstrategies/DET0136
+DET0137,Detection Strategy for Disk Wipe via Direct Disk Access and Destructive Commands,T1561,Disk Wipe,4,"AN0384, AN0385, AN0386, AN0387","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0137
+DET0138,Detection of Malicious Code Execution via InstallUtil.exe,T1218.004,InstallUtil,1,AN0388,Windows,https://attack.mitre.org/detectionstrategies/DET0138
+DET0139,Detection of Credential Harvesting via API Hooking,T1056.004,Credential API Hooking,3,"AN0389, AN0390, AN0391","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0139
+DET0140,Behavioral Detection of Malicious File Deletion,T1070.004,File Deletion,4,"AN0392, AN0393, AN0394, AN0395","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0140
+DET0141,"Detect Time-Based Evasion via Sleep, Timer Loops, and Delayed Execution",T1497.003,Time Based Checks,3,"AN0396, AN0397, AN0398","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0141
+DET0142,Behavioral Detection of CLI Abuse on Network Devices,T1059.008,Network Device CLI,1,AN0399,Network Devices,https://attack.mitre.org/detectionstrategies/DET0142
+DET0143,Detection Strategy for Encrypted Channel via Symmetric Cryptography across OS Platforms,T1573.001,Symmetric Cryptography,5,"AN0400, AN0401, AN0402, AN0403, AN0404","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0143
+DET0144,Detect Forged Kerberos Golden Tickets (T1558.001),T1558.001,Golden Ticket,1,AN0405,Windows,https://attack.mitre.org/detectionstrategies/DET0144
+DET0145,Detection of Disabled or Modified System Firewalls across OS Platforms.,T1686,Disable or Modify System Firewall,5,"AN0406, AN0407, AN0408, AN0409, AN0410","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0145
+DET0146,Detection of Data Destruction Across Platforms via Mass Overwrite and Deletion Patterns,T1485,Data Destruction,6,"AN0411, AN0412, AN0413, AN0414, AN0415, AN0416","Containers, ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0146
+DET0147,Detection Strategy for Cloud Service Hijacking via SaaS Abuse,T1496.004,Cloud Service Hijacking,1,AN0417,SaaS,https://attack.mitre.org/detectionstrategies/DET0147
+DET0148,Detection Strategy for Forged SAML Tokens,T1606.002,SAML Tokens,5,"AN0418, AN0419, AN0420, AN0421, AN0422","IaaS, Identity Provider, Office Suite, SaaS, Windows",https://attack.mitre.org/detectionstrategies/DET0148
+DET0149,Detection of Exfiltration Over Unencrypted Non-C2 Protocol,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,5,"AN0423, AN0424, AN0425, AN0426, AN0427","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0149
+DET0150,Detection Strategy for File Creation or Modification of Boot Files,T1542.003,Bootkit,2,"AN0428, AN0429","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0150
+DET0151,"Behavior-chain, platform-aware detection strategy for T1124 System Time Discovery",T1124,System Time Discovery,5,"AN0430, AN0431, AN0432, AN0433, AN0434","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0151
+DET0152,Detection Strategy for Hijack Execution Flow: Dylib Hijacking,T1574.004,Dylib Hijacking,1,AN0435,macOS,https://attack.mitre.org/detectionstrategies/DET0152
+DET0153,Detection Strategy for Exfiltration Over Webhook,T1567.004,Exfiltration Over Webhook,5,"AN0436, AN0437, AN0438, AN0439, AN0440","ESXi, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0153
+DET0154,Detect Screensaver-Based Persistence via Registry and Execution Chains,T1546.002,Screensaver,1,AN0441,Windows,https://attack.mitre.org/detectionstrategies/DET0154
+DET0155,Detection Strategy for Modify Cloud Resource Hierarchy,T1666,Modify Cloud Resource Hierarchy,1,AN0442,IaaS,https://attack.mitre.org/detectionstrategies/DET0155
+DET0156,Detection Strategy for Resource Hijacking: SMS Pumping via SaaS Application Logs,T1496.003,SMS Pumping,1,AN0443,SaaS,https://attack.mitre.org/detectionstrategies/DET0156
+DET0157,Detect Kerberoasting Attempts (T1558.003),T1558.003,Kerberoasting,1,AN0444,Windows,https://attack.mitre.org/detectionstrategies/DET0157
+DET0158,"Detection of Msiexec Abuse for Local, Network, and DLL Execution",T1218.007,Msiexec,1,AN0445,Windows,https://attack.mitre.org/detectionstrategies/DET0158
+DET0159,"Detect Remote Access via USB Hardware (TinyPilot, PiKVM)",T1219.003,Remote Access Hardware,3,"AN0446, AN0447, AN0448","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0159
+DET0160,Detection Strategy for Multi-Factor Authentication Request Generation (T1621),T1621,Multi-Factor Authentication Request Generation,6,"AN0449, AN0450, AN0451, AN0452, AN0453, AN0454","IaaS, Identity Provider, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0160
+DET0161,Password Policy Discovery – cross-platform behavior-chain analytics,T1201,Password Policy Discovery,7,"AN0455, AN0456, AN0457, AN0458, AN0459, AN0460, AN0461","IaaS, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0161
+DET0162,Socket-filter trigger → on-host raw-socket activity → reverse connection (T1205.002),T1205.002,Socket Filters,3,"AN0462, AN0463, AN0464","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0162
+DET0163,Detection Strategy for Network Address Translation Traversal,T1599.001,Network Address Translation Traversal,1,AN0465,Network Devices,https://attack.mitre.org/detectionstrategies/DET0163
+DET0164,Detection Strategy for Overwritten Process Arguments Masquerading,T1036.011,Overwrite Process Arguments,1,AN0466,Linux,https://attack.mitre.org/detectionstrategies/DET0164
+DET0165,Behavioral Detection of Command History Clearing,T1070.003,Clear Command History,5,"AN0467, AN0468, AN0469, AN0470, AN0471","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0165
+DET0166,Detection Strategy for T1505.002 - Transport Agent Abuse (Windows/Linux),T1505.002,Transport Agent,2,"AN0472, AN0473","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0166
+DET0167,Firmware Modification via Flash Tool or Corrupted Firmware Upload,T1495,Firmware Corruption,4,"AN0474, AN0475, AN0476, AN0477","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0167
+DET0168,"Virtualization/Sandbox Evasion via System Checks across Windows, Linux, macOS",T1497.001,System Checks,3,"AN0478, AN0479, AN0480","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0168
+DET0169,Detection Strategy for Cloud Infrastructure Discovery,T1580,Cloud Infrastructure Discovery,1,AN0481,IaaS,https://attack.mitre.org/detectionstrategies/DET0169
+DET0170,Detection Strategy for Modify System Image on Network Devices,T1601,Modify System Image,1,AN0482,Network Devices,https://attack.mitre.org/detectionstrategies/DET0170
+DET0171,Detection Strategy for Forged Web Cookies,T1606.001,Web Cookies,5,"AN0483, AN0484, AN0485, AN0486, AN0487","IaaS, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0171
+DET0172,"Behavior-chain, platform-aware detection strategy for T1127 Trusted Developer Utilities Proxy Execution (Windows)",T1127,Trusted Developer Utilities Proxy Execution,1,AN0488,Windows,https://attack.mitre.org/detectionstrategies/DET0172
+DET0173,Detection Strategy for Endpoint DoS via Service Exhaustion Flood,T1499.002,Service Exhaustion Flood,4,"AN0489, AN0490, AN0491, AN0492","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0173
+DET0174,Detection Strategy for Exploitation for Credential Access,T1212,Exploitation for Credential Access,4,"AN0493, AN0494, AN0495, AN0496","Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0174
+DET0175,Detection Strategy for T1542.004 Pre-OS Boot: ROMMONkit,T1542.004,ROMMONkit,1,AN0497,Network Devices,https://attack.mitre.org/detectionstrategies/DET0175
+DET0176,"Drive-by Compromise — Behavior-based, Multi-platform Detection Strategy (T1189)",T1189,Drive-by Compromise,4,"AN0498, AN0499, AN0500, AN0501","Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0176
+DET0177,Detect Persistence via Outlook Home Page Exploitation,T1137.004,Outlook Home Page,2,"AN0502, AN0503","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0177
+DET0178,Behavioral Detection of Unauthorized VNC Remote Control Sessions,T1021.005,VNC,3,"AN0504, AN0505, AN0506","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0178
+DET0179,Behavioral Detection of Permission Groups Discovery,T1069,Permission Groups Discovery,3,"AN0507, AN0508, AN0509","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0179
+DET0180,Detection Strategy for T1547.009 – Shortcut Modification (Windows),T1547.009,Shortcut Modification,1,AN0510,Windows,https://attack.mitre.org/detectionstrategies/DET0180
+DET0181,Detection Strategy for SQL Stored Procedures Abuse via T1505.001,T1505.001,SQL Stored Procedures,2,"AN0511, AN0512","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0181
+DET0182,"Behavior-chain detection for T1135 Network Share Discovery across Windows, Linux, and macOS",T1135,Network Share Discovery,3,"AN0513, AN0514, AN0515","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0182
+DET0183,Detection Strategy for Lateral Tool Transfer across OS platforms,T1570,Lateral Tool Transfer,4,"AN0516, AN0517, AN0518, AN0519","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0183
+DET0184,Behavioral Detection of Indicator Removal Across Platforms,T1070,Indicator Removal,6,"AN0520, AN0521, AN0522, AN0523, AN0524, AN0525","Containers, ESXi, Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0184
+DET0185,Behavioral Detection Strategy for Use Alternate Authentication Material: Application Access Token (T1550.001),T1550.001,Application Access Token,5,"AN0526, AN0527, AN0528, AN0529, AN0530","Containers, IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0185
+DET0186,Automated File and API Collection Detection Across Platforms,T1119,Automated Collection,4,"AN0531, AN0532, AN0533, AN0534","Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0186
+DET0187,Detect Disabled Windows Event Log,T1685.001,Disable or Modify Windows Event Log,1,AN0535,Windows,https://attack.mitre.org/detectionstrategies/DET0187
+DET0188,Local Storage Discovery via Drive Enumeration and Filesystem Probing,T1680,Local Storage Discovery,4,"AN0536, AN0537, AN0538, AN0539","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0188
+DET0189,Detection Strategy for Indicator Removal from Tools - Post-AV Evasion Modification,T1027.005,Indicator Removal from Tools,3,"AN0540, AN0541, AN0542","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0189
+DET0190,Detect MFA Modification or Disabling Across Platforms,T1556.006,Multi-Factor Authentication,7,"AN0543, AN0544, AN0545, AN0546, AN0547, AN0548, AN0549","IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0190
+DET0191,Behavior-chain detection strategy for T1127.002 Trusted Developer Utilities Proxy Execution: ClickOnce (Windows),T1127.002,ClickOnce,1,AN0550,Windows,https://attack.mitre.org/detectionstrategies/DET0191
+DET0192,Detection Strategy for Email Hiding Rules,T1564.008,Email Hiding Rules,4,"AN0551, AN0552, AN0553, AN0554","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0192
+DET0193,Detection Strategy for Stored Data Manipulation across OS Platforms.,T1565.001,Stored Data Manipulation,3,"AN0555, AN0556, AN0557","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0193
+DET0194,Detection of Malicious Control Panel Item Execution via control.exe or Rundll32,T1218.002,Control Panel,1,AN0558,Windows,https://attack.mitre.org/detectionstrategies/DET0194
+DET0195,Behavioral Detection of System Network Configuration Discovery,T1016,System Network Configuration Discovery,5,"AN0559, AN0560, AN0561, AN0562, AN0563","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0195
+DET0196,Domain Fronting Behavior via Mismatched TLS SNI and HTTP Host Headers,T1090.004,Domain Fronting,4,"AN0564, AN0565, AN0566, AN0567","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0196
+DET0197,"Behavior-chain, platform-aware detection strategy for T1125 Video Capture",T1125,Video Capture,3,"AN0568, AN0569, AN0570","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0197
+DET0198,Detect Abuse of Container APIs for Credential Access,T1552.007,Container API,1,AN0571,Containers,https://attack.mitre.org/detectionstrategies/DET0198
+DET0199,Detection Strategy for Virtual Machine Discovery,T1673,Virtual Machine Discovery,4,"AN0572, AN0573, AN0574, AN0575","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0199
+DET0200,Indirect Command Execution – Windows utility abuse behavior chain,T1202,Indirect Command Execution,1,AN0576,Windows,https://attack.mitre.org/detectionstrategies/DET0200
+DET0201,Detection Strategy for Hijack Execution Flow for DLLs,T1574.001,DLL,1,AN0577,Windows,https://attack.mitre.org/detectionstrategies/DET0201
+DET0202,Behavioral Detection of Windows Command Shell Execution,T1059.003,Windows Command Shell,1,AN0578,Windows,https://attack.mitre.org/detectionstrategies/DET0202
+DET0203,Detection Strategy for Ptrace-Based Process Injection on Linux,T1055.008,Ptrace System Calls,1,AN0579,Linux,https://attack.mitre.org/detectionstrategies/DET0203
+DET0204,Detection Strategy for T1547.010 – Port Monitor DLL Persistence via spoolsv.exe (Windows),T1547.010,Port Monitors,1,AN0580,Windows,https://attack.mitre.org/detectionstrategies/DET0204
+DET0205,Detect XSL Script Abuse via msxsl and wmic,T1220,XSL Script Processing,1,AN0581,Windows,https://attack.mitre.org/detectionstrategies/DET0205
+DET0206,Detection of Malicious Kubernetes CronJob Scheduling,T1053.007,Container Orchestration Job,1,AN0582,Containers,https://attack.mitre.org/detectionstrategies/DET0206
+DET0207,Detect LSA Authentication Package Persistence via Registry and LSASS DLL Load,T1547.002,Authentication Package,1,AN0583,Windows,https://attack.mitre.org/detectionstrategies/DET0207
+DET0208,Endpoint Resource Saturation and Crash Pattern Detection Across Platforms,T1499,Endpoint Denial of Service,5,"AN0584, AN0585, AN0586, AN0587, AN0588","Containers, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0208
+DET0209,Detection of Registry Query for Environmental Discovery,T1012,Query Registry,1,AN0589,Windows,https://attack.mitre.org/detectionstrategies/DET0209
+DET0210,Abuse of Domain Accounts,T1078.002,Domain Accounts,4,"AN0590, AN0591, AN0592, AN0593","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0210
+DET0211,Detection of Direct VM Console Access via Cloud-Native Methods,T1021.008,Direct Cloud VM Connections,1,AN0594,IaaS,https://attack.mitre.org/detectionstrategies/DET0211
+DET0212,Detection Strategy for T1505.005 – Terminal Services DLL Modification (Windows),T1505.005,Terminal Services DLL,1,AN0595,Windows,https://attack.mitre.org/detectionstrategies/DET0212
+DET0213,Detection Strategy for Data Transfer Size Limits and Chunked Exfiltration,T1030,Data Transfer Size Limits,3,"AN0596, AN0597, AN0598","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0213
+DET0214,Detection Strategy for Embedded Payloads,T1027.009,Embedded Payloads,3,"AN0599, AN0600, AN0601","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0214
+DET0215,Detection of Multi-Platform File Encryption for Impact,T1486,Data Encrypted for Impact,5,"AN0602, AN0603, AN0604, AN0605, AN0606","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0215
+DET0216,Detection Strategy for LC_LOAD_DYLIB Modification in Mach-O Binaries on macOS,T1546.006,LC_LOAD_DYLIB Addition,1,AN0607,macOS,https://attack.mitre.org/detectionstrategies/DET0216
+DET0217,Detection Strategy for Extra Window Memory (EWM) Injection on Windows,T1055.011,Extra Window Memory Injection,1,AN0608,Windows,https://attack.mitre.org/detectionstrategies/DET0217
+DET0218,Detection Strategy for Hijack Execution Flow across OS platforms.,T1574,Hijack Execution Flow,3,"AN0609, AN0610, AN0611","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0218
+DET0219,Detection Strategy for Escape to Host,T1611,Escape to Host,4,"AN0612, AN0613, AN0614, AN0615","Containers, ESXi, Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0219
+DET0220,Detection of USB-Based Data Exfiltration,T1052.001,Exfiltration over USB,3,"AN0616, AN0617, AN0618","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0220
+DET0221,"Behavioral Detection Strategy for T1123 Audio Capture Across Windows, Linux, macOS",T1123,Audio Capture,3,"AN0619, AN0620, AN0621","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0221
+DET0222,Detecting MMC (.msc) Proxy Execution and Malicious COM Activation,T1218.014,MMC,1,AN0622,Windows,https://attack.mitre.org/detectionstrategies/DET0222
+DET0223,Detection of Adversary Abuse of Software Deployment Tools,T1072,Software Deployment Tools,5,"AN0623, AN0624, AN0625, AN0626, AN0627","Linux, Network Devices, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0223
+DET0224,Detect Abuse of Component Object Model (T1559.001),T1559.001,Component Object Model,1,AN0628,Windows,https://attack.mitre.org/detectionstrategies/DET0224
+DET0225,Detect unauthorized LSASS driver persistence via LSA plugin abuse (Windows),T1547.008,LSASS Driver,1,AN0629,Windows,https://attack.mitre.org/detectionstrategies/DET0225
+DET0226,Detection Strategy for Masquerading via File Type Modification,T1036.008,Masquerade File Type,3,"AN0630, AN0631, AN0632","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0226
+DET0227,Detection Strategy for Non-Standard Ports,T1571,Non-Standard Port,4,"AN0633, AN0634, AN0635, AN0636","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0227
+DET0228,Detect Multi-Stage Command and Control Channels,T1104,Multi-Stage Channels,4,"AN0637, AN0638, AN0639, AN0640","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0228
+DET0229,Enumeration of Global Address Lists via Email Account Discovery,T1087.003,Email Account,2,"AN0641, AN0642","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0229
+DET0230,Detect Suspicious or Malicious Code Signing Abuse,T1553.002,Code Signing,2,"AN0643, AN0644","Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0230
+DET0231,Behavioral Detection of Systemd Timer Abuse for Scheduled Execution,T1053.006,Systemd Timers,1,AN0645,Linux,https://attack.mitre.org/detectionstrategies/DET0231
+DET0232,Detection Strategy for ESXi Administration Command,T1675,ESXi Administration Command,1,AN0646,ESXi,https://attack.mitre.org/detectionstrategies/DET0232
+DET0233,Detection Strategy for Network Device Configuration Dump via Config Repositories,T1602.002,Network Device Configuration Dump,1,AN0647,Network Devices,https://attack.mitre.org/detectionstrategies/DET0233
+DET0234,Credential Dumping via Sensitive Memory and Registry Access Correlation,T1003,OS Credential Dumping,3,"AN0648, AN0649, AN0650","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0234
+DET0235,Detecting Steganographic Command and Control via File + Network Correlation,T1001.002,Steganography,4,"AN0651, AN0652, AN0653, AN0654","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0235
+DET0236,Detection Strategy for Spearphishing Attachment across OS Platforms,T1566.001,Spearphishing Attachment,3,"AN0655, AN0656, AN0657","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0236
+DET0237,Detection Strategy for Boot or Logon Initialization Scripts: RC Scripts,T1037.004,RC Scripts,4,"AN0658, AN0659, AN0660, AN0661","ESXi, Linux, Network Devices, macOS",https://attack.mitre.org/detectionstrategies/DET0237
+DET0238,Defacement via File and Web Content Modification Across Platforms,T1491,Defacement,5,"AN0662, AN0663, AN0664, AN0665, AN0666","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0238
+DET0240,Detection Strategy for Steal or Forge Authentication Certificates,T1649,Steal or Forge Authentication Certificates,4,"AN0671, AN0672, AN0673, AN0674","Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0240
+DET0241,Detect Forged Kerberos Silver Tickets (T1558.002),T1558.002,Silver Ticket,1,AN0675,Windows,https://attack.mitre.org/detectionstrategies/DET0241
+DET0242,Suspicious Database Access and Dump Activity Across Environments (T1213.006),T1213.006,Databases,5,"AN0676, AN0677, AN0678, AN0679, AN0680","IaaS, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0242
+DET0243,Detection Strategy for Weaken Encryption: Reduce Key Space on Network Devices,T1600.001,Reduce Key Space,1,AN0681,Network Devices,https://attack.mitre.org/detectionstrategies/DET0243
+DET0244,Detection Strategy for Login Hook Persistence on macOS,T1037.002,Login Hook,1,AN0682,macOS,https://attack.mitre.org/detectionstrategies/DET0244
+DET0245,Detection Strategy for Spearphishing Voice across OS platforms,T1566.004,Spearphishing Voice,4,"AN0683, AN0684, AN0685, AN0686","Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0245
+DET0246,Detection Strategy for MFA Interception via Input Capture and Smart Card Proxying,T1111,Multi-Factor Authentication Interception,3,"AN0687, AN0688, AN0689","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0246
+DET0247,Detection of Adversary Use of Unused or Unsupported Cloud Regions (IaaS),T1535,Unused/Unsupported Cloud Regions,1,AN0690,IaaS,https://attack.mitre.org/detectionstrategies/DET0247
+DET0248,User Execution – Malicious Image (containers & IaaS) – pull/run → start → anomalous behavior (T1204.003),T1204.003,Malicious Image,2,"AN0691, AN0692","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0248
+DET0249,Behavior-chain detection for T1610 Deploy Container across Docker & Kubernetes control/node planes,T1610,Deploy Container,1,AN0693,Containers,https://attack.mitre.org/detectionstrategies/DET0249
+DET0250,Detect Credential Discovery via Windows Registry Enumeration,T1552.002,Credentials in Registry,1,AN0694,Windows,https://attack.mitre.org/detectionstrategies/DET0250
+DET0251,Behavioral Detection of Cloud Group Enumeration via API and CLI Access,T1069.003,Cloud Groups,3,"AN0695, AN0696, AN0697","IaaS, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0251
+DET0252,User-Initiated Malicious Library Installation via Package Manager (T1204.005),T1204.005,Malicious Library,3,"AN0698, AN0699, AN0700","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0252
+DET0253,Detection of Systemd Service Creation or Modification on Linux,T1543.002,Systemd Service,1,AN0701,Linux,https://attack.mitre.org/detectionstrategies/DET0253
+DET0254,Detection Strategy of Transmitted Data Manipulation,T1565.002,Transmitted Data Manipulation,3,"AN0702, AN0703, AN0704","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0254
+DET0255,Detection Strategy for Log Enumeration,T1654,Log Enumeration,5,"AN0705, AN0706, AN0707, AN0708, AN0709","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0255
+DET0256,Detection Strategy for SSH Session Hijacking,T1563.001,SSH Hijacking,2,"AN0710, AN0711","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0256
+DET0257,Detect Mark-of-the-Web (MOTW) Bypass via Container and Disk Image Files,T1553.005,Mark-of-the-Web Bypass,1,AN0712,Windows,https://attack.mitre.org/detectionstrategies/DET0257
+DET0258,Linux Python Startup Hook Persistence via .pth and Customize Files (T1546.018),T1546.018,Python Startup Hooks,1,AN0713,Linux,https://attack.mitre.org/detectionstrategies/DET0258
+DET0259,Remote Desktop Software Execution and Beaconing Detection,T1219.002,Remote Desktop Software,3,"AN0714, AN0715, AN0716","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0259
+DET0260,Detection Strategy for Forged Web Credentials,T1606,Forge Web Credentials,7,"AN0717, AN0718, AN0719, AN0720, AN0721, AN0722, AN0723","IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0260
+DET0261,Detection of Local Data Staging Prior to Exfiltration,T1074.001,Local Data Staging,4,"AN0724, AN0725, AN0726, AN0727","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0261
+DET0262,Detection Strategy for Dynamic Resolution through DNS Calculation,T1568.003,DNS Calculation,4,"AN0728, AN0729, AN0730, AN0731","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0262
+DET0263,Detecting Bulk or Anomalous Access to Private Code Repositories via SaaS Platforms,T1213.003,Code Repositories,1,AN0732,SaaS,https://attack.mitre.org/detectionstrategies/DET0263
+DET0264,Cross-Platform Detection of JavaScript Execution Abuse,T1059.007,JavaScript,3,"AN0733, AN0734, AN0735","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0264
+DET0265,Detection Strategy for System Services: Launchctl,T1569.001,Launchctl,1,AN0736,macOS,https://attack.mitre.org/detectionstrategies/DET0265
+DET0266,Behavioral Detection of Mailbox Data and Log Deletion for Anti-Forensics,T1070.008,Clear Mailbox Data,4,"AN0737, AN0738, AN0739, AN0740","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0266
+DET0267,Resource Hijacking Detection Strategy,T1496,Resource Hijacking,6,"AN0741, AN0742, AN0743, AN0744, AN0745, AN0746","Containers, IaaS, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0267
+DET0268,Detect Archiving via Library (T1560.002),T1560.002,Archive via Library,3,"AN0747, AN0748, AN0749","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0268
+DET0269,Behavioral Detection Strategy for Remote Service Logins and Post-Access Activity,T1021,Remote Services,5,"AN0750, AN0751, AN0752, AN0753, AN0754","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0269
+DET0270,Detection of Domain or Tenant Policy Modifications via AD and Identity Provider,T1484,Domain or Tenant Policy Modification,2,"AN0755, AN0756","Identity Provider, Windows",https://attack.mitre.org/detectionstrategies/DET0270
+DET0271,Detect Domain Controller Authentication Process Modification (Skeleton Key),T1556.001,Domain Controller Authentication,1,AN0757,Windows,https://attack.mitre.org/detectionstrategies/DET0271
+DET0272,Detect Modification of Network Device Authentication via Patched System Images,T1556.004,Network Device Authentication,1,AN0758,Network Devices,https://attack.mitre.org/detectionstrategies/DET0272
+DET0273,Detection Strategy for Encrypted Channel across OS Platforms,T1573,Encrypted Channel,5,"AN0759, AN0760, AN0761, AN0762, AN0763","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0273
+DET0274,Boot or Logon Autostart Execution Detection Strategy,T1547,Boot or Logon Autostart Execution,3,"AN0764, AN0765, AN0766","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0274
+DET0275,Detect Adversary Deobfuscation or Decoding of Files and Payloads,T1140,Deobfuscate/Decode Files or Information,3,"AN0767, AN0768, AN0769","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0275
+DET0276,Detection Strategy for Rogue Domain Controller (DCShadow) Registration and Replication Abuse,T1207,Rogue Domain Controller,1,AN0770,Windows,https://attack.mitre.org/detectionstrategies/DET0276
+DET0277,Detection Strategy for Role Addition to Cloud Accounts,T1098.003,Additional Cloud Roles,3,"AN0771, AN0772, AN0773","IaaS, Identity Provider, Office Suite",https://attack.mitre.org/detectionstrategies/DET0277
+DET0278,Detection Strategy for T1542 Pre-OS Boot,T1542,Pre-OS Boot,4,"AN0774, AN0775, AN0776, AN0777","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0278
+DET0279,Detection Strategy for System Services across OS platforms.,T1569,System Services,3,"AN0778, AN0779, AN0780","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0279
+DET0280,Behavior-Based Registry Modification Detection on Windows,T1112,Modify Registry,1,AN0781,Windows,https://attack.mitre.org/detectionstrategies/DET0280
+DET0281,Detection Strategy for Compressed Payload Creation and Execution,T1027.015,Compression,3,"AN0782, AN0783, AN0784","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0281
+DET0282,Detection Strategy for System Binary Proxy Execution: Regsvr32,T1218.010,Regsvr32,1,AN0785,Windows,https://attack.mitre.org/detectionstrategies/DET0282
+DET0283,Behavior-chain detection for T1134 Access Token Manipulation on Windows,T1134,Access Token Manipulation,1,AN0786,Windows,https://attack.mitre.org/detectionstrategies/DET0283
+DET0284,Detection Strategy for Exfiltration to Text Storage Sites,T1567.003,Exfiltration to Text Storage Sites,4,"AN0787, AN0788, AN0789, AN0790","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0284
+DET0285,Multi-Event Behavioral Detection for DCOM-Based Remote Code Execution,T1021.003,Distributed Component Object Model,1,AN0791,Windows,https://attack.mitre.org/detectionstrategies/DET0285
+DET0286,Detection Strategy for Impersonation,T1684.001,Impersonation,5,"AN0792, AN0793, AN0794, AN0795, AN0796","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0286
+DET0287,Exploitation for Client Execution – cross-platform behavior chain (browser/Office/3rd-party apps),T1203,Exploitation for Client Execution,3,"AN0797, AN0798, AN0799","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0287
+DET0288,Detect Gatekeeper Bypass via Quarantine Flag and Trust Control Manipulation,T1553.001,Gatekeeper Bypass,1,AN0800,macOS,https://attack.mitre.org/detectionstrategies/DET0288
+DET0289,Detection Strategy for Disable or Modify Cloud Log,T1685.002,Disable or Modify Cloud Log,4,"AN0801, AN0802, AN0803, AN0804","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0289
+DET0290,Cross-Platform Detection of Cron Job Abuse for Persistence and Execution,T1053.003,Cron,3,"AN0805, AN0806, AN0807","ESXi, Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0290
+DET0291,Detection of Cloud Service Dashboard Usage via GUI-Based Cloud Access,T1538,Cloud Service Dashboard,4,"AN0808, AN0809, AN0810, AN0811","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0291
+DET0292,Masquerading via Space After Filename - Behavioral Detection Strategy,T1036.006,Space after Filename,2,"AN0812, AN0813","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0292
+DET0293,Detect Hybrid Identity Authentication Process Modification,T1556.007,Hybrid Identity,5,"AN0814, AN0815, AN0816, AN0817, AN0818","IaaS, Identity Provider, Office Suite, SaaS, Windows",https://attack.mitre.org/detectionstrategies/DET0293
+DET0294,User Execution – Malicious File via download/open → spawn chain (T1204.002),T1204.002,Malicious File,3,"AN0819, AN0820, AN0821","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0294
+DET0295,Behavioral Detection of Thread Execution Hijacking via Thread Suspension and Context Switching,T1055.003,Thread Execution Hijacking,1,AN0822,Windows,https://attack.mitre.org/detectionstrategies/DET0295
+DET0296,Detect Adversary-in-the-Middle via Network and Configuration Anomalies,T1557,Adversary-in-the-Middle,4,"AN0823, AN0824, AN0825, AN0826","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0296
+DET0297,Detection Strategy for Disk Structure Wipe via Boot/Partition Overwrite,T1561.002,Disk Structure Wipe,4,"AN0827, AN0828, AN0829, AN0830","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0297
+DET0298,Detect Archiving via Utility (T1560.001),T1560.001,Archive via Utility,3,"AN0831, AN0832, AN0833","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0298
+DET0299,Multi-Platform File and Directory Permissions Modification Detection Strategy,T1222,File and Directory Permissions Modification,4,"AN0834, AN0835, AN0836, AN0837","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0299
+DET0300,Detection Strategy for Reflective Code Loading,T1620,Reflective Code Loading,3,"AN0838, AN0839, AN0840","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0300
+DET0301,Removable Media Execution Chain Detection via File and Process Activity,T1091,Replication Through Removable Media,1,AN0841,Windows,https://attack.mitre.org/detectionstrategies/DET0301
+DET0302,Port-knock → rule/daemon change → first successful connect (T1205.001),T1205.001,Port Knocking,4,"AN0842, AN0843, AN0844, AN0845","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0302
+DET0303,Local Account Enumeration Across Host Platforms,T1087.001,Local Account,4,"AN0846, AN0847, AN0848, AN0849","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0303
+DET0304,Detection Strategy for Endpoint DoS via Application or System Exploitation,T1499.004,Application or System Exploitation,4,"AN0850, AN0851, AN0852, AN0853","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0304
+DET0305,Detection of Group Policy Modifications via AD Object Changes and File Activity,T1484.001,Group Policy Modification,1,AN0854,Windows,https://attack.mitre.org/detectionstrategies/DET0305
+DET0306,Detection of Unauthorized Network Firewall Rule Modification,T1686.002,Network Device Firewall,1,AN0855,Network Devices,https://attack.mitre.org/detectionstrategies/DET0306
+DET0307,Detect Access to Unsecured Credential Files Across Platforms,T1552.001,Credentials In Files,5,"AN0856, AN0857, AN0858, AN0859, AN0860","Containers, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0307
+DET0308,Detection Strategy for Modify Cloud Compute Infrastructure,T1578,Modify Cloud Compute Infrastructure,1,AN0861,IaaS,https://attack.mitre.org/detectionstrategies/DET0308
+DET0309,Compromised software/update chain (installer/write → first-run/child → egress/signature anomaly),T1195.002,Compromise Software Supply Chain,3,"AN0862, AN0863, AN0864","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0309
+DET0310,Suspicious Addition to Local or Domain Groups,T1098.007,Additional Local or Domain Groups,3,"AN0865, AN0866, AN0867","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0310
+DET0311,Detection for Spoofing Tool UI across OS Platforms,T1685.003,Modify or Spoof Tool UI,3,"AN0868, AN0869, AN0870","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0311
+DET0312,Detect Active Setup Persistence via StubPath Execution,T1547.014,Active Setup,1,AN0871,Windows,https://attack.mitre.org/detectionstrategies/DET0312
+DET0313,Detection Strategy for HTML Smuggling via JavaScript Blob + Dynamic File Drop,T1027.006,HTML Smuggling,3,"AN0872, AN0873, AN0874","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0313
+DET0314,Detection Strategy for Network Sniffing Across Platforms,T1040,Network Sniffing,5,"AN0875, AN0876, AN0877, AN0878, AN0879","IaaS, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0314
+DET0315,Detect Persistence via Office Test Registry DLL Injection,T1137.002,Office Test,2,"AN0880, AN0881","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0315
+DET0316,Detection Strategy for Disk Content Wipe via Direct Access and Overwrite,T1561.001,Disk Content Wipe,4,"AN0882, AN0883, AN0884, AN0885","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0316
+DET0318,Detection Strategy for Exfiltration to Code Repository,T1567.001,Exfiltration to Code Repository,4,"AN0895, AN0896, AN0897, AN0898","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0318
+DET0319,"Detection Strategy for T1136.003 - Cloud Account Creation across IaaS, IdP, SaaS, Office",T1136.003,Cloud Account,4,"AN0899, AN0900, AN0901, AN0902","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0319
+DET0320,Detection of System Network Connections Discovery Across Platforms,T1049,System Network Connections Discovery,6,"AN0903, AN0904, AN0905, AN0906, AN0907, AN0908","ESXi, IaaS, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0320
+DET0321,Detection Strategy for Hidden Virtual Instance Execution,T1564.006,Run Virtual Instance,4,"AN0909, AN0910, AN0911, AN0912","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0321
+DET0322,Detection Strategy for Junk Code Obfuscation with Suspicious Execution Patterns,T1027.016,Junk Code Insertion,3,"AN0913, AN0914, AN0915","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0322
+DET0323,Detection Strategy for T1542.002 Pre-OS Boot: Component Firmware,T1542.002,Component Firmware,3,"AN0916, AN0917, AN0918","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0323
+DET0324,Detection Strategy for Polymorphic Code Mutation and Execution,T1027.014,Polymorphic Code,3,"AN0919, AN0920, AN0921","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0324
+DET0325,External Proxy Behavior via Outbound Relay to Intermediate Infrastructure,T1090.002,External Proxy,5,"AN0922, AN0923, AN0924, AN0925, AN0926","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0325
+DET0326,"Behavior-chain detection for T1132.002 Data Encoding: Non-Standard Encoding across Windows, Linux, macOS, ESXi",T1132.002,Non-Standard Encoding,4,"AN0927, AN0928, AN0929, AN0930","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0326
+DET0327,Multi-event Detection Strategy for RDP-Based Remote Logins and Post-Access Activity,T1021.001,Remote Desktop Protocol,1,AN0931,Windows,https://attack.mitre.org/detectionstrategies/DET0327
+DET0328,Detection of Malicious Profile Installation via CMSTP.exe,T1218.003,CMSTP,1,AN0932,Windows,https://attack.mitre.org/detectionstrategies/DET0328
+DET0329,Behavioral Detection for T1490 - Inhibit System Recovery,T1490,Inhibit System Recovery,5,"AN0933, AN0934, AN0935, AN0936, AN0937","ESXi, IaaS, Linux, Network Devices, Windows",https://attack.mitre.org/detectionstrategies/DET0329
+DET0330,Detection Strategy for T1546.016 - Event Triggered Execution via Installer Packages,T1546.016,Installer Packages,3,"AN0938, AN0939, AN0940","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0330
+DET0331,Detection Strategy for ListPlanting Injection on Windows,T1055.015,ListPlanting,1,AN0941,Windows,https://attack.mitre.org/detectionstrategies/DET0331
+DET0332,Detection Strategy for AutoHotKey & AutoIT Abuse,T1059.010,AutoHotKey & AutoIT,1,AN0942,Windows,https://attack.mitre.org/detectionstrategies/DET0332
+DET0333,Cross-Platform Detection of Scheduled Task/Job Abuse via `at` Utility,T1053.002,At,3,"AN0943, AN0944, AN0945","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0333
+DET0334,Detection Strategy for T1525 – Implant Internal Image,T1525,Implant Internal Image,2,"AN0946, AN0947","Containers, IaaS",https://attack.mitre.org/detectionstrategies/DET0334
+DET0335,Detect Abuse of XPC Services (T1559.003),T1559.003,XPC Services,1,AN0948,macOS,https://attack.mitre.org/detectionstrategies/DET0335
+DET0336,Detect Compromise of Host Software Binaries,T1554,Compromise Host Software Binary,4,"AN0949, AN0950, AN0951, AN0952","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0336
+DET0337,Detection Strategy for Modify Cloud Compute Infrastructure: Revert Cloud Instance,T1578.004,Revert Cloud Instance,1,AN0953,IaaS,https://attack.mitre.org/detectionstrategies/DET0337
+DET0338,Behavioral Detection Strategy for Use Alternate Authentication Material (T1550),T1550,Use Alternate Authentication Material,7,"AN0954, AN0955, AN0956, AN0957, AN0958, AN0959, AN0960","Containers, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows",https://attack.mitre.org/detectionstrategies/DET0338
+DET0339,Detection Strategy for Weaken Encryption on Network Devices,T1600,Weaken Encryption,1,AN0961,Network Devices,https://attack.mitre.org/detectionstrategies/DET0339
+DET0340,User Execution – Malicious Copy & Paste (browser/email → shell with obfuscated one-liner) – T1204.004,T1204.004,Malicious Copy and Paste,3,"AN0962, AN0963, AN0964","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0340
+DET0341,Clipboard Data Access with Anomalous Context,T1115,Clipboard Data,3,"AN0965, AN0966, AN0967","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0341
+DET0342,Detection of Suspicious Compiled HTML File Execution via hh.exe,T1218.001,Compiled HTML File,1,AN0968,Windows,https://attack.mitre.org/detectionstrategies/DET0342
+DET0343,"Direct Network Flood Detection across IaaS, Linux, Windows, and macOS",T1498.001,Direct Network Flood,4,"AN0969, AN0970, AN0971, AN0972","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0343
+DET0344,"Detection Strategy for Fileless Storage via Registry, WMI, and Shared Memory",T1027.011,Fileless Storage,2,"AN0973, AN0974","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0344
+DET0345,Detection Strategy for Abuse Elevation Control Mechanism (T1548),T1548,Abuse Elevation Control Mechanism,5,"AN0975, AN0976, AN0977, AN0978, AN0979","IaaS, Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0345
+DET0346,Detect Screen Capture via Commands and API Calls,T1113,Screen Capture,3,"AN0980, AN0981, AN0982","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0346
+DET0347,Detection Strategy for Masquerading via Legitimate Resource Name or Location,T1036.005,Match Legitimate Resource Name or Location,5,"AN0983, AN0984, AN0985, AN0986, AN0987","Containers, ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0347
+DET0348,Detection Strategy for Exfiltration Over C2 Channel,T1041,Exfiltration Over C2 Channel,4,"AN0988, AN0989, AN0990, AN0991","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0348
+DET0349,Detection Strategy for Content Injection,T1659,Content Injection,3,"AN0992, AN0993, AN0994","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0349
+DET0350,Detecting Downgrade Attacks,T1689,Downgrade Attack,3,"AN0995, AN0996, AN0997","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0350
+DET0351,Unix-like File Permission Manipulation Behavioral Chain Detection Strategy,T1222.002,Linux and Mac Permissions,2,"AN0998, AN0999","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0351
+DET0352,Detection Strategy for T1550.003 - Pass the Ticket (Windows),T1550.003,Pass the Ticket,1,AN1000,Windows,https://attack.mitre.org/detectionstrategies/DET0352
+DET0353,Detection Strategy for Hidden User Accounts,T1564.002,Hidden Users,3,"AN1001, AN1002, AN1003","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0353
+DET0354,"Behavior-chain detection for T1133 External Remote Services across Windows, Linux, macOS, Containers",T1133,External Remote Services,4,"AN1004, AN1005, AN1006, AN1007","Containers, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0354
+DET0355,Detection Strategy for Email Bombing,T1667,Email Bombing,4,"AN1008, AN1009, AN1010, AN1011","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0355
+DET0356,Endpoint DoS via OS Exhaustion Flood Detection Strategy,T1499.001,OS Exhaustion Flood,3,"AN1012, AN1013, AN1014","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0356
+DET0357,Behavioral Detection of Internet Connection Discovery,T1016.001,Internet Connection Discovery,4,"AN1015, AN1016, AN1017, AN1018","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0357
+DET0358,Programmatic and Excessive Access to Confluence Documentation,T1213.001,Confluence,1,AN1019,SaaS,https://attack.mitre.org/detectionstrategies/DET0358
+DET0359,"Multi-hop Proxy Behavior via Relay Node Chaining, Onion Routing, and Network Tunneling",T1090.003,Multi-hop Proxy,5,"AN1020, AN1021, AN1022, AN1023, AN1024","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0359
+DET0360,Behavioral Detection of Domain Group Discovery,T1069.002,Domain Groups,3,"AN1025, AN1026, AN1027","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0360
+DET0361,Detecting .NET COM Registration Abuse via Regsvcs/Regasm,T1218.009,Regsvcs/Regasm,1,AN1028,Windows,https://attack.mitre.org/detectionstrategies/DET0361
+DET0362,Detection Strategy for AppCert DLLs Persistence via Registry Injection,T1546.009,AppCert DLLs,1,AN1029,Windows,https://attack.mitre.org/detectionstrategies/DET0362
+DET0363,Detection of Credential Dumping from LSASS Memory via Access and Dump Sequence,T1003.001,LSASS Memory,1,AN1030,Windows,https://attack.mitre.org/detectionstrategies/DET0363
+DET0364,Behavioral Detection Strategy for WMI Execution Abuse on Windows,T1047,Windows Management Instrumentation,1,AN1031,Windows,https://attack.mitre.org/detectionstrategies/DET0364
+DET0365,Detect Registry and Startup Folder Persistence (Windows),T1547.001,Registry Run Keys / Startup Folder,1,AN1032,Windows,https://attack.mitre.org/detectionstrategies/DET0365
+DET0366,Detection Strategy for Double File Extension Masquerading,T1036.007,Double File Extension,1,AN1033,Windows,https://attack.mitre.org/detectionstrategies/DET0366
+DET0367,Detect Network Logon Script Abuse via Multi-Event Correlation on Windows,T1037.003,Network Logon Script,1,AN1034,Windows,https://attack.mitre.org/detectionstrategies/DET0367
+DET0368,Hardware Supply Chain Compromise Detection via Host Status & Boot Integrity Checks,T1195.003,Compromise Hardware Supply Chain,3,"AN1035, AN1036, AN1037","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0368
+DET0369,Detection Strategy for Event Triggered Execution via Trap (T1546.005),T1546.005,Trap,2,"AN1038, AN1039","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0369
+DET0370,Recursive Enumeration of Files and Directories Across Privilege Contexts,T1083,File and Directory Discovery,5,"AN1040, AN1041, AN1042, AN1043, AN1044","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0370
+DET0371,Detection Strategy for Debugger Evasion (T1622),T1622,Debugger Evasion,3,"AN1045, AN1046, AN1047","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0371
+DET0372,Multi-Platform Detection Strategy for T1678 - Delay Execution,T1678,Delay Execution,3,"AN1048, AN1049, AN1050","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0372
+DET0373,Detection Strategy for Addition of Email Delegate Permissions,T1098.002,Additional Email Delegate Permissions,2,"AN1051, AN1052","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0373
+DET0374,Detection Strategy for Serverless Execution (T1648),T1648,Serverless Execution,3,"AN1053, AN1054, AN1055","IaaS, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0374
+DET0375,Detection Strategy for T1546.017 - Udev Rules (Linux),T1546.017,Udev Rules,1,AN1056,Linux,https://attack.mitre.org/detectionstrategies/DET0375
+DET0376,Behavioral Detection Strategy for Network Service Discovery Across Platforms,T1046,Network Service Discovery,4,"AN1057, AN1058, AN1059, AN1060","Containers, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0376
+DET0377,Detection of Kernel/User-Level Rootkit Behavior Across Platforms,T1014,Rootkit,3,"AN1061, AN1062, AN1063","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0377
+DET0378,Behavioral Detection of Obfuscated Files or Information,T1027,Obfuscated Files or Information,5,"AN1064, AN1065, AN1066, AN1067, AN1068","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0378
+DET0379,Detect Evil Twin Wi-Fi Access Points on Network Devices,T1557.004,Evil Twin,1,AN1069,Network Devices,https://attack.mitre.org/detectionstrategies/DET0379
+DET0380,Detection of Local Data Collection Prior to Exfiltration,T1005,Data from Local System,5,"AN1070, AN1071, AN1072, AN1073, AN1074","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0380
+DET0381,Detect Access and Decryption of Group Policy Preference (GPP) Credentials in SYSVOL,T1552.006,Group Policy Preferences,1,AN1075,Windows,https://attack.mitre.org/detectionstrategies/DET0381
+DET0382,Detection Strategy for Process Hollowing on Windows,T1055.012,Process Hollowing,1,AN1076,Windows,https://attack.mitre.org/detectionstrategies/DET0382
+DET0383,Detection Strategy for Masquerading via Account Name Similarity,T1036.010,Masquerade Account Name,4,"AN1077, AN1078, AN1079, AN1080","Containers, Identity Provider, Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0383
+DET0384,Behavioral Detection of Unix Shell Execution,T1059.004,Unix Shell,4,"AN1081, AN1082, AN1083, AN1084","ESXi, Linux, Network Devices, macOS",https://attack.mitre.org/detectionstrategies/DET0384
+DET0385,Detect Access and Parsing of .bash_history Files for Credential Harvesting,T1552.003,Shell History,2,"AN1085, AN1086","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0385
+DET0386,"Cloud Account Enumeration via API, CLI, and Scripting Interfaces",T1087.004,Cloud Account,4,"AN1087, AN1088, AN1089, AN1090","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0386
+DET0387,"Detect ARP Cache Poisoning Across Linux, Windows, and macOS",T1557.002,ARP Cache Poisoning,3,"AN1091, AN1092, AN1093","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0387
+DET0388,Detection Strategy for T1548.002 – Bypass User Account Control (UAC),T1548.002,Bypass User Account Control,1,AN1094,Windows,https://attack.mitre.org/detectionstrategies/DET0388
+DET0389,Behavioral Detection of DLL Injection via Windows API,T1055.001,Dynamic-link Library Injection,1,AN1095,Windows,https://attack.mitre.org/detectionstrategies/DET0389
+DET0390,Linux Detection Strategy for T1547.013 - XDG Autostart Entries,T1547.013,XDG Autostart Entries,1,AN1096,Linux,https://attack.mitre.org/detectionstrategies/DET0390
+DET0391,Detection Strategy for Runtime Data Manipulation.,T1565.003,Runtime Data Manipulation,3,"AN1097, AN1098, AN1099","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0391
+DET0392,Multi-Platform Software Discovery Behavior Chain,T1518,Software Discovery,5,"AN1100, AN1101, AN1102, AN1103, AN1104","ESXi, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0392
+DET0393,Detection Strategy for Temporary Elevated Cloud Access Abuse (T1548.005),T1548.005,Temporary Elevated Cloud Access,3,"AN1105, AN1106, AN1107","IaaS, Identity Provider, Office Suite",https://attack.mitre.org/detectionstrategies/DET0393
+DET0394,Web Shell Detection via Server Behavior and File Execution Chains,T1505.003,Web Shell,3,"AN1108, AN1109, AN1110","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0394
+DET0395,macOS AuthorizationExecuteWithPrivileges Elevation Prompt Detection,T1548.004,Elevated Execution with Prompt,1,AN1111,macOS,https://attack.mitre.org/detectionstrategies/DET0395
+DET0396,Detect Access to macOS Keychain for Credential Theft,T1555.001,Keychain,1,AN1112,macOS,https://attack.mitre.org/detectionstrategies/DET0396
+DET0397,Automated Exfiltration Detection Strategy,T1020,Automated Exfiltration,3,"AN1113, AN1114, AN1115","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0397
+DET0398,"Detect Office Startup-Based Persistence via Macros, Forms, and Registry Hooks",T1137,Office Application Startup,2,"AN1116, AN1117","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0398
+DET0399,Detection Strategy for Scheduled Transfer and Recurrent Exfiltration Patterns,T1029,Scheduled Transfer,3,"AN1118, AN1119, AN1120","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0399
+DET0400,Behavioral Detection of DNS Tunneling and Application Layer Abuse,T1071.004,DNS,5,"AN1121, AN1122, AN1123, AN1124, AN1125","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0400
+DET0401,Detection Strategy for Launch Daemon Creation or Modification (macOS),T1543.004,Launch Daemon,1,AN1126,macOS,https://attack.mitre.org/detectionstrategies/DET0401
+DET0402,Detection Strategy for Cloud Service Discovery,T1526,Cloud Service Discovery,4,"AN1127, AN1128, AN1129, AN1130","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0402
+DET0403,Detection Strategy for Traffic Duplication via Mirroring in IaaS and Network Devices,T1020.001,Traffic Duplication,2,"AN1131, AN1132","IaaS, Network Devices",https://attack.mitre.org/detectionstrategies/DET0403
+DET0404,Detect Winlogon Helper DLL Abuse via Registry and Process Artifacts on Windows,T1547.004,Winlogon Helper DLL,1,AN1133,Windows,https://attack.mitre.org/detectionstrategies/DET0404
+DET0405,Detection Strategy for LNK Icon Smuggling,T1027.012,LNK Icon Smuggling,1,AN1134,Windows,https://attack.mitre.org/detectionstrategies/DET0405
+DET0406,Detection Strategy for Extended Attributes Abuse,T1564.014,Extended Attributes,2,"AN1135, AN1136","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0406
+DET0407,Detection of Local Account Abuse for Initial Access and Persistence,T1078.003,Local Accounts,3,"AN1137, AN1138, AN1139","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0407
+DET0408,Detection Strategy for Reflection Amplification DoS (T1498.002),T1498.002,Reflection Amplification,4,"AN1140, AN1141, AN1142, AN1143","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0408
+DET0409,Detection Strategy for T1550.002 - Pass the Hash (Windows),T1550.002,Pass the Hash,1,AN1144,Windows,https://attack.mitre.org/detectionstrategies/DET0409
+DET0410,Detection Strategy for Data from Network Shared Drive,T1039,Data from Network Shared Drive,3,"AN1145, AN1146, AN1147","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0410
+DET0411,Detection Strategy for Hide Infrastructure,T1665,Hide Infrastructure,5,"AN1148, AN1149, AN1150, AN1151, AN1152","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0411
+DET0412,Detect Access or Search for Unsecured Credentials Across Platforms,T1552,Unsecured Credentials,7,"AN1153, AN1154, AN1155, AN1156, AN1157, AN1158, AN1159","Containers, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0412
+DET0413,Abuse of Information Repositories for Data Collection,T1213,Data from Information Repositories,4,"AN1160, AN1161, AN1162, AN1163","Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0413
+DET0414,Detection of AppleScript-Based Execution on macOS,T1059.002,AppleScript,1,AN1164,macOS,https://attack.mitre.org/detectionstrategies/DET0414
+DET0415,Application Exhaustion Flood Detection Across Platforms,T1499.003,Application Exhaustion Flood,4,"AN1165, AN1166, AN1167, AN1168","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0415
+DET0416,"Detection of File Transfer Protocol-Based C2 (FTP, FTPS, SMB, TFTP)",T1071.002,File Transfer Protocols,5,"AN1169, AN1170, AN1171, AN1172, AN1173","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0416
+DET0417,Detection Strategy for Power Settings Abuse,T1653,Power Settings,3,"AN1174, AN1175, AN1176","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0417
+DET0418,Windows DACL Manipulation Behavioral Chain Detection Strategy,T1222.001,Windows Permissions,1,AN1177,Windows,https://attack.mitre.org/detectionstrategies/DET0418
+DET0419,Detection Strategy for Dynamic Resolution using Domain Generation Algorithms.,T1568.002,Domain Generation Algorithms,4,"AN1178, AN1179, AN1180, AN1181","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0419
+DET0420,Detect User Activity Based Sandbox Evasion via Input & Artifact Probing,T1497.002,User Activity Based Checks,3,"AN1182, AN1183, AN1184","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0420
+DET0421,Detection Strategy for System Services Service Execution,T1569.002,Service Execution,1,AN1185,Windows,https://attack.mitre.org/detectionstrategies/DET0421
+DET0422,Detection Strategy for IFEO Injection on Windows,T1546.012,Image File Execution Options Injection,1,AN1186,Windows,https://attack.mitre.org/detectionstrategies/DET0422
+DET0423,Detection Strategy for Modify Cloud Compute Infrastructure: Create Snapshot,T1578.001,Create Snapshot,1,AN1187,IaaS,https://attack.mitre.org/detectionstrategies/DET0423
+DET0424,Detection Strategy for Disable or Modify Cloud Firewall,T1686.001,Cloud Firewall,1,AN1188,IaaS,https://attack.mitre.org/detectionstrategies/DET0424
+DET0425,Suspicious Use of Web Services for C2,T1102,Web Service,4,"AN1189, AN1190, AN1191, AN1192","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0425
+DET0426,Detection of Direct Volume Access for File System Evasion,T1006,Direct Volume Access,2,"AN1193, AN1194","Network Devices, Windows",https://attack.mitre.org/detectionstrategies/DET0426
+DET0427,Detection Strategy for Hijack Execution Flow through Service Registry Premission Weakness.,T1574.011,Services Registry Permissions Weakness,1,AN1195,Windows,https://attack.mitre.org/detectionstrategies/DET0427
+DET0428,Detection Strategy for Bind Mounts on Linux,T1564.013,Bind Mounts,1,AN1196,Linux,https://attack.mitre.org/detectionstrategies/DET0428
+DET0429,Detect Modification of macOS Startup Items,T1037.005,Startup Items,1,AN1197,macOS,https://attack.mitre.org/detectionstrategies/DET0429
+DET0430,Detect Credentials Access from Password Stores,T1555,Credentials from Password Stores,4,"AN1198, AN1199, AN1200, AN1201","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0430
+DET0431,Detection Strategy for Email Spoofing,T1684.002,Email Spoofing,4,"AN1202, AN1203, AN1204, AN1205","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0431
+DET0432,Detection Strategy for NTFS File Attribute Abuse (ADS/EAs),T1564.004,NTFS File Attributes,1,AN1206,Windows,https://attack.mitre.org/detectionstrategies/DET0432
+DET0433,Detecting Code Injection via mavinject.exe (App-V Injector),T1218.013,Mavinject,1,AN1207,Windows,https://attack.mitre.org/detectionstrategies/DET0433
+DET0434,Detection of Launch Agent Creation or Modification on macOS,T1543.001,Launch Agent,1,AN1208,macOS,https://attack.mitre.org/detectionstrategies/DET0434
+DET0435,Detection Strategy for Hijack Execution Flow: Dynamic Linker Hijacking,T1574.006,Dynamic Linker Hijacking,2,"AN1209, AN1210","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0435
+DET0436,Detection Strategy for Hijack Execution Flow through Services File Permissions Weakness.,T1574.010,Services File Permissions Weakness,1,AN1211,Windows,https://attack.mitre.org/detectionstrategies/DET0436
+DET0437,Detection of LSA Secrets Dumping via Registry and Memory Extraction,T1003.004,LSA Secrets,1,AN1212,Windows,https://attack.mitre.org/detectionstrategies/DET0437
+DET0438,Detect Archiving via Custom Method (T1560.003),T1560.003,Archive via Custom Method,3,"AN1213, AN1214, AN1215","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0438
+DET0439,Detection of Malware Relocation via Suspicious File Movement,T1070.010,Relocate Malware,4,"AN1216, AN1217, AN1218, AN1219","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0439
+DET0440,Detecting PowerShell Execution via SyncAppvPublishingServer.vbs Proxy Abuse,T1216.002,SyncAppvPublishingServer,1,AN1220,Windows,https://attack.mitre.org/detectionstrategies/DET0440
+DET0441,Detection of Suspicious Scheduled Task Creation and Execution on Windows,T1053.005,Scheduled Task,1,AN1221,Windows,https://attack.mitre.org/detectionstrategies/DET0441
+DET0442,Detection Strategy for Subvert Trust Controls using SIP and Trust Provider Hijacking.,T1553.003,SIP and Trust Provider Hijacking,1,AN1222,Windows,https://attack.mitre.org/detectionstrategies/DET0442
+DET0443,Detection Strategy for Masquerading via Breaking Process Trees,T1036.009,Break Process Trees,2,"AN1223, AN1224","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0443
+DET0444,Detection of Command and Control Over Application Layer Protocols,T1071,Application Layer Protocol,4,"AN1225, AN1226, AN1227, AN1228","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0444
+DET0445,Detection of Proxy Infrastructure Setup and Traffic Bridging,T1090,Proxy,5,"AN1229, AN1230, AN1231, AN1232, AN1233","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0445
+DET0446,Credential Access via /etc/passwd and /etc/shadow Parsing,T1003.008,/etc/passwd and /etc/shadow,1,AN1234,Linux,https://attack.mitre.org/detectionstrategies/DET0446
+DET0447,T1136.001 Detection Strategy - Local Account Creation Across Platforms,T1136.001,Local Account,6,"AN1235, AN1236, AN1237, AN1238, AN1239, AN1240","Containers, ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0447
+DET0448,Detection Strategy for VDSO Hijacking on Linux,T1055.014,VDSO Hijacking,1,AN1241,Linux,https://attack.mitre.org/detectionstrategies/DET0448
+DET0449,Detection Strategy for Modify Cloud Compute Infrastructure: Create Cloud Instance,T1578.002,Create Cloud Instance,1,AN1242,IaaS,https://attack.mitre.org/detectionstrategies/DET0449
+DET0450,Detection Strategy for Kernel Modules and Extensions Autostart Execution,T1547.006,Kernel Modules and Extensions,2,"AN1243, AN1244","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0450
+DET0451,Detection Strategy for PowerShell Profile Persistence via profile.ps1 Modification,T1546.013,PowerShell Profile,1,AN1245,Windows,https://attack.mitre.org/detectionstrategies/DET0451
+DET0452,"Detect Subversion of Trust Controls via Certificate, Registry, and Attribute Manipulation",T1553,Subvert Trust Controls,3,"AN1246, AN1247, AN1248","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0452
+DET0453,Detection Strategy for SNMP (MIB Dump) on Network Devices,T1602.001,SNMP (MIB Dump),1,AN1249,Network Devices,https://attack.mitre.org/detectionstrategies/DET0453
+DET0454,Detect Malicious Modification of Pluggable Authentication Modules (PAM),T1556.003,Pluggable Authentication Modules,2,"AN1250, AN1251","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0454
+DET0455,Abuse of PowerShell for Arbitrary Execution,T1059.001,PowerShell,1,AN1252,Windows,https://attack.mitre.org/detectionstrategies/DET0455
+DET0456,Behavior-chain detection for T1134.002 Create Process with Token (Windows),T1134.002,Create Process with Token,1,AN1253,Windows,https://attack.mitre.org/detectionstrategies/DET0456
+DET0457,Detection of Non-Application Layer Protocols for C2,T1095,Non-Application Layer Protocol,5,"AN1254, AN1255, AN1256, AN1257, AN1258","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0457
+DET0458,Detection of Trust Relationship Modifications in Domain or Tenant Policies,T1484.002,Trust Modification,2,"AN1259, AN1260","Identity Provider, Windows",https://attack.mitre.org/detectionstrategies/DET0458
+DET0459,Detection Strategy for Build Image on Host,T1612,Build Image on Host,1,AN1261,Containers,https://attack.mitre.org/detectionstrategies/DET0459
+DET0460,Credential Stuffing Detection via Reused Breached Credentials Across Services,T1110.004,Credential Stuffing,9,"AN1262, AN1263, AN1264, AN1265, AN1266, AN1267, AN1268, AN1269, AN1270","Containers, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0460
+DET0461,Detection Strategy for Hidden File System Abuse,T1564.005,Hidden File System,3,"AN1271, AN1272, AN1273","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0461
+DET0462,Detect LLMNR/NBT-NS Poisoning and SMB Relay on Windows,T1557.001,Name Resolution Poisoning and SMB Relay,1,AN1274,Windows,https://attack.mitre.org/detectionstrategies/DET0462
+DET0463,Brute Force Authentication Failures with Multi-Platform Log Correlation,T1110,Brute Force,5,"AN1275, AN1276, AN1277, AN1278, AN1279","Identity Provider, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0463
+DET0464,Behavioral Detection of Wi-Fi Discovery Activity,T1016.002,Wi-Fi Discovery,3,"AN1280, AN1281, AN1282","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0464
+DET0465,Detection of Default Account Abuse Across Platforms,T1078.001,Default Accounts,5,"AN1283, AN1284, AN1285, AN1286, AN1287","ESXi, Identity Provider, Linux, Network Devices, Windows",https://attack.mitre.org/detectionstrategies/DET0465
+DET0466,Detection of Script-Based Proxy Execution via Signed Microsoft Utilities,T1216,System Script Proxy Execution,1,AN1288,Windows,https://attack.mitre.org/detectionstrategies/DET0466
+DET0467,Detection Strategy for TLS Callback Injection via PE Memory Modification and Hollowing,T1055.005,Thread Local Storage,1,AN1289,Windows,https://attack.mitre.org/detectionstrategies/DET0467
+DET0468,"Detect DHCP Spoofing Across Linux, Windows, and macOS",T1557.003,DHCP Spoofing,3,"AN1290, AN1291, AN1292","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0468
+DET0469,Detection Strategy for Patch System Image on Network Devices,T1601.001,Patch System Image,1,AN1293,Network Devices,https://attack.mitre.org/detectionstrategies/DET0469
+DET0470,"Detecting Protocol or Service Impersonation via Anomalous TLS, HTTP Header, and Port Mismatch Correlation",T1001.003,Protocol or Service Impersonation,4,"AN1294, AN1295, AN1296, AN1297","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0470
+DET0471,Detection of Tainted Content Written to Shared Storage,T1080,Taint Shared Content,5,"AN1298, AN1299, AN1300, AN1301, AN1302","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0471
+DET0472,Detect Malicious Password Filter DLL Registration,T1556.002,Password Filter DLL,1,AN1303,Windows,https://attack.mitre.org/detectionstrategies/DET0472
+DET0473,Detect persistent or elevated container services via container runtime or cluster manipulation,T1543.005,Container Service,1,AN1304,Containers,https://attack.mitre.org/detectionstrategies/DET0473
+DET0474,Environmental Keying Discovery-to-Decryption Behavioral Chain Detection Strategy,T1480.001,Environmental Keying,3,"AN1305, AN1306, AN1307","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0474
+DET0475,Detection Strategy for T1218.011 Rundll32 Abuse,T1218.011,Rundll32,1,AN1308,Windows,https://attack.mitre.org/detectionstrategies/DET0475
+DET0476,Email Collection via Local Email Access and Auto-Forwarding Behavior,T1114,Email Collection,4,"AN1309, AN1310, AN1311, AN1312","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0476
+DET0477,Behavioral Detection of WinRM-Based Remote Access,T1021.006,Windows Remote Management,1,AN1313,Windows,https://attack.mitre.org/detectionstrategies/DET0477
+DET0478,User Execution – multi-surface behavior chain (documents/links → helper/unpacker → LOLBIN/child → egress),T1204,User Execution,5,"AN1314, AN1315, AN1316, AN1317, AN1318","Containers, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0478
+DET0479,Detection Strategy for Hijack Execution Flow using the Windows COR_PROFILER.,T1574.012,COR_PROFILER,1,AN1319,Windows,https://attack.mitre.org/detectionstrategies/DET0479
+DET0480,Detection of Credential Harvesting via Web Portal Modification,T1056.003,Web Portal Capture,3,"AN1320, AN1321, AN1322","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0480
+DET0481,Windows COM Hijacking Detection via Registry and DLL Load Correlation,T1546.015,Component Object Model Hijacking,1,AN1323,Windows,https://attack.mitre.org/detectionstrategies/DET0481
+DET0482,Behavior-chain detection for T1134.001 Access Token Manipulation: Token Impersonation/Theft on Windows,T1134.001,Token Impersonation/Theft,1,AN1324,Windows,https://attack.mitre.org/detectionstrategies/DET0482
+DET0483,Detection of System Service Discovery Commands Across OS Platforms,T1007,System Service Discovery,3,"AN1325, AN1326, AN1327","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0483
+DET0484,Multi-Platform Cloud Storage Exfiltration Behavior Chain,T1530,Data from Cloud Storage,3,"AN1328, AN1329, AN1330","IaaS, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0484
+DET0485,Detection Strategy for Dynamic Resolution using Fast Flux DNS,T1568.001,Fast Flux DNS,4,"AN1331, AN1332, AN1333, AN1334","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0485
+DET0486,Detecting Odbcconf Proxy Execution of Malicious DLLs,T1218.008,Odbcconf,1,AN1335,Windows,https://attack.mitre.org/detectionstrategies/DET0486
+DET0487,Distributed Password Spraying via Authentication Failures Across Multiple Accounts,T1110.003,Password Spraying,8,"AN1336, AN1337, AN1338, AN1339, AN1340, AN1341, AN1342, AN1343","Containers, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0487
+DET0488,Detect abuse of Trusted Relationships (third-party and delegated admin access),T1199,Trusted Relationship,7,"AN1344, AN1345, AN1346, AN1347, AN1348, AN1349, AN1350","IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0488
+DET0489,Behavior-chain detection for T1134.004 Access Token Manipulation: Parent PID Spoofing (Windows),T1134.004,Parent PID Spoofing,1,AN1351,Windows,https://attack.mitre.org/detectionstrategies/DET0489
+DET0490,Detection Strategy for Container and Resource Discovery,T1613,Container and Resource Discovery,1,AN1352,Containers,https://attack.mitre.org/detectionstrategies/DET0490
+DET0491,Peripheral Device Enumeration via System Utilities and API Calls,T1120,Peripheral Device Discovery,3,"AN1353, AN1354, AN1355","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0491
+DET0492,Detection Strategy for Modify Cloud Compute Infrastructure: Modify Cloud Compute Configurations,T1578.005,Modify Cloud Compute Configurations,1,AN1356,IaaS,https://attack.mitre.org/detectionstrategies/DET0492
+DET0493,Detect Abuse of Inter-Process Communication (T1559),T1559,Inter-Process Communication,3,"AN1357, AN1358, AN1359","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0493
+DET0494,Detection Strategy for Weaken Encryption: Disable Crypto Hardware on Network Devices,T1600.002,Disable Crypto Hardware,1,AN1360,Network Devices,https://attack.mitre.org/detectionstrategies/DET0494
+DET0495,Detection Strategy for Financial Theft,T1657,Financial Theft,5,"AN1361, AN1362, AN1363, AN1364, AN1365","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0495
+DET0496,Behavior-Chain Detection for Remote Access Tools (Tool-Agnostic),T1219,Remote Access Tools,3,"AN1366, AN1367, AN1368","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0496
+DET0497,Detection of Defense Impairment through Disabled or Modified Tools across OS Platforms.,T1685,Disable or Modify Tools,7,"AN1369, AN1370, AN1371, AN1372, AN1373, AN1374, AN2044","Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0497
+DET0498,Behavior‑chain detection for T1134.003 Make and Impersonate Token (Windows),T1134.003,Make and Impersonate Token,1,AN1375,Windows,https://attack.mitre.org/detectionstrategies/DET0498
+DET0499,Behavioral Detection of Fallback or Alternate C2 Channels,T1008,Fallback Channels,4,"AN1376, AN1377, AN1378, AN1379","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0499
+DET0500,Detecting Abnormal SharePoint Data Mining by Privileged or Rare Users,T1213.002,Sharepoint,1,AN1380,Windows,https://attack.mitre.org/detectionstrategies/DET0500
+DET0501,Detection Strategy for Compile After Delivery - Source Code to Executable Transformation,T1027.004,Compile After Delivery,3,"AN1381, AN1382, AN1383","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0501
+DET0502,Detection Strategy for Hidden Artifacts Across Platforms,T1564,Hide Artifacts,5,"AN1384, AN1385, AN1386, AN1387, AN1388","ESXi, Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0502
+DET0503,Behavioral Detection Strategy for Exfiltration Over Symmetric Encrypted Non-C2 Protocol,T1048.001,Exfiltration Over Symmetric Encrypted Non-C2 Protocol,4,"AN1389, AN1390, AN1391, AN1392","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0503
+DET0504,Detect Abuse of Dynamic Data Exchange (T1559.002),T1559.002,Dynamic Data Exchange,1,AN1393,Windows,https://attack.mitre.org/detectionstrategies/DET0504
+DET0505,Detection Strategy for Command Obfuscation,T1027.010,Command Obfuscation,3,"AN1394, AN1395, AN1396","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0505
+DET0506,Detecting Mshta-based Proxy Execution via Suspicious HTA or Script Invocation,T1218.005,Mshta,1,AN1397,Windows,https://attack.mitre.org/detectionstrategies/DET0506
+DET0507,"Detect browser session hijacking via privilege, handle access, and remote thread into browsers",T1185,Browser Session Hijacking,1,AN1398,Windows,https://attack.mitre.org/detectionstrategies/DET0507
+DET0508,Behavioral Detection of Process Injection Across Platforms,T1055,Process Injection,3,"AN1399, AN1400, AN1401","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0508
+DET0509,"Detection of Web Session Cookie Theft via File, Memory, and Network Artifacts",T1539,Steal Web Session Cookie,5,"AN1402, AN1403, AN1404, AN1405, AN1406","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0509
+DET0510,Detection Strategy for SVG Smuggling with Script Execution and Delivery Behavior,T1027.017,SVG Smuggling,3,"AN1407, AN1408, AN1409","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0510
+DET0511,Detection of Data Access and Collection from Removable Media,T1025,Data from Removable Media,3,"AN1410, AN1411, AN1412","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0511
+DET0512,Detection of Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,T1048.002,Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,4,"AN1413, AN1414, AN1415, AN1416","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0512
+DET0513,Detection of Cached Domain Credential Dumping via Local Hash Cache Access,T1003.005,Cached Domain Credentials,2,"AN1417, AN1418","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0513
+DET0514,Detection Strategy for Exploitation for Privilege Escalation,T1068,Exploitation for Privilege Escalation,4,"AN1419, AN1420, AN1421, AN1422","Containers, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0514
+DET0515,Detection Strategy for T1528 - Steal Application Access Token,T1528,Steal Application Access Token,5,"AN1423, AN1424, AN1425, AN1426, AN1427","Containers, IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0515
+DET0516,Behavioral Detection of Command and Scripting Interpreter Abuse,T1059,Command and Scripting Interpreter,5,"AN1428, AN1429, AN1430, AN1431, AN1432","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0516
+DET0517,Detection Strategy for Hijack Execution Flow through the AppDomainManager on Windows.,T1574.014,AppDomainManager,1,AN1433,Windows,https://attack.mitre.org/detectionstrategies/DET0517
+DET0518,Behavioral Detection of T1498 – Network Denial of Service Across Platforms,T1498,Network Denial of Service,2,"AN1434, AN1435","Linux, Windows",https://attack.mitre.org/detectionstrategies/DET0518
+DET0519,Detect Persistence via Office Template Macro Injection or Registry Hijack,T1137.001,Office Template Macros,2,"AN1436, AN1437","Office Suite, Windows",https://attack.mitre.org/detectionstrategies/DET0519
+DET0520,Behavioral Detection of Log File Clearing on Linux and macOS,T1685.006,Clear Linux or Mac System Logs,2,"AN1438, AN1439","Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0520
+DET0521,Behavioral Detection of Spoofed GUI Credential Prompts,T1056.002,GUI Input Capture,3,"AN1440, AN1441, AN1442","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0521
+DET0522,Detect Kerberos Ticket Theft or Forgery (T1558),T1558,Steal or Forge Kerberos Tickets,3,"AN1443, AN1444, AN1445","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0522
+DET0523,Detect Code Signing Policy Modification (Windows & macOS),T1553.006,Code Signing Policy Modification,2,"AN1446, AN1447","Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0523
+DET0524,Traffic Signaling (Port-knock / magic-packet → firewall or service activation) – T1205,T1205,Traffic Signaling,4,"AN1448, AN1449, AN1450, AN1451","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0524
+DET0525,System Discovery via Native and Remote Utilities,T1082,System Information Discovery,6,"AN1452, AN1453, AN1454, AN1455, AN1456, AN1457","ESXi, IaaS, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0525
+DET0526,Detect Archiving and Encryption of Collected Data (T1560),T1560,Archive Collected Data,3,"AN1458, AN1459, AN1460","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0526
+DET0527,Right-to-Left Override Masquerading Detection via Filename and Execution Context,T1036.002,Right-to-Left Override,3,"AN1461, AN1462, AN1463","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0527
+DET0528,Detecting Remote Script Proxy Execution via PubPrn.vbs,T1216.001,PubPrn,1,AN1464,Windows,https://attack.mitre.org/detectionstrategies/DET0528
+DET0529,Behavioral Detection of Native API Invocation via Unusual DLL Loads and Direct Syscalls,T1106,Native API,3,"AN1465, AN1466, AN1467","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0529
+DET0530,Multi-Event Detection for SMB Admin Share Lateral Movement,T1021.002,SMB/Windows Admin Shares,1,AN1468,Windows,https://attack.mitre.org/detectionstrategies/DET0530
+DET0531,Detection Strategy for Additional Cloud Credentials in IaaS/IdP/SaaS,T1098.001,Additional Cloud Credentials,3,"AN1469, AN1470, AN1471","IaaS, Identity Provider, SaaS",https://attack.mitre.org/detectionstrategies/DET0531
+DET0532,Detection of Event Log Clearing on Windows via Behavioral Chain,T1685.005,Clear Windows Event Logs,1,AN1472,Windows,https://attack.mitre.org/detectionstrategies/DET0532
+DET0533,Detection Strategy for Poisoned Pipeline Execution via SaaS CI/CD Workflows,T1677,Poisoned Pipeline Execution,1,AN1473,SaaS,https://attack.mitre.org/detectionstrategies/DET0533
+DET0534,TCC Database Manipulation via Launchctl and Unprotected SIP,T1548.006,TCC Manipulation,1,AN1474,macOS,https://attack.mitre.org/detectionstrategies/DET0534
+DET0535,Detect Abuse of vSphere Installation Bundles (VIBs) for Persistent Access,T1505.006,vSphere Installation Bundles,1,AN1475,ESXi,https://attack.mitre.org/detectionstrategies/DET0535
+DET0536,Detection Strategy for Wi-Fi Networks,T1669,Wi-Fi Networks,4,"AN1476, AN1477, AN1478, AN1479","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0536
+DET0537,Behavioral detection for Supply Chain Compromise (package/update tamper → install → first-run),T1195,Supply Chain Compromise,3,"AN1480, AN1481, AN1482","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0537
+DET0538,Detection Strategy for Protocol Tunneling accross OS platforms.,T1572,Protocol Tunneling,4,"AN1483, AN1484, AN1485, AN1486","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0538
+DET0539,Detection Strategy for Cloud Application Integration,T1671,Cloud Application Integration,2,"AN1487, AN1488","Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0539
+DET0540,Multi-Platform Behavioral Detection for Compute Hijacking,T1496.001,Compute Hijacking,5,"AN1489, AN1490, AN1491, AN1492, AN1493","Containers, IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0540
+DET0541,Detection Strategy for /proc Memory Injection on Linux,T1055.009,Proc Memory,1,AN1494,Linux,https://attack.mitre.org/detectionstrategies/DET0541
+DET0542,Registry and LSASS Monitoring for Security Support Provider Abuse,T1547.005,Security Support Provider,1,AN1495,Windows,https://attack.mitre.org/detectionstrategies/DET0542
+DET0543,Detection Strategy for Encrypted Channel via Asymmetric Cryptography across OS Platforms,T1573.002,Asymmetric Cryptography,5,"AN1496, AN1497, AN1498, AN1499, AN1500","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0543
+DET0544,Detection Strategy for Process Doppelgänging on Windows,T1055.013,Process Doppelgänging,1,AN1501,Windows,https://attack.mitre.org/detectionstrategies/DET0544
+DET0545,Detection Strategy for Cloud Administration Command,T1651,Cloud Administration Command,1,AN1502,IaaS,https://attack.mitre.org/detectionstrategies/DET0545
+DET0546,Detection of Abused or Compromised Cloud Accounts for Access and Persistence,T1078.004,Cloud Accounts,4,"AN1503, AN1504, AN1505, AN1506","IaaS, Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0546
+DET0547,Detection Strategy for T1505 - Server Software Component,T1505,Server Software Component,4,"AN1507, AN1508, AN1509, AN1510","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0547
+DET0548,Detection Strategy for Exfiltration Over Web Service,T1567,Exfiltration Over Web Service,5,"AN1511, AN1512, AN1513, AN1514, AN1515","ESXi, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0548
+DET0549,Detect Suspicious Access to Private Key Files and Export Attempts Across Platforms,T1552.004,Private Keys,4,"AN1516, AN1517, AN1518, AN1519","Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0549
+DET0550,Detecting Suspicious Access to CRM Data in SaaS Environments,T1213.004,Customer Relationship Management Software,1,AN1520,SaaS,https://attack.mitre.org/detectionstrategies/DET0550
+DET0551,Password Guessing via Multi-Source Authentication Failure Correlation,T1110.001,Password Guessing,6,"AN1521, AN1522, AN1523, AN1524, AN1525, AN1526","Identity Provider, Linux, Network Devices, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0551
+DET0552,Detection of Windows Service Creation or Modification,T1543.003,Windows Service,1,AN1527,Windows,https://attack.mitre.org/detectionstrategies/DET0552
+DET0553,Detection Strategy for Obfuscated Files or Information: Binary Padding,T1027.001,Binary Padding,3,"AN1528, AN1529, AN1530","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0553
+DET0554,Detection of Bluetooth-Based Data Exfiltration,T1011.001,Exfiltration Over Bluetooth,3,"AN1531, AN1532, AN1533","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0554
+DET0555,Detection Strategy for Event Triggered Execution via emond on macOS,T1546.014,Emond,1,AN1534,macOS,https://attack.mitre.org/detectionstrategies/DET0555
+DET0556,Behavior-chain detection strategy for T1127.001 Trusted Developer Utilities Proxy Execution: MSBuild (Windows),T1127.001,MSBuild,1,AN1535,Windows,https://attack.mitre.org/detectionstrategies/DET0556
+DET0557,Detection Strategy for Event Triggered Execution: AppInit DLLs (Windows),T1546.010,AppInit DLLs,1,AN1536,Windows,https://attack.mitre.org/detectionstrategies/DET0557
+DET0558,Detection Strategy for ESXi Hypervisor CLI Abuse,T1059.012,Hypervisor CLI,1,AN1537,ESXi,https://attack.mitre.org/detectionstrategies/DET0558
+DET0559,Multi-Platform Shutdown or Reboot Detection via Execution and Host Status Events,T1529,System Shutdown/Reboot,5,"AN1538, AN1539, AN1540, AN1541, AN1542","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0559
+DET0560,Detection of Valid Account Abuse Across Platforms,T1078,Valid Accounts,5,"AN1543, AN1544, AN1545, AN1546, AN1547","Containers, Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0560
+DET0561,Detect malicious IDE extension install/usage and IDE tunneling,T1176.002,IDE Extensions,3,"AN1548, AN1549, AN1550","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0561
+DET0562,Multi-Platform Execution Guardrails Environmental Validation Detection Strategy,T1480,Execution Guardrails,4,"AN1551, AN1552, AN1553, AN1554","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0562
+DET0563,Detection Strategy for Defense Impairment via Prevent Command History Logging across OS platforms.,T1690,Prevent Command History Logging,5,"AN1555, AN1556, AN1557, AN1558, AN1559","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0563
+DET0564,Detection Strategy for Hijack Execution Flow using Path Interception by Search Order Hijacking,T1574.008,Path Interception by Search Order Hijacking,1,AN1560,Windows,https://attack.mitre.org/detectionstrategies/DET0564
+DET0565,Detection Strategy for System Language Discovery,T1614.001,System Language Discovery,3,"AN1561, AN1562, AN1563","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0565
+DET0566,Template Injection Detection - Windows,T1221,Template Injection,1,AN1564,Windows,https://attack.mitre.org/detectionstrategies/DET0566
+DET0567,Detecting Unauthorized Collection from Messaging Applications in SaaS and Office Environments,T1213.005,Messaging Applications,2,"AN1565, AN1566","Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0567
+DET0568,Detection Strategy for Input Injection,T1674,Input Injection,3,"AN1567, AN1568, AN1569","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0568
+DET0569,Detection Strategy for Downgrade System Image on Network Devices,T1601.002,Downgrade System Image,1,AN1570,Network Devices,https://attack.mitre.org/detectionstrategies/DET0569
+DET0570,Detection Strategy for Exfiltration to Cloud Storage,T1567.002,Exfiltration to Cloud Storage,4,"AN1571, AN1572, AN1573, AN1574","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0570
+DET0571,Detection of System Process Creation or Modification Across Platforms,T1543,Create or Modify System Process,4,"AN1575, AN1576, AN1577, AN1578","Containers, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0571
+DET0572,Suspicious RoleBinding or ClusterRoleBinding Assignment in Kubernetes,T1098.006,Additional Container Cluster Roles,1,AN1579,Containers,https://attack.mitre.org/detectionstrategies/DET0572
+DET0573,Cross-Platform Detection of Data Transfer to Cloud Account,T1537,Transfer Data to Cloud Account,3,"AN1580, AN1581, AN1582","IaaS, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0573
+DET0574,Detection Strategy for Remote System Enumeration Behavior,T1018,Remote System Discovery,5,"AN1583, AN1584, AN1585, AN1586, AN1587","ESXi, Linux, Network Devices, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0574
+DET0575,Detection Strategy for Netsh Helper DLL Persistence via Registry and Child Process Monitoring (Windows),T1546.007,Netsh Helper DLL,1,AN1588,Windows,https://attack.mitre.org/detectionstrategies/DET0575
+DET0576,Email Forwarding Rule Abuse Detection Across Platforms,T1114.003,Email Forwarding Rule,4,"AN1589, AN1590, AN1591, AN1592","Linux, Office Suite, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0576
+DET0577,Detection Strategy for Hijack Execution Flow through the KernelCallbackTable on Windows.,T1574.013,KernelCallbackTable,1,AN1593,Windows,https://attack.mitre.org/detectionstrategies/DET0577
+DET0578,Detection Strategy for Cloud Storage Object Discovery,T1619,Cloud Storage Object Discovery,1,AN1594,IaaS,https://attack.mitre.org/detectionstrategies/DET0578
+DET0579,Detection Strategy for Device Driver Discovery,T1652,Device Driver Discovery,3,"AN1595, AN1596, AN1597","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0579
+DET0580,Detect Network Provider DLL Registration and Credential Capture,T1556.008,Network Provider DLL,1,AN1598,Windows,https://attack.mitre.org/detectionstrategies/DET0580
+DET0581,Detect One-Way Web Service Command Channels,T1102.003,One-Way Communication,4,"AN1599, AN1600, AN1601, AN1602","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0581
+DET0582,Detection Strategy for T1542.005 Pre-OS Boot: TFTP Boot,T1542.005,TFTP Boot,1,AN1603,Network Devices,https://attack.mitre.org/detectionstrategies/DET0582
+DET0583,Detection Strategy for T1136 - Create Account across platforms,T1136,Create Account,5,"AN1604, AN1605, AN1606, AN1607, AN1608","IaaS, Identity Provider, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0583
+DET0584,Detection Strategy for Resource Forking on macOS,T1564.009,Resource Forking,1,AN1609,macOS,https://attack.mitre.org/detectionstrategies/DET0584
+DET0585,Behavior-chain detection strategy for T1127.003 Trusted Developer Utilities Proxy Execution: JamPlus (Windows),T1127.003,JamPlus,1,AN1610,Windows,https://attack.mitre.org/detectionstrategies/DET0585
+DET0586,Detection of NTDS.dit Credential Dumping from Domain Controllers,T1003.003,NTDS,1,AN1611,Windows,https://attack.mitre.org/detectionstrategies/DET0586
+DET0587,Enumeration of User or Account Information Across Platforms,T1087,Account Discovery,8,"AN1612, AN1613, AN1614, AN1615, AN1616, AN1617, AN1618, AN1619","ESXi, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0587
+DET0588,Detection of Remote Service Session Hijacking for RDP.,T1563.002,RDP Hijacking,1,AN1620,Windows,https://attack.mitre.org/detectionstrategies/DET0588
+DET0589,Detect Modification of Authentication Process via Reversible Encryption,T1556.005,Reversible Encryption,1,AN1621,Windows,https://attack.mitre.org/detectionstrategies/DET0589
+DET0590,Behavioral Detection of External Website Defacement across Platforms,T1491.002,External Defacement,4,"AN1622, AN1623, AN1624, AN1625","IaaS, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0590
+DET0591,Cross-Platform Behavioral Detection of File Timestomping via Metadata Tampering,T1070.006,Timestomp,4,"AN1626, AN1627, AN1628, AN1629","ESXi, Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0591
+DET0592,Detection Strategy for Data from Configuration Repository on Network Devices,T1602,Data from Configuration Repository,1,AN1630,Network Devices,https://attack.mitre.org/detectionstrategies/DET0592
+DET0593,Detecting OS Credential Dumping via /proc Filesystem Access on Linux,T1003.007,Proc Filesystem,1,AN1631,Linux,https://attack.mitre.org/detectionstrategies/DET0593
+DET0594,Detection of Unauthorized DCSync Operations via Replication API Abuse,T1003.006,DCSync,1,AN1632,Windows,https://attack.mitre.org/detectionstrategies/DET0594
+DET0595,Detection Strategy for Exploitation for Stealth,T1211,Exploitation for Stealth,5,"AN1633, AN1634, AN1635, AN1636, AN1637","IaaS, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0595
+DET0596,Behavioral Detection of Remote SSH Logins Followed by Post-Login Execution,T1021.004,SSH,3,"AN1638, AN1639, AN1640","ESXi, Linux, macOS",https://attack.mitre.org/detectionstrategies/DET0596
+DET0597,Detect Unauthorized Access to Password Managers,T1555.005,Password Managers,3,"AN1641, AN1642, AN1643","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0597
+DET0805,Detection of Code Repositories,T1593.003,Code Repositories,1,AN1937,PRE,https://attack.mitre.org/detectionstrategies/DET0805
+DET0806,Detection of Determine Physical Locations,T1591.001,Determine Physical Locations,1,AN1938,PRE,https://attack.mitre.org/detectionstrategies/DET0806
+DET0807,Detection of Identify Roles,T1591.004,Identify Roles,1,AN1939,PRE,https://attack.mitre.org/detectionstrategies/DET0807
+DET0808,Detection of Vulnerabilities,T1588.006,Vulnerabilities,1,AN1940,PRE,https://attack.mitre.org/detectionstrategies/DET0808
+DET0809,Detection of CDNs,T1596.004,CDNs,1,AN1941,PRE,https://attack.mitre.org/detectionstrategies/DET0809
+DET0810,Detection of Search Victim-Owned Websites,T1594,Search Victim-Owned Websites,1,AN1942,PRE,https://attack.mitre.org/detectionstrategies/DET0810
+DET0811,Detection of Search Engines,T1593.002,Search Engines,1,AN1943,PRE,https://attack.mitre.org/detectionstrategies/DET0811
+DET0812,Detection of Social Media,T1593.001,Social Media,1,AN1944,PRE,https://attack.mitre.org/detectionstrategies/DET0812
+DET0813,Detection of Credentials,T1589.001,Credentials,1,AN1945,PRE,https://attack.mitre.org/detectionstrategies/DET0813
+DET0814,Detection of Email Addresses,T1589.002,Email Addresses,1,AN1946,PRE,https://attack.mitre.org/detectionstrategies/DET0814
+DET0815,Detection of IP Addresses,T1590.005,IP Addresses,1,AN1947,PRE,https://attack.mitre.org/detectionstrategies/DET0815
+DET0816,Detection of Threat Intel Vendors,T1597.001,Threat Intel Vendors,1,AN1948,PRE,https://attack.mitre.org/detectionstrategies/DET0816
+DET0817,Detection of Scanning IP Blocks,T1595.001,Scanning IP Blocks,1,AN1949,PRE,https://attack.mitre.org/detectionstrategies/DET0817
+DET0818,Detection of Firmware,T1592.003,Firmware,1,AN1950,PRE,https://attack.mitre.org/detectionstrategies/DET0818
+DET0819,Detection of Network Topology,T1590.004,Network Topology,1,AN1951,PRE,https://attack.mitre.org/detectionstrategies/DET0819
+DET0820,Detection of Client Configurations,T1592.004,Client Configurations,1,AN1952,PRE,https://attack.mitre.org/detectionstrategies/DET0820
+DET0821,Detection of Spearphishing Service,T1598.001,Spearphishing Service,1,AN1953,PRE,https://attack.mitre.org/detectionstrategies/DET0821
+DET0822,Detection of Search Closed Sources,T1597,Search Closed Sources,1,AN1954,PRE,https://attack.mitre.org/detectionstrategies/DET0822
+DET0823,Detection of Phishing for Information,T1598,Phishing for Information,1,AN1955,PRE,https://attack.mitre.org/detectionstrategies/DET0823
+DET0824,Detection of Upload Malware,T1608.001,Upload Malware,1,AN1956,PRE,https://attack.mitre.org/detectionstrategies/DET0824
+DET0825,Detection of Drive-by Target,T1608.004,Drive-by Target,1,AN1957,PRE,https://attack.mitre.org/detectionstrategies/DET0825
+DET0826,Detection of Gather Victim Host Information,T1592,Gather Victim Host Information,1,AN1958,PRE,https://attack.mitre.org/detectionstrategies/DET0826
+DET0827,Detection of Exploits,T1588.005,Exploits,1,AN1959,PRE,https://attack.mitre.org/detectionstrategies/DET0827
+DET0828,Detection of Network Trust Dependencies,T1590.003,Network Trust Dependencies,1,AN1960,PRE,https://attack.mitre.org/detectionstrategies/DET0828
+DET0829,Detection of Serverless,T1583.007,Serverless,1,AN1961,PRE,https://attack.mitre.org/detectionstrategies/DET0829
+DET0830,Detection of Active Scanning,T1595,Active Scanning,1,AN1962,PRE,https://attack.mitre.org/detectionstrategies/DET0830
+DET0831,Detection of Digital Certificates,T1596.003,Digital Certificates,1,AN1963,PRE,https://attack.mitre.org/detectionstrategies/DET0831
+DET0832,Detection of WHOIS,T1596.002,WHOIS,1,AN1964,PRE,https://attack.mitre.org/detectionstrategies/DET0832
+DET0833,Detection of Code Signing Certificates,T1587.002,Code Signing Certificates,1,AN1965,PRE,https://attack.mitre.org/detectionstrategies/DET0833
+DET0834,Detection of Upload Tool,T1608.002,Upload Tool,1,AN1966,PRE,https://attack.mitre.org/detectionstrategies/DET0834
+DET0835,Detection of Email Accounts,T1585.002,Email Accounts,1,AN1967,PRE,https://attack.mitre.org/detectionstrategies/DET0835
+DET0836,Detection of Malvertising,T1583.008,Malvertising,1,AN1968,PRE,https://attack.mitre.org/detectionstrategies/DET0836
+DET0837,Detection of Botnet,T1583.005,Botnet,1,AN1969,PRE,https://attack.mitre.org/detectionstrategies/DET0837
+DET0838,Detection of Virtual Private Server,T1583.003,Virtual Private Server,1,AN1970,PRE,https://attack.mitre.org/detectionstrategies/DET0838
+DET0839,Detection of Stage Capabilities,T1608,Stage Capabilities,1,AN1971,PRE,https://attack.mitre.org/detectionstrategies/DET0839
+DET0840,Detection of Install Digital Certificate,T1608.003,Install Digital Certificate,1,AN1972,PRE,https://attack.mitre.org/detectionstrategies/DET0840
+DET0841,Detection of Gather Victim Identity Information,T1589,Gather Victim Identity Information,1,AN1973,PRE,https://attack.mitre.org/detectionstrategies/DET0841
+DET0842,Detection of Artificial Intelligence,T1588.007,Artificial Intelligence,1,AN1974,PRE,https://attack.mitre.org/detectionstrategies/DET0842
+DET0843,Detection of DNS,T1590.002,DNS,1,AN1975,PRE,https://attack.mitre.org/detectionstrategies/DET0843
+DET0844,Detection of Digital Certificates,T1587.003,Digital Certificates,1,AN1976,PRE,https://attack.mitre.org/detectionstrategies/DET0844
+DET0845,Detection of Malware,T1588.001,Malware,1,AN1977,PRE,https://attack.mitre.org/detectionstrategies/DET0845
+DET0846,Detection of Cloud Accounts,T1585.003,Cloud Accounts,1,AN1978,PRE,https://attack.mitre.org/detectionstrategies/DET0846
+DET0847,Detection of Domain Properties,T1590.001,Domain Properties,1,AN1979,PRE,https://attack.mitre.org/detectionstrategies/DET0847
+DET0848,Detection of Digital Certificates,T1588.004,Digital Certificates,1,AN1980,PRE,https://attack.mitre.org/detectionstrategies/DET0848
+DET0849,Detection of Identify Business Tempo,T1591.003,Identify Business Tempo,1,AN1981,PRE,https://attack.mitre.org/detectionstrategies/DET0849
+DET0850,Detection of Obtain Capabilities,T1588,Obtain Capabilities,1,AN1982,PRE,https://attack.mitre.org/detectionstrategies/DET0850
+DET0851,Detection of Social Media Accounts,T1585.001,Social Media Accounts,1,AN1983,PRE,https://attack.mitre.org/detectionstrategies/DET0851
+DET0852,Detection of Tool,T1588.002,Tool,1,AN1984,PRE,https://attack.mitre.org/detectionstrategies/DET0852
+DET0853,Detection of Develop Capabilities,T1587,Develop Capabilities,1,AN1985,PRE,https://attack.mitre.org/detectionstrategies/DET0853
+DET0854,Detection of Virtual Private Server,T1584.003,Virtual Private Server,1,AN1986,PRE,https://attack.mitre.org/detectionstrategies/DET0854
+DET0855,Detection of Business Relationships,T1591.002,Business Relationships,1,AN1987,PRE,https://attack.mitre.org/detectionstrategies/DET0855
+DET0856,Detection of Search Open Websites/Domains,T1593,Search Open Websites/Domains,1,AN1988,PRE,https://attack.mitre.org/detectionstrategies/DET0856
+DET0857,Detection of Employee Names,T1589.003,Employee Names,1,AN1989,PRE,https://attack.mitre.org/detectionstrategies/DET0857
+DET0858,Detection of Scan Databases,T1596.005,Scan Databases,1,AN1990,PRE,https://attack.mitre.org/detectionstrategies/DET0858
+DET0859,Detection of Network Devices,T1584.008,Network Devices,1,AN1991,PRE,https://attack.mitre.org/detectionstrategies/DET0859
+DET0860,Detection of Search Open Technical Databases,T1596,Search Open Technical Databases,1,AN1992,PRE,https://attack.mitre.org/detectionstrategies/DET0860
+DET0861,Detection of Email Accounts,T1586.002,Email Accounts,1,AN1993,PRE,https://attack.mitre.org/detectionstrategies/DET0861
+DET0862,Detection of DNS Server,T1583.002,DNS Server,1,AN1994,PRE,https://attack.mitre.org/detectionstrategies/DET0862
+DET0863,Detection of Domains,T1584.001,Domains,1,AN1995,PRE,https://attack.mitre.org/detectionstrategies/DET0863
+DET0864,Detection of Serverless,T1584.007,Serverless,1,AN1996,PRE,https://attack.mitre.org/detectionstrategies/DET0864
+DET0865,Detection of Spearphishing Attachment,T1598.002,Spearphishing Attachment,1,AN1997,PRE,https://attack.mitre.org/detectionstrategies/DET0865
+DET0866,Detection of Search Threat Vendor Data,T1681,Search Threat Vendor Data,1,AN1998,PRE,https://attack.mitre.org/detectionstrategies/DET0866
+DET0867,Detection of Vulnerability Scanning,T1595.002,Vulnerability Scanning,1,AN1999,PRE,https://attack.mitre.org/detectionstrategies/DET0867
+DET0868,Detection of Wordlist Scanning,T1595.003,Wordlist Scanning,1,AN2000,PRE,https://attack.mitre.org/detectionstrategies/DET0868
+DET0869,Detection of Gather Victim Network Information,T1590,Gather Victim Network Information,1,AN2001,PRE,https://attack.mitre.org/detectionstrategies/DET0869
+DET0870,Detection of Social Media Accounts,T1586.001,Social Media Accounts,1,AN2002,PRE,https://attack.mitre.org/detectionstrategies/DET0870
+DET0871,Detection of Server,T1583.004,Server,1,AN2003,PRE,https://attack.mitre.org/detectionstrategies/DET0871
+DET0872,Detection of Malware,T1587.001,Malware,1,AN2004,PRE,https://attack.mitre.org/detectionstrategies/DET0872
+DET0873,Detection of Establish Accounts,T1585,Establish Accounts,1,AN2005,PRE,https://attack.mitre.org/detectionstrategies/DET0873
+DET0874,Detection of Server,T1584.004,Server,1,AN2006,PRE,https://attack.mitre.org/detectionstrategies/DET0874
+DET0875,Detection of Code Signing Certificates,T1588.003,Code Signing Certificates,1,AN2007,PRE,https://attack.mitre.org/detectionstrategies/DET0875
+DET0876,Detection of Compromise Accounts,T1586,Compromise Accounts,1,AN2008,PRE,https://attack.mitre.org/detectionstrategies/DET0876
+DET0877,Detection of DNS/Passive DNS,T1596.001,DNS/Passive DNS,1,AN2009,PRE,https://attack.mitre.org/detectionstrategies/DET0877
+DET0878,Detection of Spearphishing Link,T1598.003,Spearphishing Link,1,AN2010,PRE,https://attack.mitre.org/detectionstrategies/DET0878
+DET0879,Detection of Cloud Accounts,T1586.003,Cloud Accounts,1,AN2011,PRE,https://attack.mitre.org/detectionstrategies/DET0879
+DET0880,Detection of Purchase Technical Data,T1597.002,Purchase Technical Data,1,AN2012,PRE,https://attack.mitre.org/detectionstrategies/DET0880
+DET0881,Detection of SEO Poisoning,T1608.006,SEO Poisoning,1,AN2013,PRE,https://attack.mitre.org/detectionstrategies/DET0881
+DET0882,Detection of Web Services,T1584.006,Web Services,1,AN2014,PRE,https://attack.mitre.org/detectionstrategies/DET0882
+DET0883,Detection of Botnet,T1584.005,Botnet,1,AN2015,PRE,https://attack.mitre.org/detectionstrategies/DET0883
+DET0884,Detection of Acquire Access,T1650,Acquire Access,1,AN2016,PRE,https://attack.mitre.org/detectionstrategies/DET0884
+DET0885,Detection of Compromise Infrastructure,T1584,Compromise Infrastructure,1,AN2017,PRE,https://attack.mitre.org/detectionstrategies/DET0885
+DET0886,Detection of Spearphishing Voice,T1598.004,Spearphishing Voice,1,AN2018,PRE,https://attack.mitre.org/detectionstrategies/DET0886
+DET0887,Detection of Hardware,T1592.001,Hardware,1,AN2019,PRE,https://attack.mitre.org/detectionstrategies/DET0887
+DET0888,Detection of Software,T1592.002,Software,1,AN2020,PRE,https://attack.mitre.org/detectionstrategies/DET0888
+DET0889,Detection of Network Security Appliances,T1590.006,Network Security Appliances,1,AN2021,PRE,https://attack.mitre.org/detectionstrategies/DET0889
+DET0890,Detection of Gather Victim Org Information,T1591,Gather Victim Org Information,1,AN2022,PRE,https://attack.mitre.org/detectionstrategies/DET0890
+DET0891,Detection of DNS Server,T1584.002,DNS Server,1,AN2023,PRE,https://attack.mitre.org/detectionstrategies/DET0891
+DET0892,Detection of Domains,T1583.001,Domains,1,AN2024,PRE,https://attack.mitre.org/detectionstrategies/DET0892
+DET0893,Detection of Link Target,T1608.005,Link Target,1,AN2025,PRE,https://attack.mitre.org/detectionstrategies/DET0893
+DET0894,Detection of Exploits,T1587.004,Exploits,1,AN2026,PRE,https://attack.mitre.org/detectionstrategies/DET0894
+DET0895,Detection of Acquire Infrastructure,T1583,Acquire Infrastructure,1,AN2027,PRE,https://attack.mitre.org/detectionstrategies/DET0895
+DET0896,Detection of Web Services,T1583.006,Web Services,1,AN2028,PRE,https://attack.mitre.org/detectionstrategies/DET0896
+DET0897,Detection of Selective Exclusion,T1679,Selective Exclusion,1,AN2030,Windows,https://attack.mitre.org/detectionstrategies/DET0897
+DET0898,Detection of Spoofed User-Agent,T1036.012,Browser Fingerprint,3,"AN2029, AN2031, AN2032","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0898
+DET0899,Detect Social Engineering,T1684,Social Engineering,5,"AN2033, AN2034, AN2035, AN2036, AN2037","Linux, Office Suite, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0899
+DET0900,Detection of Defense Impairment,T1687,Exploitation for Defense Impairment,5,"AN2038, AN2039, AN2040, AN2041, AN2042","IaaS, Linux, SaaS, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0900
+DET0901,Detect Windows Firewall,T1686.003,Windows Host Firewall,1,AN2043,Windows,https://attack.mitre.org/detectionstrategies/DET0901
+DET0916,Detection of Generate Content,T1683,Generate Content,1,AN2059,PRE,https://attack.mitre.org/detectionstrategies/DET0916
+DET0917,Detection of Written Content,T1683.001,Written Content,1,AN2060,PRE,https://attack.mitre.org/detectionstrategies/DET0917
+DET0918,Detection of Audio-Visual Content,T1683.002,Audio-Visual Content,1,AN2061,PRE,https://attack.mitre.org/detectionstrategies/DET0918
+DET0919,Detection of Query Public AI Services,T1682,Query Public AI Services,1,AN2062,PRE,https://attack.mitre.org/detectionstrategies/DET0919
+DET0920,Detection Strategy for Invisible Unicode,T1027.018,Invisible Unicode,3,"AN2063, AN2064, AN2065","Linux, Windows, macOS",https://attack.mitre.org/detectionstrategies/DET0920
+DET0922,Detection of AI Result Poisoning,T1608.007,AI Result Poisoning,1,AN2068,PRE,https://attack.mitre.org/detectionstrategies/DET0922
+DET0926,Suspicious Acquisition and Use of Application-Specific Passwords,T1697,Steal Application Specific Passwords,3,"AN2075, AN2076, AN2077","Identity Provider, Office Suite, SaaS",https://attack.mitre.org/detectionstrategies/DET0926
+DET0927,Detect AI-Enabled Exfiltration,T1700,AI-Enabled Exfiltration,3,"AN2078, AN2079, AN2080","Linux, SaaS, Windows",https://attack.mitre.org/detectionstrategies/DET0927
+DET0937,Detection of Automated CAPTCHA,T1696.001,Automate CAPTCHA Completion,1,AN2104,SaaS,https://attack.mitre.org/detectionstrategies/DET0937
+DET0938,Detection of Avoid CAPTCHA,T1696.002,Avoid CAPTCHA,1,AN2105,SaaS,https://attack.mitre.org/detectionstrategies/DET0938
+DET0939,Detection of Anti-Automation Evasion,T1696,Anti-Automation Evasion,1,AN2106,SaaS,https://attack.mitre.org/detectionstrategies/DET0939
+DET0941,Instruction Override with Unauthorized AI Activity,T1699,Direct Prompt Injection,1,AN2292,SaaS,https://attack.mitre.org/detectionstrategies/DET0941
+DET0942,Retrieved Instruction with Unauthorized Agent Action,T1698,Indirect Prompt Injection,1,AN2293,SaaS,https://attack.mitre.org/detectionstrategies/DET0942
+DET0943,Adversarial Content Inducing Autonomous Defense Impairment,T1685.007,Impair Autonomous Defenses,1,AN2294,SaaS,https://attack.mitre.org/detectionstrategies/DET0943

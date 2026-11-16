@@ -1,0 +1,889 @@
+<dashboard version="2">
+  <label>ATT&amp;CK Data</label>
+  <description>オブジェクト種別ごとのタブ表示</description>
+  <definition><![CDATA[
+{
+    "title": "ATT&CK Data",
+    "description": "STIX 由来の lookup をオブジェクト種別ごとのタブで参照する",
+    "inputs": {
+        "input_q": {
+            "type": "input.text",
+            "title": "フィルタ（search 構文）",
+            "options": {
+                "token": "q",
+                "defaultValue": "*"
+            }
+        }
+    },
+    "defaults": {},
+    "visualizations": {
+        "viz_data_header": {
+            "type": "splunk.markdown",
+            "options": {
+                "markdown": "## ATT&CK Data\nSTIX バンドルから生成した lookup をオブジェクト種別ごとのタブで参照します。カラムの並びは lookup の定義順（ID → 名称 → 件数 → URL → 説明）に固定しています。\n\n**フィルタの書き方**: 全カラムを連結した `_raw` を内部で作っているため、`T1190` のような素の単語、`platforms=\"Linux\"` のような field=value、`Linux AND \"Valid Accounts\"` のような組み合わせがそのまま使えます。全件表示に戻すときは `*` を入れてください（空欄はエラーになります）。"
+            }
+        },
+        "viz_analytics_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_analytics_count"
+            },
+            "title": "analytics 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_analytics": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_analytics"
+            },
+            "title": "analytics（attack_analytics.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_campaigns_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_campaigns_count"
+            },
+            "title": "campaigns 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_campaigns": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_campaigns"
+            },
+            "title": "campaigns（attack_campaigns.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_datacomponents_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_datacomponents_count"
+            },
+            "title": "datacomponents 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_datacomponents": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_datacomponents"
+            },
+            "title": "datacomponents（attack_datacomponents.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_detectionstrategies_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_detectionstrategies_count"
+            },
+            "title": "detectionstrategies 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_detectionstrategies": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_detectionstrategies"
+            },
+            "title": "detectionstrategies（attack_detectionstrategies.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_groups_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_groups_count"
+            },
+            "title": "groups 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_groups": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_groups"
+            },
+            "title": "groups（attack_groups.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_matrices_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_matrices_count"
+            },
+            "title": "matrices 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_matrices": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_matrices"
+            },
+            "title": "matrices（attack_matrices.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_mitigations_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_mitigations_count"
+            },
+            "title": "mitigations 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_mitigations": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_mitigations"
+            },
+            "title": "mitigations（attack_mitigations.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_relationships_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_relationships_count"
+            },
+            "title": "relationships 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_relationships": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_relationships"
+            },
+            "title": "relationships（attack_relationships.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_software_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_software_count"
+            },
+            "title": "software 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_software": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_software"
+            },
+            "title": "software（attack_software.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_tactics_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_tactics_count"
+            },
+            "title": "tactics 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_tactics": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_tactics"
+            },
+            "title": "tactics（attack_tactics.csv）",
+            "options": {
+                "count": 50
+            }
+        },
+        "viz_techniques_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_techniques_count"
+            },
+            "title": "techniques 行数（フィルタ適用後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_techniques": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_techniques"
+            },
+            "title": "techniques（attack_techniques.csv）",
+            "options": {
+                "count": 50
+            }
+        }
+    },
+    "dataSources": {
+        "ds_analytics": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_analytics.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 an_id\n| table an_id, det_id, det_name, technique_id, technique_name, platforms, log_source_names, data_components, mutable_elements, mutable_detail, url, description"
+            },
+            "name": "analytics 一覧"
+        },
+        "ds_analytics_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_analytics.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "analytics 件数"
+        },
+        "ds_campaigns": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_campaigns.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 campaign_id\n| table campaign_id, name, first_seen, last_seen, aliases, techniques, software, groups, url, description"
+            },
+            "name": "campaigns 一覧"
+        },
+        "ds_campaigns_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_campaigns.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "campaigns 件数"
+        },
+        "ds_datacomponents": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_datacomponents.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 dc_id\n| table dc_id, name, log_sources, log_source_names, analytics, techniques, url, description"
+            },
+            "name": "datacomponents 一覧"
+        },
+        "ds_datacomponents_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_datacomponents.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "datacomponents 件数"
+        },
+        "ds_detectionstrategies": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detectionstrategies.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 det_id\n| table det_id, name, technique_id, technique_name, analytics, analytic_ids, platforms, url"
+            },
+            "name": "detectionstrategies 一覧"
+        },
+        "ds_detectionstrategies_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_detectionstrategies.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "detectionstrategies 件数"
+        },
+        "ds_groups": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_groups.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 group_id\n| table group_id, name, aliases, techniques, software, campaigns, url, description"
+            },
+            "name": "groups 一覧"
+        },
+        "ds_groups_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_groups.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "groups 件数"
+        },
+        "ds_matrices": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_matrices.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 tactic_order\n| table matrix_id, matrix_name, tactic_order, tactic_id, tactic_name, tactic_shortname, techniques, url"
+            },
+            "name": "matrices 一覧"
+        },
+        "ds_matrices_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_matrices.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "matrices 件数"
+        },
+        "ds_mitigations": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_mitigations.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 mitigation_id\n| table mitigation_id, name, techniques, url, description"
+            },
+            "name": "mitigations 一覧"
+        },
+        "ds_mitigations_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_mitigations.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "mitigations 件数"
+        },
+        "ds_relationships": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 source_id\n| table relationship_type, source_id, source_name, source_type, target_id, target_name, target_type, description"
+            },
+            "name": "relationships 一覧"
+        },
+        "ds_relationships_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_relationships.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "relationships 件数"
+        },
+        "ds_software": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_software.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 software_id\n| table software_id, name, software_type, platforms, aliases, techniques, groups, campaigns, url, description"
+            },
+            "name": "software 一覧"
+        },
+        "ds_software_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_software.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "software 件数"
+        },
+        "ds_tactics": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_tactics.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 tactic_order\n| table tactic_id, name, shortname, tactic_order, techniques, url, description"
+            },
+            "name": "tactics 一覧"
+        },
+        "ds_tactics_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_tactics.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "tactics 件数"
+        },
+        "ds_techniques": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_techniques.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 technique_id\n| table technique_id, name, is_sub_technique, parent_id, parent_name, tactics, platforms, detection_strategies, analytics, data_components, data_component_count, mitigations, groups, software, campaigns, url, description"
+            },
+            "name": "techniques 一覧"
+        },
+        "ds_techniques_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_techniques.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+            },
+            "name": "techniques 件数"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_q"
+        ],
+        "tabs": {
+            "items": [
+                {
+                    "label": "analytics",
+                    "layoutId": "layout_analytics"
+                },
+                {
+                    "label": "campaigns",
+                    "layoutId": "layout_campaigns"
+                },
+                {
+                    "label": "datacomponents",
+                    "layoutId": "layout_datacomponents"
+                },
+                {
+                    "label": "detectionstrategies",
+                    "layoutId": "layout_detectionstrategies"
+                },
+                {
+                    "label": "groups",
+                    "layoutId": "layout_groups"
+                },
+                {
+                    "label": "matrices",
+                    "layoutId": "layout_matrices"
+                },
+                {
+                    "label": "mitigations",
+                    "layoutId": "layout_mitigations"
+                },
+                {
+                    "label": "relationships",
+                    "layoutId": "layout_relationships"
+                },
+                {
+                    "label": "software",
+                    "layoutId": "layout_software"
+                },
+                {
+                    "label": "tactics",
+                    "layoutId": "layout_tactics"
+                },
+                {
+                    "label": "techniques",
+                    "layoutId": "layout_techniques"
+                }
+            ],
+            "options": {
+                "barPosition": "top",
+                "showTabBar": true
+            }
+        },
+        "layoutDefinitions": {
+            "layout_analytics": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_analytics_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_analytics",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_campaigns": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_campaigns_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_campaigns",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_datacomponents": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_datacomponents_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_datacomponents",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_detectionstrategies": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_detectionstrategies_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_detectionstrategies",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_groups": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_groups_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_groups",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_matrices": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_matrices_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_matrices",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_mitigations": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_mitigations_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_mitigations",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_relationships": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_relationships_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_relationships",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_software": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_software_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_software",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_tactics": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_tactics_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_tactics",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            },
+            "layout_techniques": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_data_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 150
+                        }
+                    },
+                    {
+                        "item": "viz_techniques_count",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 150,
+                            "w": 1200,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_techniques",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 270,
+                            "w": 1200,
+                            "h": 820
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+  ]]></definition>
+  <meta type="hiddenElements"><![CDATA[
+{
+    "hideEdit": false,
+    "hideOpenInSearch": false,
+    "hideExport": false
+}
+  ]]></meta>
+</dashboard>

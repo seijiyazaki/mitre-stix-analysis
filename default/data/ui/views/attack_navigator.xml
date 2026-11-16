@@ -1,0 +1,354 @@
+<dashboard version="2">
+  <label>Navigator</label>
+  <description>ATT&amp;CK Navigator 相当のマトリクス表示</description>
+  <definition><![CDATA[
+{
+    "title": "Navigator",
+    "description": "ATT&CK Navigator と同じ Tactic × Technique のマトリクス表示",
+    "inputs": {
+        "input_platform": {
+            "type": "input.dropdown",
+            "title": "Platform",
+            "dataSources": {
+                "primary": "ds_platforms"
+            },
+            "options": {
+                "token": "platform",
+                "items": ">frame(label, value) | prepend(formattedStatics) | objects()",
+                "defaultValue": "*"
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"value\") | renameSeries(\"value\") | formatByType(formattedConfig)",
+                "statics": [
+                    [
+                        "すべて"
+                    ],
+                    [
+                        "*"
+                    ]
+                ],
+                "formattedStatics": ">statics | formatByType(formattedConfig)"
+            }
+        },
+        "input_subtech": {
+            "type": "input.dropdown",
+            "title": "Sub-technique",
+            "options": {
+                "token": "subtech",
+                "defaultValue": "*",
+                "items": [
+                    {
+                        "label": "含める",
+                        "value": "*"
+                    },
+                    {
+                        "label": "親 Technique のみ",
+                        "value": "false"
+                    },
+                    {
+                        "label": "Sub-technique のみ",
+                        "value": "true"
+                    }
+                ]
+            }
+        },
+        "input_metric": {
+            "type": "input.dropdown",
+            "title": "セルに出す指標",
+            "options": {
+                "token": "metric",
+                "defaultValue": "analytics",
+                "items": [
+                    {
+                        "label": "Analytic 数",
+                        "value": "analytics"
+                    },
+                    {
+                        "label": "Detection Strategy 数",
+                        "value": "detection_strategies"
+                    },
+                    {
+                        "label": "Data Component 数",
+                        "value": "data_component_count"
+                    },
+                    {
+                        "label": "Mitigation 数",
+                        "value": "mitigations"
+                    },
+                    {
+                        "label": "Group 数",
+                        "value": "groups"
+                    },
+                    {
+                        "label": "Software 数",
+                        "value": "software"
+                    }
+                ]
+            }
+        }
+    },
+    "defaults": {},
+    "visualizations": {
+        "viz_nav_header": {
+            "type": "splunk.markdown",
+            "options": {
+                "markdown": "## ATT&CK Navigator\n列が Tactic、セルが Technique です。角括弧の数値は上の「セルに出す指標」で選んだ件数です。Platform と Sub-technique の絞り込みはこのページの全パネルに効きます。"
+            }
+        },
+        "viz_nav_version": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_version"
+            },
+            "title": "ATT&CK バージョン",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_nav_tech_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_tech_count"
+            },
+            "title": "Technique 数（絞り込み後）",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_nav_tactic_count": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_tactic_count"
+            },
+            "title": "Tactic 数",
+            "options": {
+                "numberPrecision": 0
+            }
+        },
+        "viz_nav_matrix": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_matrix"
+            },
+            "title": "Tactic × Technique マトリクス",
+            "options": {
+                "count": 100
+            },
+            "description": "横スクロールで全 Tactic を参照できます"
+        },
+        "viz_nav_counts": {
+            "type": "splunk.column",
+            "dataSources": {
+                "primary": "ds_tactic_counts"
+            },
+            "title": "Tactic 別の Technique 数と指標合計",
+            "options": {
+                "xAxisTitleText": "Tactic",
+                "yAxisTitleText": "件数",
+                "legendDisplay": "right"
+            }
+        },
+        "viz_nav_coverage": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_coverage"
+            },
+            "title": "選択した指標の上位 Technique（上位 100 件）",
+            "options": {
+                "count": 25
+            }
+        },
+        "viz_nav_detail": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_nav_detail"
+            },
+            "title": "Technique 一覧（全指標）",
+            "options": {
+                "count": 25
+            }
+        }
+    },
+    "dataSources": {
+        "ds_platforms": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| eval value = split(platforms, \", \")\n| mvexpand value\n| stats count by value\n| eval label = value\n| sort 0 label\n| fields label, value"
+            },
+            "name": "Platform 一覧"
+        },
+        "ds_version": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_about.csv\n| search key=\"attack_version\"\n| fields value"
+            },
+            "name": "ATT&CK バージョン"
+        },
+        "ds_tech_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(technique_id) as techniques"
+            },
+            "name": "Technique 数"
+        },
+        "ds_tactic_count": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(tactic_name) as tactics"
+            },
+            "name": "Tactic 数"
+        },
+        "ds_matrix": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| sort 0 tactic_order, technique_id\n| streamstats count as row by tactic_name\n| eval col = printf(\"%02d\", tactic_order).\" \".tactic_name\n| eval cell = technique_id.\" \".technique_name.\" [\".metric.\"]\"\n| xyseries row col cell\n| fields - row"
+            },
+            "name": "マトリクス"
+        },
+        "ds_tactic_counts": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats count as techniques, sum(metric) as metric_total by tactic_order, tactic_name\n| sort 0 tactic_order\n| eval tactic = printf(\"%02d\", tactic_order).\" \".tactic_name\n| table tactic, techniques, metric_total\n| rename techniques as \"Technique 数\", metric_total as \"$metric$ 合計\" "
+            },
+            "name": "Tactic 別件数"
+        },
+        "ds_coverage": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats values(tactic_name) as tactics, max(metric) as metric by technique_id, technique_name, platforms\n| eval tactics = mvjoin(tactics, \", \")\n| sort 0 - metric, technique_id\n| head 100\n| table technique_id, technique_name, tactics, platforms, metric\n| rename technique_id as \"Technique ID\", technique_name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", metric as \"$metric$\" "
+            },
+            "name": "指標上位"
+        },
+        "ds_nav_detail": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_techniques.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| sort 0 technique_id\n| table technique_id, name, tactics, platforms, detection_strategies, analytics, data_components, mitigations, groups, software, campaigns\n| rename technique_id as \"Technique ID\", name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", detection_strategies as \"DET 数\", analytics as \"AN 数\", data_components as \"Data Component\", mitigations as \"Mitigation 数\", groups as \"Group 数\", software as \"Software 数\", campaigns as \"Campaign 数\" "
+            },
+            "name": "Technique 一覧"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_platform",
+            "input_subtech",
+            "input_metric"
+        ],
+        "tabs": {
+            "items": [
+                {
+                    "label": "Navigator",
+                    "layoutId": "layout_navigator"
+                }
+            ],
+            "options": {
+                "barPosition": "top",
+                "showTabBar": false
+            }
+        },
+        "layoutDefinitions": {
+            "layout_navigator": {
+                "type": "grid",
+                "options": {
+                    "display": "auto"
+                },
+                "structure": [
+                    {
+                        "item": "viz_nav_header",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 1200,
+                            "h": 90
+                        }
+                    },
+                    {
+                        "item": "viz_nav_version",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 90,
+                            "w": 400,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_nav_tech_count",
+                        "type": "block",
+                        "position": {
+                            "x": 400,
+                            "y": 90,
+                            "w": 400,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_nav_tactic_count",
+                        "type": "block",
+                        "position": {
+                            "x": 800,
+                            "y": 90,
+                            "w": 400,
+                            "h": 120
+                        }
+                    },
+                    {
+                        "item": "viz_nav_matrix",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 210,
+                            "w": 1200,
+                            "h": 760
+                        }
+                    },
+                    {
+                        "item": "viz_nav_counts",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 970,
+                            "w": 1200,
+                            "h": 360
+                        }
+                    },
+                    {
+                        "item": "viz_nav_coverage",
+                        "type": "block",
+                        "position": {
+                            "x": 0,
+                            "y": 1330,
+                            "w": 600,
+                            "h": 480
+                        }
+                    },
+                    {
+                        "item": "viz_nav_detail",
+                        "type": "block",
+                        "position": {
+                            "x": 600,
+                            "y": 1330,
+                            "w": 600,
+                            "h": 480
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+  ]]></definition>
+  <meta type="hiddenElements"><![CDATA[
+{
+    "hideEdit": false,
+    "hideOpenInSearch": false,
+    "hideExport": false
+}
+  ]]></meta>
+</dashboard>

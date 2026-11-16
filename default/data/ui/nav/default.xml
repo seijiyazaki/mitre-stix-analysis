@@ -1,0 +1,14 @@
+<nav search_view="search">
+  <view name="attack_navigator" default="true" />
+  <view name="attack_ds_matrix" />
+  <view name="attack_data" />
+  <collection label="Relation">
+    <view name="attack_rel_technique" />
+    <view name="attack_rel_mitigation" />
+    <view name="attack_rel_datacomponent" />
+    <view name="attack_rel_software" />
+    <view name="attack_rel_group" />
+    <view name="attack_rel_campaign" />
+  </collection>
+  <view name="search" />
+</nav>
