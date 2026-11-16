@@ -1,0 +1,16 @@
+matrix_id,matrix_name,tactic_order,tactic_id,tactic_name,tactic_shortname,techniques,url
+enterprise-attack,Enterprise ATT&CK,1,TA0043,Reconnaissance,reconnaissance,46,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,2,TA0042,Resource Development,resource-development,51,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,3,TA0001,Initial Access,initial-access,22,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,4,TA0002,Execution,execution,66,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,5,TA0003,Persistence,persistence,113,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,6,TA0004,Privilege Escalation,privilege-escalation,96,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,7,TA0005,Stealth,stealth,151,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,8,TA0112,Defense Impairment,defense-impairment,57,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,9,TA0006,Credential Access,credential-access,68,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,10,TA0007,Discovery,discovery,49,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,11,TA0008,Lateral Movement,lateral-movement,23,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,12,TA0009,Collection,collection,41,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,13,TA0011,Command and Control,command-and-control,45,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,14,TA0010,Exfiltration,exfiltration,20,https://attack.mitre.org/matrices/enterprise
+enterprise-attack,Enterprise ATT&CK,15,TA0040,Impact,impact,33,https://attack.mitre.org/matrices/enterprise

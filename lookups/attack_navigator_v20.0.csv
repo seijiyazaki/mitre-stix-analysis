@@ -1,0 +1,882 @@
+tactic_order,tactic_id,tactic_name,tactic_shortname,technique_id,technique_name,is_sub_technique,parent_id,platforms,analytics,detection_strategies,mitigations,groups,software,data_component_count
+1,TA0043,Reconnaissance,reconnaissance,T1589,Gather Victim Identity Information,false,,PRE,1,1,1,10,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1589.001,Credentials,true,T1589,PRE,1,1,1,6,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1589.002,Email Addresses,true,T1589,PRE,1,1,1,14,1,1
+1,TA0043,Reconnaissance,reconnaissance,T1589.003,Employee Names,true,T1589,PRE,1,1,1,3,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590,Gather Victim Network Information,false,,PRE,1,1,1,3,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.001,Domain Properties,true,T1590,PRE,1,1,1,1,1,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.002,DNS,true,T1590,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.003,Network Trust Dependencies,true,T1590,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.004,Network Topology,true,T1590,PRE,1,1,1,4,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.005,IP Addresses,true,T1590,PRE,1,1,1,3,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1590.006,Network Security Appliances,true,T1590,PRE,1,1,1,1,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1591,Gather Victim Org Information,false,,PRE,1,1,1,8,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1591.001,Determine Physical Locations,true,T1591,PRE,1,1,1,1,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1591.002,Business Relationships,true,T1591,PRE,1,1,1,3,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1591.003,Identify Business Tempo,true,T1591,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1591.004,Identify Roles,true,T1591,PRE,1,1,1,4,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1592,Gather Victim Host Information,false,,PRE,1,1,1,1,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1592.001,Hardware,true,T1592,PRE,1,1,1,0,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1592.002,Software,true,T1592,PRE,1,1,1,3,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1592.003,Firmware,true,T1592,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1592.004,Client Configurations,true,T1592,PRE,1,1,1,1,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1593,Search Open Websites/Domains,false,,PRE,1,1,2,6,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1593.001,Social Media,true,T1593,PRE,1,1,1,3,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1593.002,Search Engines,true,T1593,PRE,1,1,1,1,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1593.003,Code Repositories,true,T1593,PRE,1,1,2,4,1,0
+1,TA0043,Reconnaissance,reconnaissance,T1594,Search Victim-Owned Websites,false,,PRE,1,1,1,6,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1595,Active Scanning,false,,PRE,1,1,1,1,0,2
+1,TA0043,Reconnaissance,reconnaissance,T1595.001,Scanning IP Blocks,true,T1595,PRE,1,1,1,2,0,2
+1,TA0043,Reconnaissance,reconnaissance,T1595.002,Vulnerability Scanning,true,T1595,PRE,1,1,1,15,0,2
+1,TA0043,Reconnaissance,reconnaissance,T1595.003,Wordlist Scanning,true,T1595,PRE,1,1,2,2,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1596,Search Open Technical Databases,false,,PRE,1,1,1,2,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1596.001,DNS/Passive DNS,true,T1596,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1596.002,WHOIS,true,T1596,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1596.003,Digital Certificates,true,T1596,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1596.004,CDNs,true,T1596,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1596.005,Scan Databases,true,T1596,PRE,1,1,1,2,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1597,Search Closed Sources,false,,PRE,1,1,1,1,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1597.001,Threat Intel Vendors,true,T1597,PRE,1,1,1,0,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1597.002,Purchase Technical Data,true,T1597,PRE,1,1,1,1,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1598,Phishing for Information,false,,PRE,1,1,2,6,0,3
+1,TA0043,Reconnaissance,reconnaissance,T1598.001,Spearphishing Service,true,T1598,PRE,1,1,1,1,0,3
+1,TA0043,Reconnaissance,reconnaissance,T1598.002,Spearphishing Attachment,true,T1598,PRE,1,1,2,4,0,3
+1,TA0043,Reconnaissance,reconnaissance,T1598.003,Spearphishing Link,true,T1598,PRE,1,1,2,16,3,3
+1,TA0043,Reconnaissance,reconnaissance,T1598.004,Spearphishing Voice,true,T1598,PRE,1,1,1,2,0,1
+1,TA0043,Reconnaissance,reconnaissance,T1681,Search Threat Vendor Data,false,,PRE,1,1,1,2,0,0
+1,TA0043,Reconnaissance,reconnaissance,T1682,Query Public AI Services,false,,PRE,1,1,1,2,0,0
+2,TA0042,Resource Development,resource-development,T1583,Acquire Infrastructure,false,,PRE,1,1,1,9,0,5
+2,TA0042,Resource Development,resource-development,T1583.001,Domains,true,T1583,PRE,1,1,1,48,3,3
+2,TA0042,Resource Development,resource-development,T1583.002,DNS Server,true,T1583,PRE,1,1,1,3,0,0
+2,TA0042,Resource Development,resource-development,T1583.003,Virtual Private Server,true,T1583,PRE,1,1,1,19,0,2
+2,TA0042,Resource Development,resource-development,T1583.004,Server,true,T1583,PRE,1,1,1,9,0,2
+2,TA0042,Resource Development,resource-development,T1583.005,Botnet,true,T1583,PRE,1,1,1,3,0,0
+2,TA0042,Resource Development,resource-development,T1583.006,Web Services,true,T1583,PRE,1,1,1,29,0,1
+2,TA0042,Resource Development,resource-development,T1583.007,Serverless,true,T1583,PRE,1,1,1,0,0,1
+2,TA0042,Resource Development,resource-development,T1583.008,Malvertising,true,T1583,PRE,1,1,1,1,1,1
+2,TA0042,Resource Development,resource-development,T1584,Compromise Infrastructure,false,,PRE,1,1,1,0,0,5
+2,TA0042,Resource Development,resource-development,T1584.001,Domains,true,T1584,PRE,1,1,1,6,1,3
+2,TA0042,Resource Development,resource-development,T1584.002,DNS Server,true,T1584,PRE,1,1,1,2,0,2
+2,TA0042,Resource Development,resource-development,T1584.003,Virtual Private Server,true,T1584,PRE,1,1,1,2,0,2
+2,TA0042,Resource Development,resource-development,T1584.004,Server,true,T1584,PRE,1,1,1,10,0,2
+2,TA0042,Resource Development,resource-development,T1584.005,Botnet,true,T1584,PRE,1,1,1,5,0,0
+2,TA0042,Resource Development,resource-development,T1584.006,Web Services,true,T1584,PRE,1,1,1,4,1,1
+2,TA0042,Resource Development,resource-development,T1584.007,Serverless,true,T1584,PRE,1,1,1,0,0,1
+2,TA0042,Resource Development,resource-development,T1584.008,Network Devices,true,T1584,PRE,1,1,1,5,0,1
+2,TA0042,Resource Development,resource-development,T1585,Establish Accounts,false,,PRE,1,1,1,6,0,2
+2,TA0042,Resource Development,resource-development,T1585.001,Social Media Accounts,true,T1585,PRE,1,1,1,23,0,2
+2,TA0042,Resource Development,resource-development,T1585.002,Email Accounts,true,T1585,PRE,1,1,1,21,0,0
+2,TA0042,Resource Development,resource-development,T1585.003,Cloud Accounts,true,T1585,PRE,1,1,1,1,0,0
+2,TA0042,Resource Development,resource-development,T1586,Compromise Accounts,false,,PRE,1,1,1,0,0,2
+2,TA0042,Resource Development,resource-development,T1586.001,Social Media Accounts,true,T1586,PRE,1,1,1,2,0,2
+2,TA0042,Resource Development,resource-development,T1586.002,Email Accounts,true,T1586,PRE,1,1,1,14,0,0
+2,TA0042,Resource Development,resource-development,T1586.003,Cloud Accounts,true,T1586,PRE,1,1,1,3,0,0
+2,TA0042,Resource Development,resource-development,T1587,Develop Capabilities,false,,PRE,1,1,1,4,0,3
+2,TA0042,Resource Development,resource-development,T1587.001,Malware,true,T1587,PRE,1,1,1,27,0,2
+2,TA0042,Resource Development,resource-development,T1587.002,Code Signing Certificates,true,T1587,PRE,1,1,1,3,0,1
+2,TA0042,Resource Development,resource-development,T1587.003,Digital Certificates,true,T1587,PRE,1,1,1,4,0,1
+2,TA0042,Resource Development,resource-development,T1587.004,Exploits,true,T1587,PRE,1,1,1,4,0,0
+2,TA0042,Resource Development,resource-development,T1588,Obtain Capabilities,false,,PRE,1,1,1,0,0,4
+2,TA0042,Resource Development,resource-development,T1588.001,Malware,true,T1588,PRE,1,1,1,18,0,2
+2,TA0042,Resource Development,resource-development,T1588.002,Tool,true,T1588,PRE,1,1,1,84,1,1
+2,TA0042,Resource Development,resource-development,T1588.003,Code Signing Certificates,true,T1588,PRE,1,1,1,8,1,1
+2,TA0042,Resource Development,resource-development,T1588.004,Digital Certificates,true,T1588,PRE,1,1,1,7,0,2
+2,TA0042,Resource Development,resource-development,T1588.005,Exploits,true,T1588,PRE,1,1,1,3,0,0
+2,TA0042,Resource Development,resource-development,T1588.006,Vulnerabilities,true,T1588,PRE,1,1,1,3,0,0
+2,TA0042,Resource Development,resource-development,T1588.007,Artificial Intelligence,true,T1588,PRE,1,1,1,4,1,0
+2,TA0042,Resource Development,resource-development,T1608,Stage Capabilities,false,,PRE,1,1,1,1,0,1
+2,TA0042,Resource Development,resource-development,T1608.001,Upload Malware,true,T1608,PRE,1,1,1,30,1,1
+2,TA0042,Resource Development,resource-development,T1608.002,Upload Tool,true,T1608,PRE,1,1,1,2,0,1
+2,TA0042,Resource Development,resource-development,T1608.003,Install Digital Certificate,true,T1608,PRE,1,1,1,1,0,1
+2,TA0042,Resource Development,resource-development,T1608.004,Drive-by Target,true,T1608,PRE,1,1,1,8,0,1
+2,TA0042,Resource Development,resource-development,T1608.005,Link Target,true,T1608,PRE,1,1,1,4,0,1
+2,TA0042,Resource Development,resource-development,T1608.006,SEO Poisoning,true,T1608,PRE,1,1,1,2,0,1
+2,TA0042,Resource Development,resource-development,T1608.007,AI Result Poisoning,true,T1608,PRE,1,1,1,0,0,0
+2,TA0042,Resource Development,resource-development,T1650,Acquire Access,false,,PRE,1,1,1,1,0,0
+2,TA0042,Resource Development,resource-development,T1683,Generate Content,false,,PRE,1,1,1,0,1,0
+2,TA0042,Resource Development,resource-development,T1683.001,Written Content,true,T1683,PRE,1,1,1,6,1,0
+2,TA0042,Resource Development,resource-development,T1683.002,Audio-Visual Content,true,T1683,PRE,1,1,1,5,0,0
+3,TA0001,Initial Access,initial-access,T1078,Valid Accounts,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,8,49,7,4
+3,TA0001,Initial Access,initial-access,T1078.001,Default Accounts,true,T1078,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,2,4,2,3
+3,TA0001,Initial Access,initial-access,T1078.002,Domain Accounts,true,T1078,"ESXi, Linux, macOS, Windows",4,1,5,21,5,4
+3,TA0001,Initial Access,initial-access,T1078.003,Local Accounts,true,T1078,"Containers, ESXi, Linux, macOS, Network Devices, Windows",3,1,4,14,5,3
+3,TA0001,Initial Access,initial-access,T1078.004,Cloud Accounts,true,T1078,"IaaS, Identity Provider, Office Suite, SaaS",4,1,7,14,6,3
+3,TA0001,Initial Access,initial-access,T1091,Replication Through Removable Media,false,,Windows,1,1,3,8,20,4
+3,TA0001,Initial Access,initial-access,T1133,External Remote Services,false,,"Containers, Linux, macOS, Windows",4,1,5,28,5,5
+3,TA0001,Initial Access,initial-access,T1189,Drive-by Compromise,false,,"Identity Provider, Linux, macOS, Windows",4,1,5,31,11,9
+3,TA0001,Initial Access,initial-access,T1190,Exploit Public-Facing Application,false,,"Containers, ESXi, IaaS, Linux, macOS, Network Devices, Windows",7,1,8,47,8,6
+3,TA0001,Initial Access,initial-access,T1195,Supply Chain Compromise,false,,"Linux, Windows, macOS, SaaS",3,1,6,3,2,7
+3,TA0001,Initial Access,initial-access,T1195.001,Compromise Software Dependencies and Development Tools,true,T1195,"Linux, macOS, Windows",3,1,4,3,7,7
+3,TA0001,Initial Access,initial-access,T1195.002,Compromise Software Supply Chain,true,T1195,"Linux, Windows, macOS",3,1,2,9,3,8
+3,TA0001,Initial Access,initial-access,T1195.003,Compromise Hardware Supply Chain,true,T1195,"Linux, macOS, Windows",3,1,1,0,0,5
+3,TA0001,Initial Access,initial-access,T1199,Trusted Relationship,false,,"IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",7,1,3,14,0,5
+3,TA0001,Initial Access,initial-access,T1200,Hardware Additions,false,,"Windows, Linux, macOS",3,1,2,1,0,8
+3,TA0001,Initial Access,initial-access,T1566,Phishing,false,,"Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",6,1,6,8,3,4
+3,TA0001,Initial Access,initial-access,T1566.001,Spearphishing Attachment,true,T1566,"Linux, macOS, Windows",3,1,7,79,62,5
+3,TA0001,Initial Access,initial-access,T1566.002,Spearphishing Link,true,T1566,"Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",4,1,5,48,32,5
+3,TA0001,Initial Access,initial-access,T1566.003,Spearphishing via Service,true,T1566,"Linux, macOS, Windows",3,1,5,15,1,6
+3,TA0001,Initial Access,initial-access,T1566.004,Spearphishing Voice,true,T1566,"Linux, macOS, Windows, Identity Provider",4,1,1,1,0,1
+3,TA0001,Initial Access,initial-access,T1659,Content Injection,false,,"Linux, macOS, Windows",3,1,2,1,1,4
+3,TA0001,Initial Access,initial-access,T1669,Wi-Fi Networks,false,,"Linux, Network Devices, Windows, macOS",4,1,3,1,0,5
+4,TA0002,Execution,execution,T1047,Windows Management Instrumentation,false,,Windows,1,1,4,43,94,3
+4,TA0002,Execution,execution,T1053,Scheduled Task/Job,false,,"Containers, ESXi, Linux, macOS, Network Devices, Windows",5,1,5,0,1,5
+4,TA0002,Execution,execution,T1053.002,At,true,T1053,"Windows, Linux, macOS",3,1,4,3,3,4
+4,TA0002,Execution,execution,T1053.003,Cron,true,T1053,"Linux, macOS, ESXi",3,1,2,3,14,3
+4,TA0002,Execution,execution,T1053.005,Scheduled Task,true,T1053,Windows,1,1,4,55,126,5
+4,TA0002,Execution,execution,T1053.006,Systemd Timers,true,T1053,Linux,1,1,3,1,2,3
+4,TA0002,Execution,execution,T1053.007,Container Orchestration Job,true,T1053,Containers,1,1,2,0,0,3
+4,TA0002,Execution,execution,T1059,Command and Scripting Interpreter,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,9,17,23,3
+4,TA0002,Execution,execution,T1059.001,PowerShell,true,T1059,"Windows, Linux, macOS",1,1,5,86,133,4
+4,TA0002,Execution,execution,T1059.002,AppleScript,true,T1059,macOS,1,1,2,1,6,1
+4,TA0002,Execution,execution,T1059.003,Windows Command Shell,true,T1059,Windows,1,1,1,73,298,3
+4,TA0002,Execution,execution,T1059.004,Unix Shell,true,T1059,"ESXi, Linux, macOS, Network Devices",4,1,1,13,50,6
+4,TA0002,Execution,execution,T1059.005,Visual Basic,true,T1059,"Linux, macOS, Windows",3,1,5,46,69,4
+4,TA0002,Execution,execution,T1059.006,Python,true,T1059,"ESXi, Linux, macOS, Windows",4,1,4,21,40,4
+4,TA0002,Execution,execution,T1059.007,JavaScript,true,T1059,"Linux, macOS, Windows",3,1,4,30,43,4
+4,TA0002,Execution,execution,T1059.008,Network Device CLI,true,T1059,Network Devices,1,1,3,1,3,3
+4,TA0002,Execution,execution,T1059.009,Cloud API,true,T1059,"IaaS, Identity Provider, Office Suite, SaaS",1,1,2,4,3,3
+4,TA0002,Execution,execution,T1059.010,AutoHotKey & AutoIT,true,T1059,Windows,1,1,1,1,5,3
+4,TA0002,Execution,execution,T1059.011,Lua,true,T1059,"Linux, Network Devices, Windows, macOS",4,1,3,0,5,5
+4,TA0002,Execution,execution,T1059.012,Hypervisor CLI,true,T1059,ESXi,1,1,0,1,4,2
+4,TA0002,Execution,execution,T1059.013,Container CLI/API,true,T1059,Containers,1,1,2,3,1,5
+4,TA0002,Execution,execution,T1072,Software Deployment Tools,false,,"Linux, macOS, Network Devices, SaaS, Windows",5,1,10,10,1,4
+4,TA0002,Execution,execution,T1106,Native API,false,,"Linux, macOS, Windows",3,1,2,21,210,3
+4,TA0002,Execution,execution,T1127,Trusted Developer Utilities Proxy Execution,false,,Windows,1,1,3,0,0,5
+4,TA0002,Execution,execution,T1127.001,MSBuild,true,T1127,Windows,1,1,2,0,3,8
+4,TA0002,Execution,execution,T1127.002,ClickOnce,true,T1127,Windows,1,1,3,0,0,3
+4,TA0002,Execution,execution,T1127.003,JamPlus,true,T1127,Windows,1,1,2,0,0,4
+4,TA0002,Execution,execution,T1129,Shared Modules,false,,"Linux, macOS, Windows",3,1,1,1,22,7
+4,TA0002,Execution,execution,T1197,BITS Jobs,false,,Windows,1,1,3,5,8,4
+4,TA0002,Execution,execution,T1203,Exploitation for Client Execution,false,,"Linux, macOS, Windows",3,1,3,42,14,7
+4,TA0002,Execution,execution,T1204,User Execution,false,,"Linux, Windows, macOS, IaaS, Containers",5,1,6,2,2,11
+4,TA0002,Execution,execution,T1204.001,Malicious Link,true,T1204,"Linux, macOS, Windows",3,1,3,50,31,4
+4,TA0002,Execution,execution,T1204.002,Malicious File,true,T1204,"Linux, macOS, Windows",3,1,3,87,98,3
+4,TA0002,Execution,execution,T1204.003,Malicious Image,true,T1204,"IaaS, Containers",2,1,4,1,0,8
+4,TA0002,Execution,execution,T1204.004,Malicious Copy and Paste,true,T1204,"Linux, macOS, Windows",3,1,3,3,3,5
+4,TA0002,Execution,execution,T1204.005,Malicious Library,true,T1204,"Linux, macOS, Windows",3,1,3,1,0,5
+4,TA0002,Execution,execution,T1559,Inter-Process Communication,false,,"Linux, macOS, Windows",3,1,6,0,17,5
+4,TA0002,Execution,execution,T1559.001,Component Object Model,true,T1559,Windows,1,1,2,4,18,3
+4,TA0002,Execution,execution,T1559.002,Dynamic Data Exchange,true,T1559,Windows,1,1,4,11,8,3
+4,TA0002,Execution,execution,T1559.003,XPC Services,true,T1559,macOS,1,1,1,0,0,3
+4,TA0002,Execution,execution,T1569,System Services,false,,"Windows, macOS, Linux",3,1,4,1,0,4
+4,TA0002,Execution,execution,T1569.001,Launchctl,true,T1569,macOS,1,1,1,0,6,4
+4,TA0002,Execution,execution,T1569.002,Service Execution,true,T1569,Windows,1,1,3,16,53,4
+4,TA0002,Execution,execution,T1569.003,Systemctl,true,T1569,Linux,1,1,1,1,1,4
+4,TA0002,Execution,execution,T1574,Hijack Execution Flow,false,,"Linux, macOS, Windows",3,1,10,0,9,6
+4,TA0002,Execution,execution,T1574.001,DLL,true,T1574,Windows,1,1,5,36,82,5
+4,TA0002,Execution,execution,T1574.004,Dylib Hijacking,true,T1574,macOS,1,1,1,0,1,3
+4,TA0002,Execution,execution,T1574.005,Executable Installer File Permissions Weakness,true,T1574,Windows,1,1,3,1,0,4
+4,TA0002,Execution,execution,T1574.006,Dynamic Linker Hijacking,true,T1574,"Linux, macOS",2,1,2,3,7,5
+4,TA0002,Execution,execution,T1574.007,Path Interception by PATH Environment Variable,true,T1574,"Linux, macOS, Windows",3,1,3,0,4,4
+4,TA0002,Execution,execution,T1574.008,Path Interception by Search Order Hijacking,true,T1574,Windows,1,1,3,0,2,3
+4,TA0002,Execution,execution,T1574.009,Path Interception by Unquoted Path,true,T1574,Windows,1,1,3,0,2,4
+4,TA0002,Execution,execution,T1574.010,Services File Permissions Weakness,true,T1574,Windows,1,1,3,0,1,4
+4,TA0002,Execution,execution,T1574.011,Services Registry Permissions Weakness,true,T1574,Windows,1,1,1,0,0,3
+4,TA0002,Execution,execution,T1574.012,COR_PROFILER,true,T1574,Windows,1,1,3,1,1,4
+4,TA0002,Execution,execution,T1574.013,KernelCallbackTable,true,T1574,Windows,1,1,1,1,1,3
+4,TA0002,Execution,execution,T1574.014,AppDomainManager,true,T1574,Windows,1,1,1,1,1,3
+4,TA0002,Execution,execution,T1609,Container Administration Command,false,,Containers,1,1,5,1,8,2
+4,TA0002,Execution,execution,T1610,Deploy Container,false,,Containers,1,1,4,3,4,4
+4,TA0002,Execution,execution,T1648,Serverless Execution,false,,"SaaS, IaaS, Office Suite",3,1,2,0,1,2
+4,TA0002,Execution,execution,T1651,Cloud Administration Command,false,,IaaS,1,1,1,2,2,3
+4,TA0002,Execution,execution,T1674,Input Injection,false,,"Windows, macOS, Linux",3,1,2,1,0,4
+4,TA0002,Execution,execution,T1675,ESXi Administration Command,false,,ESXi,1,1,1,1,2,1
+4,TA0002,Execution,execution,T1677,Poisoned Pipeline Execution,false,,SaaS,1,1,2,2,3,5
+4,TA0002,Execution,execution,T1698,Indirect Prompt Injection,false,,"Windows, SaaS",0,0,6,0,0,0
+4,TA0002,Execution,execution,T1699,Direct Prompt Injection,false,,"Windows, SaaS",0,0,4,0,0,0
+5,TA0003,Persistence,persistence,T1037,Boot or Logon Initialization Scripts,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,4,3,8
+5,TA0003,Persistence,persistence,T1037.001,Logon Script (Windows),true,T1037,Windows,1,1,1,2,4,4
+5,TA0003,Persistence,persistence,T1037.002,Login Hook,true,T1037,macOS,1,1,1,0,0,2
+5,TA0003,Persistence,persistence,T1037.003,Network Logon Script,true,T1037,Windows,1,1,1,0,1,3
+5,TA0003,Persistence,persistence,T1037.004,RC Scripts,true,T1037,"macOS, Linux, Network Devices, ESXi",4,1,1,3,6,5
+5,TA0003,Persistence,persistence,T1037.005,Startup Items,true,T1037,macOS,1,1,1,0,1,2
+5,TA0003,Persistence,persistence,T1053,Scheduled Task/Job,false,,"Containers, ESXi, Linux, macOS, Network Devices, Windows",5,1,5,0,1,5
+5,TA0003,Persistence,persistence,T1053.002,At,true,T1053,"Windows, Linux, macOS",3,1,4,3,3,4
+5,TA0003,Persistence,persistence,T1053.003,Cron,true,T1053,"Linux, macOS, ESXi",3,1,2,3,14,3
+5,TA0003,Persistence,persistence,T1053.005,Scheduled Task,true,T1053,Windows,1,1,4,55,126,5
+5,TA0003,Persistence,persistence,T1053.006,Systemd Timers,true,T1053,Linux,1,1,3,1,2,3
+5,TA0003,Persistence,persistence,T1053.007,Container Orchestration Job,true,T1053,Containers,1,1,2,0,0,3
+5,TA0003,Persistence,persistence,T1078,Valid Accounts,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,8,49,7,4
+5,TA0003,Persistence,persistence,T1078.001,Default Accounts,true,T1078,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,2,4,2,3
+5,TA0003,Persistence,persistence,T1078.002,Domain Accounts,true,T1078,"ESXi, Linux, macOS, Windows",4,1,5,21,5,4
+5,TA0003,Persistence,persistence,T1078.003,Local Accounts,true,T1078,"Containers, ESXi, Linux, macOS, Network Devices, Windows",3,1,4,14,5,3
+5,TA0003,Persistence,persistence,T1078.004,Cloud Accounts,true,T1078,"IaaS, Identity Provider, Office Suite, SaaS",4,1,7,14,6,3
+5,TA0003,Persistence,persistence,T1098,Account Manipulation,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",6,1,7,6,3,4
+5,TA0003,Persistence,persistence,T1098.001,Additional Cloud Credentials,true,T1098,"IaaS, Identity Provider, SaaS",3,1,5,1,1,3
+5,TA0003,Persistence,persistence,T1098.002,Additional Email Delegate Permissions,true,T1098,"Windows, Office Suite",2,1,3,3,0,3
+5,TA0003,Persistence,persistence,T1098.003,Additional Cloud Roles,true,T1098,"IaaS, Identity Provider, Office Suite, SaaS",3,1,3,3,0,1
+5,TA0003,Persistence,persistence,T1098.004,SSH Authorized Keys,true,T1098,"ESXi, IaaS, Linux, macOS, Network Devices",5,1,3,3,3,3
+5,TA0003,Persistence,persistence,T1098.005,Device Registration,true,T1098,"Windows, Identity Provider",2,1,1,1,1,3
+5,TA0003,Persistence,persistence,T1098.006,Additional Container Cluster Roles,true,T1098,Containers,1,1,2,0,0,1
+5,TA0003,Persistence,persistence,T1098.007,Additional Local or Domain Groups,true,T1098,"Windows, macOS, Linux",3,1,0,7,4,1
+5,TA0003,Persistence,persistence,T1112,Modify Registry,false,,Windows,1,1,1,29,141,2
+5,TA0003,Persistence,persistence,T1133,External Remote Services,false,,"Containers, Linux, macOS, Windows",4,1,5,28,5,5
+5,TA0003,Persistence,persistence,T1136,Create Account,false,,"Windows, IaaS, Linux, macOS, Network Devices, Containers, SaaS, Office Suite, Identity Provider, ESXi",5,1,4,3,1,5
+5,TA0003,Persistence,persistence,T1136.001,Local Account,true,T1136,"Containers, ESXi, Linux, macOS, Network Devices, Windows",6,1,2,16,15,4
+5,TA0003,Persistence,persistence,T1136.002,Domain Account,true,T1136,"Linux, macOS, Windows",3,1,4,5,4,5
+5,TA0003,Persistence,persistence,T1136.003,Cloud Account,true,T1136,"IaaS, SaaS, Office Suite, Identity Provider",4,1,3,2,1,4
+5,TA0003,Persistence,persistence,T1137,Office Application Startup,false,,"Windows, Office Suite",2,1,4,2,0,5
+5,TA0003,Persistence,persistence,T1137.001,Office Template Macros,true,T1137,"Office Suite, Windows",2,1,2,1,3,5
+5,TA0003,Persistence,persistence,T1137.002,Office Test,true,T1137,"Windows, Office Suite",2,1,2,1,0,5
+5,TA0003,Persistence,persistence,T1137.003,Outlook Forms,true,T1137,"Windows, Office Suite",2,1,2,0,1,4
+5,TA0003,Persistence,persistence,T1137.004,Outlook Home Page,true,T1137,"Windows, Office Suite",2,1,2,1,1,4
+5,TA0003,Persistence,persistence,T1137.005,Outlook Rules,true,T1137,"Windows, Office Suite",2,1,2,0,1,4
+5,TA0003,Persistence,persistence,T1137.006,Add-ins,true,T1137,"Windows, Office Suite",2,1,1,1,3,6
+5,TA0003,Persistence,persistence,T1176,Software Extensions,false,,"Linux, macOS, Windows",3,1,5,0,0,6
+5,TA0003,Persistence,persistence,T1176.001,Browser Extensions,true,T1176,"Linux, Windows, macOS",3,1,5,1,6,7
+5,TA0003,Persistence,persistence,T1176.002,IDE Extensions,true,T1176,"Linux, macOS, Windows",3,1,5,2,0,4
+5,TA0003,Persistence,persistence,T1197,BITS Jobs,false,,Windows,1,1,3,5,8,4
+5,TA0003,Persistence,persistence,T1205,Traffic Signaling,false,,"Linux, macOS, Network Devices, Windows",4,1,2,3,18,5
+5,TA0003,Persistence,persistence,T1205.001,Port Knocking,true,T1205,"Linux, macOS, Network Devices, Windows",4,1,1,2,4,3
+5,TA0003,Persistence,persistence,T1205.002,Socket Filters,true,T1205,"Linux, macOS, Windows",3,1,1,0,4,6
+5,TA0003,Persistence,persistence,T1505,Server Software Component,false,,"Windows, Linux, macOS, Network Devices, ESXi",4,1,7,0,0,6
+5,TA0003,Persistence,persistence,T1505.001,SQL Stored Procedures,true,T1505,"Windows, Linux",2,1,3,0,1,3
+5,TA0003,Persistence,persistence,T1505.002,Transport Agent,true,T1505,"Linux, Windows",2,1,3,0,1,6
+5,TA0003,Persistence,persistence,T1505.003,Web Shell,true,T1505,"Linux, macOS, Network Devices, Windows",3,1,2,31,22,5
+5,TA0003,Persistence,persistence,T1505.004,IIS Components,true,T1505,Windows,1,1,4,0,3,6
+5,TA0003,Persistence,persistence,T1505.005,Terminal Services DLL,true,T1505,Windows,1,1,2,0,0,4
+5,TA0003,Persistence,persistence,T1505.006,vSphere Installation Bundles,true,T1505,ESXi,1,1,3,1,1,3
+5,TA0003,Persistence,persistence,T1525,Implant Internal Image,false,,"IaaS, Containers",2,1,3,0,0,3
+5,TA0003,Persistence,persistence,T1542,Pre-OS Boot,false,,"Linux, macOS, Network Devices, Windows",4,1,5,0,0,7
+5,TA0003,Persistence,persistence,T1542.001,System Firmware,true,T1542,"Network Devices, Windows",2,1,3,0,3,5
+5,TA0003,Persistence,persistence,T1542.002,Component Firmware,true,T1542,"Windows, Linux, macOS",3,1,1,1,1,2
+5,TA0003,Persistence,persistence,T1542.003,Bootkit,true,T1542,"Linux, Windows",2,1,2,3,6,4
+5,TA0003,Persistence,persistence,T1542.004,ROMMONkit,true,T1542,Network Devices,1,1,3,0,0,3
+5,TA0003,Persistence,persistence,T1542.005,TFTP Boot,true,T1542,Network Devices,1,1,6,0,0,3
+5,TA0003,Persistence,persistence,T1543,Create or Modify System Process,false,,"Containers, Linux, macOS, Windows",4,1,9,0,9,6
+5,TA0003,Persistence,persistence,T1543.001,Launch Agent,true,T1543,macOS,1,1,1,2,22,4
+5,TA0003,Persistence,persistence,T1543.002,Systemd Service,true,T1543,Linux,1,1,4,4,11,5
+5,TA0003,Persistence,persistence,T1543.003,Windows Service,true,T1543,Windows,1,1,5,26,110,4
+5,TA0003,Persistence,persistence,T1543.004,Launch Daemon,true,T1543,macOS,1,1,2,1,10,4
+5,TA0003,Persistence,persistence,T1543.005,Container Service,true,T1543,Containers,1,1,2,1,0,4
+5,TA0003,Persistence,persistence,T1546,Event Triggered Execution,false,,"Linux, macOS, Windows, SaaS, IaaS, Office Suite",6,1,2,0,4,10
+5,TA0003,Persistence,persistence,T1546.001,Change Default File Association,true,T1546,Windows,1,1,0,1,1,3
+5,TA0003,Persistence,persistence,T1546.002,Screensaver,true,T1546,Windows,1,1,2,0,1,2
+5,TA0003,Persistence,persistence,T1546.003,Windows Management Instrumentation Event Subscription,true,T1546,Windows,1,1,3,10,13,3
+5,TA0003,Persistence,persistence,T1546.004,Unix Shell Configuration Modification,true,T1546,"Linux, macOS",2,1,1,1,5,3
+5,TA0003,Persistence,persistence,T1546.005,Trap,true,T1546,"macOS, Linux",2,1,0,0,0,3
+5,TA0003,Persistence,persistence,T1546.006,LC_LOAD_DYLIB Addition,true,T1546,macOS,1,1,3,0,0,3
+5,TA0003,Persistence,persistence,T1546.007,Netsh Helper DLL,true,T1546,Windows,1,1,0,0,1,3
+5,TA0003,Persistence,persistence,T1546.008,Accessibility Features,true,T1546,Windows,1,1,3,6,1,4
+5,TA0003,Persistence,persistence,T1546.009,AppCert DLLs,true,T1546,Windows,1,1,1,0,1,3
+5,TA0003,Persistence,persistence,T1546.010,AppInit DLLs,true,T1546,Windows,1,1,2,1,3,3
+5,TA0003,Persistence,persistence,T1546.011,Application Shimming,true,T1546,Windows,1,1,2,1,3,4
+5,TA0003,Persistence,persistence,T1546.012,Image File Execution Options Injection,true,T1546,Windows,1,1,0,0,2,4
+5,TA0003,Persistence,persistence,T1546.013,PowerShell Profile,true,T1546,Windows,1,1,3,1,0,4
+5,TA0003,Persistence,persistence,T1546.014,Emond,true,T1546,macOS,1,1,1,0,0,4
+5,TA0003,Persistence,persistence,T1546.015,Component Object Model Hijacking,true,T1546,Windows,1,1,0,1,11,3
+5,TA0003,Persistence,persistence,T1546.016,Installer Packages,true,T1546,"Linux, macOS, Windows",3,1,0,2,3,2
+5,TA0003,Persistence,persistence,T1546.017,Udev Rules,true,T1546,Linux,1,1,0,0,1,3
+5,TA0003,Persistence,persistence,T1546.018,Python Startup Hooks,true,T1546,"Linux, macOS, Windows",1,1,0,0,2,4
+5,TA0003,Persistence,persistence,T1547,Boot or Logon Autostart Execution,false,,"Linux, macOS, Windows, Network Devices",3,1,0,1,5,5
+5,TA0003,Persistence,persistence,T1547.001,Registry Run Keys / Startup Folder,true,T1547,Windows,1,1,0,59,205,3
+5,TA0003,Persistence,persistence,T1547.002,Authentication Package,true,T1547,Windows,1,1,1,0,1,2
+5,TA0003,Persistence,persistence,T1547.003,Time Providers,true,T1547,Windows,1,1,2,0,0,4
+5,TA0003,Persistence,persistence,T1547.004,Winlogon Helper DLL,true,T1547,Windows,1,1,2,3,10,4
+5,TA0003,Persistence,persistence,T1547.005,Security Support Provider,true,T1547,Windows,1,1,1,0,3,3
+5,TA0003,Persistence,persistence,T1547.006,Kernel Modules and Extensions,true,T1547,"macOS, Linux",2,1,4,0,3,5
+5,TA0003,Persistence,persistence,T1547.007,Re-opened Applications,true,T1547,macOS,1,1,2,0,0,4
+5,TA0003,Persistence,persistence,T1547.008,LSASS Driver,true,T1547,Windows,1,1,3,0,2,6
+5,TA0003,Persistence,persistence,T1547.009,Shortcut Modification,true,T1547,Windows,1,1,3,4,25,4
+5,TA0003,Persistence,persistence,T1547.010,Port Monitors,true,T1547,Windows,1,1,0,0,0,5
+5,TA0003,Persistence,persistence,T1547.012,Print Processors,true,T1547,Windows,1,1,1,1,2,4
+5,TA0003,Persistence,persistence,T1547.013,XDG Autostart Entries,true,T1547,Linux,1,1,3,1,6,5
+5,TA0003,Persistence,persistence,T1547.014,Active Setup,true,T1547,Windows,1,1,0,0,1,4
+5,TA0003,Persistence,persistence,T1547.015,Login Items,true,T1547,macOS,1,1,0,0,3,4
+5,TA0003,Persistence,persistence,T1554,Compromise Host Software Binary,false,,"ESXi, Linux, macOS, Windows",4,1,1,2,19,4
+5,TA0003,Persistence,persistence,T1556,Modify Authentication Process,false,,"IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,9,2,4,7
+5,TA0003,Persistence,persistence,T1556.001,Domain Controller Authentication,true,T1556,Windows,1,1,4,1,1,4
+5,TA0003,Persistence,persistence,T1556.002,Password Filter DLL,true,T1556,Windows,1,1,1,3,1,3
+5,TA0003,Persistence,persistence,T1556.003,Pluggable Authentication Modules,true,T1556,"Linux, macOS",2,1,2,0,2,3
+5,TA0003,Persistence,persistence,T1556.004,Network Device Authentication,true,T1556,Network Devices,1,1,2,0,3,2
+5,TA0003,Persistence,persistence,T1556.005,Reversible Encryption,true,T1556,Windows,1,1,2,0,0,3
+5,TA0003,Persistence,persistence,T1556.006,Multi-Factor Authentication,true,T1556,"IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",7,1,3,1,2,7
+5,TA0003,Persistence,persistence,T1556.007,Hybrid Identity,true,T1556,"IaaS, Identity Provider, Office Suite, SaaS, Windows",5,1,3,1,1,6
+5,TA0003,Persistence,persistence,T1556.008,Network Provider DLL,true,T1556,Windows,1,1,3,0,0,4
+5,TA0003,Persistence,persistence,T1556.009,Conditional Access Policies,true,T1556,"IaaS, Identity Provider",2,1,1,2,0,3
+5,TA0003,Persistence,persistence,T1653,Power Settings,false,,"Windows, Linux, macOS, Network Devices",3,1,1,0,2,3
+5,TA0003,Persistence,persistence,T1668,Exclusive Control,false,,"Linux, macOS, Windows",3,1,0,0,0,3
+5,TA0003,Persistence,persistence,T1671,Cloud Application Integration,false,,"Office Suite, SaaS",2,1,2,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1037,Boot or Logon Initialization Scripts,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,4,3,8
+6,TA0004,Privilege Escalation,privilege-escalation,T1037.001,Logon Script (Windows),true,T1037,Windows,1,1,1,2,4,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1037.002,Login Hook,true,T1037,macOS,1,1,1,0,0,2
+6,TA0004,Privilege Escalation,privilege-escalation,T1037.003,Network Logon Script,true,T1037,Windows,1,1,1,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1037.004,RC Scripts,true,T1037,"macOS, Linux, Network Devices, ESXi",4,1,1,3,6,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1037.005,Startup Items,true,T1037,macOS,1,1,1,0,1,2
+6,TA0004,Privilege Escalation,privilege-escalation,T1053,Scheduled Task/Job,false,,"Containers, ESXi, Linux, macOS, Network Devices, Windows",5,1,5,0,1,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1053.002,At,true,T1053,"Windows, Linux, macOS",3,1,4,3,3,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1053.003,Cron,true,T1053,"Linux, macOS, ESXi",3,1,2,3,14,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1053.005,Scheduled Task,true,T1053,Windows,1,1,4,55,126,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1053.006,Systemd Timers,true,T1053,Linux,1,1,3,1,2,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1053.007,Container Orchestration Job,true,T1053,Containers,1,1,2,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1055,Process Injection,false,,"Linux, macOS, Windows",3,1,2,15,66,7
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.001,Dynamic-link Library Injection,true,T1055,Windows,1,1,1,10,56,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.002,Portable Executable Injection,true,T1055,Windows,1,1,1,2,12,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.003,Thread Execution Hijacking,true,T1055,Windows,1,1,1,0,5,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.004,Asynchronous Procedure Call,true,T1055,Windows,1,1,1,1,12,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.005,Thread Local Storage,true,T1055,Windows,1,1,1,0,2,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.008,Ptrace System Calls,true,T1055,Linux,1,1,2,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.009,Proc Memory,true,T1055,Linux,1,1,2,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.011,Extra Window Memory Injection,true,T1055,Windows,1,1,1,0,2,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.012,Process Hollowing,true,T1055,Windows,1,1,1,8,36,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.013,Process Doppelgänging,true,T1055,Windows,1,1,1,1,2,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.014,VDSO Hijacking,true,T1055,Linux,1,1,1,0,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1055.015,ListPlanting,true,T1055,Windows,1,1,1,0,1,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1068,Exploitation for Privilege Escalation,false,,"Containers, Linux, macOS, Windows",4,1,5,23,19,7
+6,TA0004,Privilege Escalation,privilege-escalation,T1078,Valid Accounts,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,8,49,7,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1078.001,Default Accounts,true,T1078,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,2,4,2,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1078.002,Domain Accounts,true,T1078,"ESXi, Linux, macOS, Windows",4,1,5,21,5,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1078.003,Local Accounts,true,T1078,"Containers, ESXi, Linux, macOS, Network Devices, Windows",3,1,4,14,5,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1078.004,Cloud Accounts,true,T1078,"IaaS, Identity Provider, Office Suite, SaaS",4,1,7,14,6,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1098,Account Manipulation,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",6,1,7,6,3,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.001,Additional Cloud Credentials,true,T1098,"IaaS, Identity Provider, SaaS",3,1,5,1,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.002,Additional Email Delegate Permissions,true,T1098,"Windows, Office Suite",2,1,3,3,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.003,Additional Cloud Roles,true,T1098,"IaaS, Identity Provider, Office Suite, SaaS",3,1,3,3,0,1
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.004,SSH Authorized Keys,true,T1098,"ESXi, IaaS, Linux, macOS, Network Devices",5,1,3,3,3,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.005,Device Registration,true,T1098,"Windows, Identity Provider",2,1,1,1,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.006,Additional Container Cluster Roles,true,T1098,Containers,1,1,2,0,0,1
+6,TA0004,Privilege Escalation,privilege-escalation,T1098.007,Additional Local or Domain Groups,true,T1098,"Windows, macOS, Linux",3,1,0,7,4,1
+6,TA0004,Privilege Escalation,privilege-escalation,T1134,Access Token Manipulation,false,,Windows,1,1,2,3,19,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1134.001,Token Impersonation/Theft,true,T1134,Windows,1,1,2,2,18,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1134.002,Create Process with Token,true,T1134,Windows,1,1,2,2,12,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1134.003,Make and Impersonate Token,true,T1134,Windows,1,1,2,2,3,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1134.004,Parent PID Spoofing,true,T1134,Windows,1,1,0,0,4,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1134.005,SID-History Injection,true,T1134,Windows,1,1,1,0,2,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1484,Domain or Tenant Policy Modification,false,,"Windows, Identity Provider",2,1,3,0,0,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1484.001,Group Policy Modification,true,T1484,Windows,1,1,2,5,9,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1484.002,Trust Modification,true,T1484,"Identity Provider, Windows",2,1,2,2,1,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1543,Create or Modify System Process,false,,"Containers, Linux, macOS, Windows",4,1,9,0,9,6
+6,TA0004,Privilege Escalation,privilege-escalation,T1543.001,Launch Agent,true,T1543,macOS,1,1,1,2,22,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1543.002,Systemd Service,true,T1543,Linux,1,1,4,4,11,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1543.003,Windows Service,true,T1543,Windows,1,1,5,26,110,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1543.004,Launch Daemon,true,T1543,macOS,1,1,2,1,10,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1543.005,Container Service,true,T1543,Containers,1,1,2,1,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546,Event Triggered Execution,false,,"Linux, macOS, Windows, SaaS, IaaS, Office Suite",6,1,2,0,4,10
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.001,Change Default File Association,true,T1546,Windows,1,1,0,1,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.002,Screensaver,true,T1546,Windows,1,1,2,0,1,2
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.003,Windows Management Instrumentation Event Subscription,true,T1546,Windows,1,1,3,10,13,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.004,Unix Shell Configuration Modification,true,T1546,"Linux, macOS",2,1,1,1,5,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.005,Trap,true,T1546,"macOS, Linux",2,1,0,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.006,LC_LOAD_DYLIB Addition,true,T1546,macOS,1,1,3,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.007,Netsh Helper DLL,true,T1546,Windows,1,1,0,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.008,Accessibility Features,true,T1546,Windows,1,1,3,6,1,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.009,AppCert DLLs,true,T1546,Windows,1,1,1,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.010,AppInit DLLs,true,T1546,Windows,1,1,2,1,3,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.011,Application Shimming,true,T1546,Windows,1,1,2,1,3,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.012,Image File Execution Options Injection,true,T1546,Windows,1,1,0,0,2,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.013,PowerShell Profile,true,T1546,Windows,1,1,3,1,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.014,Emond,true,T1546,macOS,1,1,1,0,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.015,Component Object Model Hijacking,true,T1546,Windows,1,1,0,1,11,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.016,Installer Packages,true,T1546,"Linux, macOS, Windows",3,1,0,2,3,2
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.017,Udev Rules,true,T1546,Linux,1,1,0,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1546.018,Python Startup Hooks,true,T1546,"Linux, macOS, Windows",1,1,0,0,2,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547,Boot or Logon Autostart Execution,false,,"Linux, macOS, Windows, Network Devices",3,1,0,1,5,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.001,Registry Run Keys / Startup Folder,true,T1547,Windows,1,1,0,59,205,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.002,Authentication Package,true,T1547,Windows,1,1,1,0,1,2
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.003,Time Providers,true,T1547,Windows,1,1,2,0,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.004,Winlogon Helper DLL,true,T1547,Windows,1,1,2,3,10,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.005,Security Support Provider,true,T1547,Windows,1,1,1,0,3,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.006,Kernel Modules and Extensions,true,T1547,"macOS, Linux",2,1,4,0,3,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.007,Re-opened Applications,true,T1547,macOS,1,1,2,0,0,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.008,LSASS Driver,true,T1547,Windows,1,1,3,0,2,6
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.009,Shortcut Modification,true,T1547,Windows,1,1,3,4,25,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.010,Port Monitors,true,T1547,Windows,1,1,0,0,0,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.012,Print Processors,true,T1547,Windows,1,1,1,1,2,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.013,XDG Autostart Entries,true,T1547,Linux,1,1,3,1,6,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.014,Active Setup,true,T1547,Windows,1,1,0,0,1,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1547.015,Login Items,true,T1547,macOS,1,1,0,0,3,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1548,Abuse Elevation Control Mechanism,false,,"Linux, macOS, Windows, IaaS, Office Suite, Identity Provider",5,1,8,1,1,7
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.001,Setuid and Setgid,true,T1548,"Linux, macOS",2,1,1,0,2,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.002,Bypass User Account Control,true,T1548,Windows,1,1,4,11,52,5
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.003,Sudo and Sudo Caching,true,T1548,"Linux, macOS",2,1,3,2,7,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.004,Elevated Execution with Prompt,true,T1548,macOS,1,1,1,0,1,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.005,Temporary Elevated Cloud Access,true,T1548,"IaaS, Office Suite, Identity Provider",3,1,1,0,0,3
+6,TA0004,Privilege Escalation,privilege-escalation,T1548.006,TCC Manipulation,true,T1548,macOS,1,1,3,1,1,4
+6,TA0004,Privilege Escalation,privilege-escalation,T1611,Escape to Host,false,,"Windows, Linux, Containers, ESXi",4,1,5,1,4,6
+7,TA0005,Stealth,stealth,T1006,Direct Volume Access,false,,"Network Devices, Windows",2,1,2,2,1,3
+7,TA0005,Stealth,stealth,T1014,Rootkit,false,,"Linux, macOS, Windows",3,1,0,6,24,6
+7,TA0005,Stealth,stealth,T1027,Obfuscated Files or Information,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,4,19,142,7
+7,TA0005,Stealth,stealth,T1027.001,Binary Padding,true,T1027,"Linux, macOS, Windows",3,1,0,8,23,3
+7,TA0005,Stealth,stealth,T1027.002,Software Packing,true,T1027,"Linux, macOS, Windows",3,1,1,24,74,3
+7,TA0005,Stealth,stealth,T1027.003,Steganography,true,T1027,"Linux, macOS, Windows",3,1,0,10,19,3
+7,TA0005,Stealth,stealth,T1027.004,Compile After Delivery,true,T1027,"Linux, macOS, Windows",3,1,0,4,6,3
+7,TA0005,Stealth,stealth,T1027.005,Indicator Removal from Tools,true,T1027,"Linux, macOS, Windows",3,1,0,7,10,5
+7,TA0005,Stealth,stealth,T1027.006,HTML Smuggling,true,T1027,"Linux, macOS, Windows",3,1,1,1,2,4
+7,TA0005,Stealth,stealth,T1027.007,Dynamic API Resolution,true,T1027,Windows,1,1,0,3,18,3
+7,TA0005,Stealth,stealth,T1027.008,Stripped Payloads,true,T1027,"Linux, macOS, Network Devices, Windows",4,1,0,0,2,5
+7,TA0005,Stealth,stealth,T1027.009,Embedded Payloads,true,T1027,"Linux, macOS, Windows",3,1,2,3,19,5
+7,TA0005,Stealth,stealth,T1027.010,Command Obfuscation,true,T1027,"Linux, macOS, Windows",3,1,2,31,36,2
+7,TA0005,Stealth,stealth,T1027.011,Fileless Storage,true,T1027,"Linux, Windows",2,1,1,2,27,4
+7,TA0005,Stealth,stealth,T1027.012,LNK Icon Smuggling,true,T1027,Windows,1,1,2,3,1,3
+7,TA0005,Stealth,stealth,T1027.013,Encrypted/Encoded File,true,T1027,"Linux, macOS, Windows",3,1,2,40,202,6
+7,TA0005,Stealth,stealth,T1027.014,Polymorphic Code,true,T1027,"Linux, macOS, Windows",3,1,2,0,1,7
+7,TA0005,Stealth,stealth,T1027.015,Compression,true,T1027,"Linux, macOS, Windows",3,1,1,12,28,5
+7,TA0005,Stealth,stealth,T1027.016,Junk Code Insertion,true,T1027,"Linux, macOS, Windows",3,1,1,7,20,4
+7,TA0005,Stealth,stealth,T1027.017,SVG Smuggling,true,T1027,"Linux, macOS, Windows",3,1,1,0,0,5
+7,TA0005,Stealth,stealth,T1027.018,Invisible Unicode,true,T1027,"Linux, macOS, Windows",3,1,0,0,1,8
+7,TA0005,Stealth,stealth,T1036,Masquerading,false,,"Containers, ESXi, Linux, macOS, Windows",5,1,8,21,33,8
+7,TA0005,Stealth,stealth,T1036.001,Invalid Code Signature,true,T1036,"macOS, Windows",2,1,1,3,8,4
+7,TA0005,Stealth,stealth,T1036.002,Right-to-Left Override,true,T1036,"Linux, macOS, Windows",3,1,0,5,0,4
+7,TA0005,Stealth,stealth,T1036.003,Rename Legitimate Utilities,true,T1036,"Linux, macOS, Windows",3,1,1,6,5,6
+7,TA0005,Stealth,stealth,T1036.004,Masquerade Task or Service,true,T1036,"Linux, macOS, Windows",3,1,0,24,64,6
+7,TA0005,Stealth,stealth,T1036.005,Match Legitimate Resource Name or Location,true,T1036,"Containers, ESXi, Linux, macOS, Windows",5,1,3,66,145,10
+7,TA0005,Stealth,stealth,T1036.006,Space after Filename,true,T1036,"Linux, macOS",2,1,0,1,1,3
+7,TA0005,Stealth,stealth,T1036.007,Double File Extension,true,T1036,Windows,1,1,2,2,3,2
+7,TA0005,Stealth,stealth,T1036.008,Masquerade File Type,true,T1036,"Linux, macOS, Windows",3,1,3,5,13,3
+7,TA0005,Stealth,stealth,T1036.009,Break Process Trees,true,T1036,"Linux, macOS",2,1,0,0,2,2
+7,TA0005,Stealth,stealth,T1036.010,Masquerade Account Name,true,T1036,"Containers, IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",4,1,2,4,2,3
+7,TA0005,Stealth,stealth,T1036.011,Overwrite Process Arguments,true,T1036,Linux,1,1,0,0,1,2
+7,TA0005,Stealth,stealth,T1036.012,Browser Fingerprint,true,T1036,"Linux, macOS, Windows",3,1,1,0,3,4
+7,TA0005,Stealth,stealth,T1055,Process Injection,false,,"Linux, macOS, Windows",3,1,2,15,66,7
+7,TA0005,Stealth,stealth,T1055.001,Dynamic-link Library Injection,true,T1055,Windows,1,1,1,10,56,4
+7,TA0005,Stealth,stealth,T1055.002,Portable Executable Injection,true,T1055,Windows,1,1,1,2,12,4
+7,TA0005,Stealth,stealth,T1055.003,Thread Execution Hijacking,true,T1055,Windows,1,1,1,0,5,4
+7,TA0005,Stealth,stealth,T1055.004,Asynchronous Procedure Call,true,T1055,Windows,1,1,1,1,12,4
+7,TA0005,Stealth,stealth,T1055.005,Thread Local Storage,true,T1055,Windows,1,1,1,0,2,4
+7,TA0005,Stealth,stealth,T1055.008,Ptrace System Calls,true,T1055,Linux,1,1,2,0,1,3
+7,TA0005,Stealth,stealth,T1055.009,Proc Memory,true,T1055,Linux,1,1,2,0,0,3
+7,TA0005,Stealth,stealth,T1055.011,Extra Window Memory Injection,true,T1055,Windows,1,1,1,0,2,3
+7,TA0005,Stealth,stealth,T1055.012,Process Hollowing,true,T1055,Windows,1,1,1,8,36,4
+7,TA0005,Stealth,stealth,T1055.013,Process Doppelgänging,true,T1055,Windows,1,1,1,1,2,4
+7,TA0005,Stealth,stealth,T1055.014,VDSO Hijacking,true,T1055,Linux,1,1,1,0,0,4
+7,TA0005,Stealth,stealth,T1055.015,ListPlanting,true,T1055,Windows,1,1,1,0,1,4
+7,TA0005,Stealth,stealth,T1070,Indicator Removal,false,,"Containers, ESXi, Linux, macOS, Network Devices, Office Suite, Windows",6,1,3,4,27,6
+7,TA0005,Stealth,stealth,T1070.003,Clear Command History,true,T1070,"ESXi, Linux, macOS, Network Devices, Windows",5,1,3,10,4,4
+7,TA0005,Stealth,stealth,T1070.004,File Deletion,true,T1070,"ESXi, Linux, macOS, Windows",4,1,0,48,258,5
+7,TA0005,Stealth,stealth,T1070.005,Network Share Connection Removal,true,T1070,Windows,1,1,0,1,4,4
+7,TA0005,Stealth,stealth,T1070.006,Timestomp,true,T1070,"ESXi, Linux, macOS, Windows",4,1,0,11,44,6
+7,TA0005,Stealth,stealth,T1070.007,Clear Network Connection History and Configurations,true,T1070,"Linux, macOS, Windows, Network Devices",4,1,2,4,2,6
+7,TA0005,Stealth,stealth,T1070.008,Clear Mailbox Data,true,T1070,"Linux, macOS, Office Suite, Windows",4,1,3,2,2,5
+7,TA0005,Stealth,stealth,T1070.009,Clear Persistence,true,T1070,"ESXi, Linux, macOS, Windows",4,1,2,1,16,6
+7,TA0005,Stealth,stealth,T1070.010,Relocate Malware,true,T1070,"Linux, macOS, Network Devices, Windows",4,1,0,0,1,4
+7,TA0005,Stealth,stealth,T1078,Valid Accounts,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,8,49,7,4
+7,TA0005,Stealth,stealth,T1078.001,Default Accounts,true,T1078,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,2,4,2,3
+7,TA0005,Stealth,stealth,T1078.002,Domain Accounts,true,T1078,"ESXi, Linux, macOS, Windows",4,1,5,21,5,4
+7,TA0005,Stealth,stealth,T1078.003,Local Accounts,true,T1078,"Containers, ESXi, Linux, macOS, Network Devices, Windows",3,1,4,14,5,3
+7,TA0005,Stealth,stealth,T1078.004,Cloud Accounts,true,T1078,"IaaS, Identity Provider, Office Suite, SaaS",4,1,7,14,6,3
+7,TA0005,Stealth,stealth,T1127,Trusted Developer Utilities Proxy Execution,false,,Windows,1,1,3,0,0,5
+7,TA0005,Stealth,stealth,T1127.001,MSBuild,true,T1127,Windows,1,1,2,0,3,8
+7,TA0005,Stealth,stealth,T1127.002,ClickOnce,true,T1127,Windows,1,1,3,0,0,3
+7,TA0005,Stealth,stealth,T1127.003,JamPlus,true,T1127,Windows,1,1,2,0,0,4
+7,TA0005,Stealth,stealth,T1134,Access Token Manipulation,false,,Windows,1,1,2,3,19,5
+7,TA0005,Stealth,stealth,T1134.001,Token Impersonation/Theft,true,T1134,Windows,1,1,2,2,18,3
+7,TA0005,Stealth,stealth,T1134.002,Create Process with Token,true,T1134,Windows,1,1,2,2,12,5
+7,TA0005,Stealth,stealth,T1134.003,Make and Impersonate Token,true,T1134,Windows,1,1,2,2,3,3
+7,TA0005,Stealth,stealth,T1134.004,Parent PID Spoofing,true,T1134,Windows,1,1,0,0,4,3
+7,TA0005,Stealth,stealth,T1134.005,SID-History Injection,true,T1134,Windows,1,1,1,0,2,3
+7,TA0005,Stealth,stealth,T1140,Deobfuscate/Decode Files or Information,false,,"ESXi, Linux, macOS, Windows",3,1,0,38,306,4
+7,TA0005,Stealth,stealth,T1197,BITS Jobs,false,,Windows,1,1,3,5,8,4
+7,TA0005,Stealth,stealth,T1202,Indirect Command Execution,false,,Windows,1,1,0,2,2,3
+7,TA0005,Stealth,stealth,T1205,Traffic Signaling,false,,"Linux, macOS, Network Devices, Windows",4,1,2,3,18,5
+7,TA0005,Stealth,stealth,T1205.001,Port Knocking,true,T1205,"Linux, macOS, Network Devices, Windows",4,1,1,2,4,3
+7,TA0005,Stealth,stealth,T1205.002,Socket Filters,true,T1205,"Linux, macOS, Windows",3,1,1,0,4,6
+7,TA0005,Stealth,stealth,T1211,Exploitation for Stealth,false,,"Linux, Windows, macOS, SaaS, IaaS",5,1,4,2,0,3
+7,TA0005,Stealth,stealth,T1216,System Script Proxy Execution,false,,Windows,1,1,1,0,0,5
+7,TA0005,Stealth,stealth,T1216.001,PubPrn,true,T1216,Windows,1,1,2,1,0,4
+7,TA0005,Stealth,stealth,T1216.002,SyncAppvPublishingServer,true,T1216,Windows,1,1,1,0,0,4
+7,TA0005,Stealth,stealth,T1218,System Binary Proxy Execution,false,,"Linux, macOS, Windows",3,1,6,2,0,3
+7,TA0005,Stealth,stealth,T1218.001,Compiled HTML File,true,T1218,Windows,1,1,2,5,1,4
+7,TA0005,Stealth,stealth,T1218.002,Control Panel,true,T1218,Windows,1,1,2,0,2,4
+7,TA0005,Stealth,stealth,T1218.003,CMSTP,true,T1218,Windows,1,1,2,2,2,7
+7,TA0005,Stealth,stealth,T1218.004,InstallUtil,true,T1218,Windows,1,1,2,2,4,4
+7,TA0005,Stealth,stealth,T1218.005,Mshta,true,T1218,Windows,1,1,2,17,11,3
+7,TA0005,Stealth,stealth,T1218.007,Msiexec,true,T1218,Windows,1,1,2,6,23,3
+7,TA0005,Stealth,stealth,T1218.008,Odbcconf,true,T1218,Windows,1,1,2,1,2,3
+7,TA0005,Stealth,stealth,T1218.009,Regsvcs/Regasm,true,T1218,Windows,1,1,2,0,1,7
+7,TA0005,Stealth,stealth,T1218.010,Regsvr32,true,T1218,Windows,1,1,1,11,23,3
+7,TA0005,Stealth,stealth,T1218.011,Rundll32,true,T1218,Windows,1,1,1,26,69,4
+7,TA0005,Stealth,stealth,T1218.012,Verclsid,true,T1218,Windows,1,1,3,0,1,4
+7,TA0005,Stealth,stealth,T1218.013,Mavinject,true,T1218,Windows,1,1,2,0,1,6
+7,TA0005,Stealth,stealth,T1218.014,MMC,true,T1218,Windows,1,1,2,1,0,8
+7,TA0005,Stealth,stealth,T1218.015,Electron Applications,true,T1218,"Linux, macOS, Windows",3,1,3,0,1,4
+7,TA0005,Stealth,stealth,T1220,XSL Script Processing,false,,Windows,1,1,1,2,1,2
+7,TA0005,Stealth,stealth,T1221,Template Injection,false,,Windows,1,1,4,8,2,2
+7,TA0005,Stealth,stealth,T1480,Execution Guardrails,false,,"ESXi, Linux, macOS, Windows",4,1,1,5,46,11
+7,TA0005,Stealth,stealth,T1480.001,Environmental Keying,true,T1480,"Linux, Windows, macOS",3,1,1,2,8,8
+7,TA0005,Stealth,stealth,T1480.002,Mutual Exclusion,true,T1480,"Linux, macOS, Windows",3,1,1,2,18,5
+7,TA0005,Stealth,stealth,T1497,Virtualization/Sandbox Evasion,false,,"Linux, macOS, Windows",3,1,0,3,23,3
+7,TA0005,Stealth,stealth,T1497.001,System Checks,true,T1497,"Linux, macOS, Windows",3,1,0,7,63,3
+7,TA0005,Stealth,stealth,T1497.002,User Activity Based Checks,true,T1497,"Linux, macOS, Windows",3,1,0,2,5,6
+7,TA0005,Stealth,stealth,T1497.003,Time Based Checks,true,T1497,"Linux, macOS, Windows",3,1,0,0,49,4
+7,TA0005,Stealth,stealth,T1535,Unused/Unsupported Cloud Regions,false,,IaaS,1,1,1,0,0,4
+7,TA0005,Stealth,stealth,T1542,Pre-OS Boot,false,,"Linux, macOS, Network Devices, Windows",4,1,5,0,0,7
+7,TA0005,Stealth,stealth,T1542.001,System Firmware,true,T1542,"Network Devices, Windows",2,1,3,0,3,5
+7,TA0005,Stealth,stealth,T1542.002,Component Firmware,true,T1542,"Windows, Linux, macOS",3,1,1,1,1,2
+7,TA0005,Stealth,stealth,T1542.003,Bootkit,true,T1542,"Linux, Windows",2,1,2,3,6,4
+7,TA0005,Stealth,stealth,T1542.004,ROMMONkit,true,T1542,Network Devices,1,1,3,0,0,3
+7,TA0005,Stealth,stealth,T1542.005,TFTP Boot,true,T1542,Network Devices,1,1,6,0,0,3
+7,TA0005,Stealth,stealth,T1564,Hide Artifacts,false,,"ESXi, Linux, macOS, Office Suite, Windows",5,1,4,0,7,6
+7,TA0005,Stealth,stealth,T1564.001,Hidden Files and Directories,true,T1564,"Linux, macOS, Windows",3,1,0,13,48,4
+7,TA0005,Stealth,stealth,T1564.002,Hidden Users,true,T1564,"Linux, macOS, Windows",3,1,1,2,1,5
+7,TA0005,Stealth,stealth,T1564.003,Hidden Window,true,T1564,"Linux, macOS, Windows",3,1,2,19,43,5
+7,TA0005,Stealth,stealth,T1564.004,NTFS File Attributes,true,T1564,Windows,1,1,1,1,15,4
+7,TA0005,Stealth,stealth,T1564.005,Hidden File System,true,T1564,"Linux, macOS, Windows",3,1,0,2,4,5
+7,TA0005,Stealth,stealth,T1564.006,Run Virtual Instance,true,T1564,"ESXi, Linux, macOS, Windows",4,1,3,0,3,7
+7,TA0005,Stealth,stealth,T1564.007,VBA Stomping,true,T1564,"Linux, macOS, Windows",3,1,1,0,0,3
+7,TA0005,Stealth,stealth,T1564.008,Email Hiding Rules,true,T1564,"Windows, Linux, macOS, Office Suite",4,1,1,2,1,4
+7,TA0005,Stealth,stealth,T1564.009,Resource Forking,true,T1564,macOS,1,1,1,0,2,3
+7,TA0005,Stealth,stealth,T1564.010,Process Argument Spoofing,true,T1564,Windows,1,1,0,0,2,2
+7,TA0005,Stealth,stealth,T1564.011,Ignore Process Interrupts,true,T1564,"Linux, macOS, Windows",3,1,0,4,6,2
+7,TA0005,Stealth,stealth,T1564.012,File/Path Exclusions,true,T1564,"Linux, macOS, Windows",3,1,2,2,1,4
+7,TA0005,Stealth,stealth,T1564.013,Bind Mounts,true,T1564,Linux,1,1,0,0,0,3
+7,TA0005,Stealth,stealth,T1564.014,Extended Attributes,true,T1564,"Linux, macOS",2,1,1,0,0,2
+7,TA0005,Stealth,stealth,T1574,Hijack Execution Flow,false,,"Linux, macOS, Windows",3,1,10,0,9,6
+7,TA0005,Stealth,stealth,T1574.001,DLL,true,T1574,Windows,1,1,5,36,82,5
+7,TA0005,Stealth,stealth,T1574.004,Dylib Hijacking,true,T1574,macOS,1,1,1,0,1,3
+7,TA0005,Stealth,stealth,T1574.005,Executable Installer File Permissions Weakness,true,T1574,Windows,1,1,3,1,0,4
+7,TA0005,Stealth,stealth,T1574.006,Dynamic Linker Hijacking,true,T1574,"Linux, macOS",2,1,2,3,7,5
+7,TA0005,Stealth,stealth,T1574.007,Path Interception by PATH Environment Variable,true,T1574,"Linux, macOS, Windows",3,1,3,0,4,4
+7,TA0005,Stealth,stealth,T1574.008,Path Interception by Search Order Hijacking,true,T1574,Windows,1,1,3,0,2,3
+7,TA0005,Stealth,stealth,T1574.009,Path Interception by Unquoted Path,true,T1574,Windows,1,1,3,0,2,4
+7,TA0005,Stealth,stealth,T1574.010,Services File Permissions Weakness,true,T1574,Windows,1,1,3,0,1,4
+7,TA0005,Stealth,stealth,T1574.011,Services Registry Permissions Weakness,true,T1574,Windows,1,1,1,0,0,3
+7,TA0005,Stealth,stealth,T1574.012,COR_PROFILER,true,T1574,Windows,1,1,3,1,1,4
+7,TA0005,Stealth,stealth,T1574.013,KernelCallbackTable,true,T1574,Windows,1,1,1,1,1,3
+7,TA0005,Stealth,stealth,T1574.014,AppDomainManager,true,T1574,Windows,1,1,1,1,1,3
+7,TA0005,Stealth,stealth,T1612,Build Image on Host,false,,Containers,1,1,4,0,0,2
+7,TA0005,Stealth,stealth,T1620,Reflective Code Loading,false,,"Linux, macOS, Windows",3,1,0,5,26,5
+7,TA0005,Stealth,stealth,T1622,Debugger Evasion,false,,"Linux, macOS, Windows",3,1,0,1,25,3
+7,TA0005,Stealth,stealth,T1678,Delay Execution,false,,"Linux, macOS, Windows",3,1,0,4,20,3
+7,TA0005,Stealth,stealth,T1679,Selective Exclusion,false,,Windows,1,1,0,1,7,3
+7,TA0005,Stealth,stealth,T1684,Social Engineering,false,,"Linux, macOS, Office Suite, SaaS, Windows",5,1,3,1,0,9
+7,TA0005,Stealth,stealth,T1684.001,Impersonation,true,T1684,"Linux, macOS, Office Suite, SaaS, Windows",5,1,2,18,3,3
+7,TA0005,Stealth,stealth,T1684.002,Email Spoofing,true,T1684,"Linux, macOS, Office Suite, Windows",4,1,1,0,0,1
+7,TA0005,Stealth,stealth,T1696,Anti-Automation Evasion,false,,SaaS,1,1,2,0,0,0
+7,TA0005,Stealth,stealth,T1696.001,Automate CAPTCHA Completion,true,T1696,SaaS,1,1,2,0,0,0
+7,TA0005,Stealth,stealth,T1696.002,Avoid CAPTCHA,true,T1696,SaaS,1,1,2,0,0,0
+8,TA0112,Defense Impairment,defense-impairment,T1112,Modify Registry,false,,Windows,1,1,1,29,141,2
+8,TA0112,Defense Impairment,defense-impairment,T1207,Rogue Domain Controller,false,,Windows,1,1,0,0,1,5
+8,TA0112,Defense Impairment,defense-impairment,T1222,File and Directory Permissions Modification,false,,"ESXi, Linux, macOS, Windows",4,1,2,0,1,5
+8,TA0112,Defense Impairment,defense-impairment,T1222.001,Windows Permissions,true,T1222,Windows,1,1,2,2,12,6
+8,TA0112,Defense Impairment,defense-impairment,T1222.002,Linux and Mac Permissions,true,T1222,"Linux, macOS",2,1,2,4,11,4
+8,TA0112,Defense Impairment,defense-impairment,T1484,Domain or Tenant Policy Modification,false,,"Windows, Identity Provider",2,1,3,0,0,5
+8,TA0112,Defense Impairment,defense-impairment,T1484.001,Group Policy Modification,true,T1484,Windows,1,1,2,5,9,5
+8,TA0112,Defense Impairment,defense-impairment,T1484.002,Trust Modification,true,T1484,"Identity Provider, Windows",2,1,2,2,1,5
+8,TA0112,Defense Impairment,defense-impairment,T1553,Subvert Trust Controls,false,,"Linux, macOS, Windows",3,1,5,1,1,5
+8,TA0112,Defense Impairment,defense-impairment,T1553.001,Gatekeeper Bypass,true,T1553,macOS,1,1,1,0,6,3
+8,TA0112,Defense Impairment,defense-impairment,T1553.002,Code Signing,true,T1553,"macOS, Windows",2,1,0,28,57,3
+8,TA0112,Defense Impairment,defense-impairment,T1553.003,SIP and Trust Provider Hijacking,true,T1553,Windows,1,1,3,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1553.004,Install Root Certificate,true,T1553,"Linux, macOS, Windows",3,1,2,0,5,5
+8,TA0112,Defense Impairment,defense-impairment,T1553.005,Mark-of-the-Web Bypass,true,T1553,Windows,1,1,2,3,2,3
+8,TA0112,Defense Impairment,defense-impairment,T1553.006,Code Signing Policy Modification,true,T1553,"macOS, Windows",2,1,3,2,3,3
+8,TA0112,Defense Impairment,defense-impairment,T1556,Modify Authentication Process,false,,"IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,9,2,4,7
+8,TA0112,Defense Impairment,defense-impairment,T1556.001,Domain Controller Authentication,true,T1556,Windows,1,1,4,1,1,4
+8,TA0112,Defense Impairment,defense-impairment,T1556.002,Password Filter DLL,true,T1556,Windows,1,1,1,3,1,3
+8,TA0112,Defense Impairment,defense-impairment,T1556.003,Pluggable Authentication Modules,true,T1556,"Linux, macOS",2,1,2,0,2,3
+8,TA0112,Defense Impairment,defense-impairment,T1556.004,Network Device Authentication,true,T1556,Network Devices,1,1,2,0,3,2
+8,TA0112,Defense Impairment,defense-impairment,T1556.005,Reversible Encryption,true,T1556,Windows,1,1,2,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1556.006,Multi-Factor Authentication,true,T1556,"IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",7,1,3,1,2,7
+8,TA0112,Defense Impairment,defense-impairment,T1556.007,Hybrid Identity,true,T1556,"IaaS, Identity Provider, Office Suite, SaaS, Windows",5,1,3,1,1,6
+8,TA0112,Defense Impairment,defense-impairment,T1556.008,Network Provider DLL,true,T1556,Windows,1,1,3,0,0,4
+8,TA0112,Defense Impairment,defense-impairment,T1556.009,Conditional Access Policies,true,T1556,"IaaS, Identity Provider",2,1,1,2,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1578,Modify Cloud Compute Infrastructure,false,,IaaS,1,1,2,0,0,9
+8,TA0112,Defense Impairment,defense-impairment,T1578.001,Create Snapshot,true,T1578,IaaS,1,1,2,0,1,2
+8,TA0112,Defense Impairment,defense-impairment,T1578.002,Create Cloud Instance,true,T1578,IaaS,1,1,2,2,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1578.003,Delete Cloud Instance,true,T1578,IaaS,1,1,2,2,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1578.004,Revert Cloud Instance,true,T1578,IaaS,1,1,0,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1578.005,Modify Cloud Compute Configurations,true,T1578,IaaS,1,1,2,0,0,1
+8,TA0112,Defense Impairment,defense-impairment,T1599,Network Boundary Bridging,false,,Network Devices,1,1,5,2,0,2
+8,TA0112,Defense Impairment,defense-impairment,T1599.001,Network Address Translation Traversal,true,T1599,Network Devices,1,1,5,0,0,2
+8,TA0112,Defense Impairment,defense-impairment,T1600,Weaken Encryption,false,,Network Devices,1,1,0,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1600.001,Reduce Key Space,true,T1600,Network Devices,1,1,0,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1600.002,Disable Crypto Hardware,true,T1600,Network Devices,1,1,0,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1601,Modify System Image,false,,Network Devices,1,1,6,0,1,2
+8,TA0112,Defense Impairment,defense-impairment,T1601.001,Patch System Image,true,T1601,Network Devices,1,1,6,0,1,3
+8,TA0112,Defense Impairment,defense-impairment,T1601.002,Downgrade System Image,true,T1601,Network Devices,1,1,6,0,0,3
+8,TA0112,Defense Impairment,defense-impairment,T1647,Plist File Modification,false,,macOS,1,1,1,0,2,3
+8,TA0112,Defense Impairment,defense-impairment,T1666,Modify Cloud Resource Hierarchy,false,,IaaS,1,1,3,0,0,1
+8,TA0112,Defense Impairment,defense-impairment,T1685,Disable or Modify Tools,false,,"Containers, ESXi, IaaS, Linux, macOS, Network Devices, Windows",7,1,7,33,89,9
+8,TA0112,Defense Impairment,defense-impairment,T1685.001,Disable or Modify Windows Event Log,true,T1685,Windows,1,1,4,2,1,4
+8,TA0112,Defense Impairment,defense-impairment,T1685.002,Disable or Modify Cloud Log,true,T1685,"IaaS, SaaS, Identity Provider, Office Suite",4,1,1,1,1,3
+8,TA0112,Defense Impairment,defense-impairment,T1685.003,Modify or Spoof Tool UI,true,T1685,"Linux, macOS, Windows",3,1,1,2,1,3
+8,TA0112,Defense Impairment,defense-impairment,T1685.004,Disable or Modify Linux Audit System Log,true,T1685,Linux,1,1,2,0,1,4
+8,TA0112,Defense Impairment,defense-impairment,T1685.005,Clear Windows Event Logs,true,T1685,Windows,1,1,3,14,27,3
+8,TA0112,Defense Impairment,defense-impairment,T1685.006,Clear Linux or Mac System Logs,true,T1685,"Linux, macOS",2,1,3,4,4,3
+8,TA0112,Defense Impairment,defense-impairment,T1685.007,Impair Autonomous Defenses,true,T1685,"Windows, SaaS",0,0,5,0,0,0
+8,TA0112,Defense Impairment,defense-impairment,T1686,Disable or Modify System Firewall,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,4,13,15,4
+8,TA0112,Defense Impairment,defense-impairment,T1686.001,Cloud Firewall,true,T1686,IaaS,1,1,2,0,1,2
+8,TA0112,Defense Impairment,defense-impairment,T1686.002,Network Device Firewall,true,T1686,Network Devices,1,1,3,2,2,4
+8,TA0112,Defense Impairment,defense-impairment,T1686.003,Windows Host Firewall,true,T1686,Windows,1,1,4,6,10,5
+8,TA0112,Defense Impairment,defense-impairment,T1687,Exploitation for Defense Impairment,false,,"IaaS, Linux, macOS, SaaS, Windows",5,1,0,0,0,11
+8,TA0112,Defense Impairment,defense-impairment,T1688,Safe Mode Boot,false,,Windows,1,1,2,0,7,3
+8,TA0112,Defense Impairment,defense-impairment,T1689,Downgrade Attack,false,,"macOS, Windows, Linux",3,1,2,0,3,4
+8,TA0112,Defense Impairment,defense-impairment,T1690,Prevent Command History Logging,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,4,7,2
+9,TA0006,Credential Access,credential-access,T1003,OS Credential Dumping,false,,"Linux, macOS, Windows",3,1,9,13,7,5
+9,TA0006,Credential Access,credential-access,T1003.001,LSASS Memory,true,T1003,Windows,1,1,7,44,26,5
+9,TA0006,Credential Access,credential-access,T1003.002,Security Account Manager,true,T1003,Windows,1,1,4,14,15,4
+9,TA0006,Credential Access,credential-access,T1003.003,NTDS,true,T1003,Windows,1,1,4,18,4,4
+9,TA0006,Credential Access,credential-access,T1003.004,LSA Secrets,true,T1003,Windows,1,1,3,10,9,4
+9,TA0006,Credential Access,credential-access,T1003.005,Cached Domain Credentials,true,T1003,"Windows, Linux",2,1,5,4,4,3
+9,TA0006,Credential Access,credential-access,T1003.006,DCSync,true,T1003,Windows,1,1,3,5,2,3
+9,TA0006,Credential Access,credential-access,T1003.007,Proc Filesystem,true,T1003,Linux,1,1,2,0,5,4
+9,TA0006,Credential Access,credential-access,T1003.008,/etc/passwd and /etc/shadow,true,T1003,Linux,1,1,2,0,1,2
+9,TA0006,Credential Access,credential-access,T1040,Network Sniffing,false,,"IaaS, Linux, macOS, Network Devices, Windows",5,1,4,8,17,6
+9,TA0006,Credential Access,credential-access,T1056,Input Capture,false,,"Linux, macOS, Network Devices, Windows",4,1,0,3,7,8
+9,TA0006,Credential Access,credential-access,T1056.001,Keylogging,true,T1056,"Linux, macOS, Network Devices, Windows",4,1,0,26,126,9
+9,TA0006,Credential Access,credential-access,T1056.002,GUI Input Capture,true,T1056,"Linux, macOS, Windows",3,1,1,3,14,3
+9,TA0006,Credential Access,credential-access,T1056.003,Web Portal Capture,true,T1056,"Linux, macOS, Windows",3,1,1,2,2,3
+9,TA0006,Credential Access,credential-access,T1056.004,Credential API Hooking,true,T1056,"Windows, Linux, macOS",3,1,0,1,11,5
+9,TA0006,Credential Access,credential-access,T1110,Brute Force,false,,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,4,16,7,1
+9,TA0006,Credential Access,credential-access,T1110.001,Password Guessing,true,T1110,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",6,1,4,4,9,1
+9,TA0006,Credential Access,credential-access,T1110.002,Password Cracking,true,T1110,"Identity Provider, Linux, macOS, Network Devices, Office Suite, Windows",5,1,2,4,1,5
+9,TA0006,Credential Access,credential-access,T1110.003,Password Spraying,true,T1110,"Containers, ESXi, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS",8,1,3,12,4,1
+9,TA0006,Credential Access,credential-access,T1110.004,Credential Stuffing,true,T1110,"Containers, ESXi, IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",9,1,4,2,1,1
+9,TA0006,Credential Access,credential-access,T1111,Multi-Factor Authentication Interception,false,,"Linux, macOS, Windows",3,1,1,4,3,6
+9,TA0006,Credential Access,credential-access,T1187,Forced Authentication,false,,Windows,1,1,2,2,1,4
+9,TA0006,Credential Access,credential-access,T1212,Exploitation for Credential Access,false,,"Linux, Windows, macOS, Identity Provider",4,1,5,1,0,4
+9,TA0006,Credential Access,credential-access,T1528,Steal Application Access Token,false,,"Containers, IaaS, Identity Provider, Office Suite, SaaS",5,1,4,4,9,6
+9,TA0006,Credential Access,credential-access,T1539,Steal Web Session Cookie,false,,"Linux, macOS, Office Suite, SaaS, Windows",5,1,6,8,21,7
+9,TA0006,Credential Access,credential-access,T1552,Unsecured Credentials,false,,"Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider",7,1,11,2,4,9
+9,TA0006,Credential Access,credential-access,T1552.001,Credentials In Files,true,T1552,"Containers, IaaS, Linux, macOS, Windows",5,1,4,16,25,6
+9,TA0006,Credential Access,credential-access,T1552.002,Credentials in Registry,true,T1552,Windows,1,1,3,3,7,3
+9,TA0006,Credential Access,credential-access,T1552.003,Shell History,true,T1552,"Linux, macOS, Windows",2,1,1,1,3,4
+9,TA0006,Credential Access,credential-access,T1552.004,Private Keys,true,T1552,"Linux, macOS, Network Devices, Windows",4,1,4,8,14,5
+9,TA0006,Credential Access,credential-access,T1552.005,Cloud Instance Metadata API,true,T1552,IaaS,1,1,3,1,6,3
+9,TA0006,Credential Access,credential-access,T1552.006,Group Policy Preferences,true,T1552,Windows,1,1,3,2,3,4
+9,TA0006,Credential Access,credential-access,T1552.007,Container API,true,T1552,Containers,1,1,4,0,3,4
+9,TA0006,Credential Access,credential-access,T1552.008,Chat Messages,true,T1552,"SaaS, Office Suite",2,1,2,1,0,2
+9,TA0006,Credential Access,credential-access,T1555,Credentials from Password Stores,false,,"IaaS, Linux, macOS, Windows",4,1,3,13,26,5
+9,TA0006,Credential Access,credential-access,T1555.001,Keychain,true,T1555,macOS,1,1,1,2,11,3
+9,TA0006,Credential Access,credential-access,T1555.002,Securityd Memory,true,T1555,"Linux, macOS",2,1,0,0,1,4
+9,TA0006,Credential Access,credential-access,T1555.003,Credentials from Web Browsers,true,T1555,"Linux, macOS, Windows",3,1,5,24,67,3
+9,TA0006,Credential Access,credential-access,T1555.004,Windows Credential Manager,true,T1555,Windows,1,1,1,4,9,3
+9,TA0006,Credential Access,credential-access,T1555.005,Password Managers,true,T1555,"Linux, macOS, Windows",3,1,5,7,5,4
+9,TA0006,Credential Access,credential-access,T1555.006,Cloud Secrets Management Stores,true,T1555,IaaS,1,1,1,3,7,1
+9,TA0006,Credential Access,credential-access,T1556,Modify Authentication Process,false,,"IaaS, Identity Provider, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,9,2,4,7
+9,TA0006,Credential Access,credential-access,T1556.001,Domain Controller Authentication,true,T1556,Windows,1,1,4,1,1,4
+9,TA0006,Credential Access,credential-access,T1556.002,Password Filter DLL,true,T1556,Windows,1,1,1,3,1,3
+9,TA0006,Credential Access,credential-access,T1556.003,Pluggable Authentication Modules,true,T1556,"Linux, macOS",2,1,2,0,2,3
+9,TA0006,Credential Access,credential-access,T1556.004,Network Device Authentication,true,T1556,Network Devices,1,1,2,0,3,2
+9,TA0006,Credential Access,credential-access,T1556.005,Reversible Encryption,true,T1556,Windows,1,1,2,0,0,3
+9,TA0006,Credential Access,credential-access,T1556.006,Multi-Factor Authentication,true,T1556,"IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",7,1,3,1,2,7
+9,TA0006,Credential Access,credential-access,T1556.007,Hybrid Identity,true,T1556,"IaaS, Identity Provider, Office Suite, SaaS, Windows",5,1,3,1,1,6
+9,TA0006,Credential Access,credential-access,T1556.008,Network Provider DLL,true,T1556,Windows,1,1,3,0,0,4
+9,TA0006,Credential Access,credential-access,T1556.009,Conditional Access Policies,true,T1556,"IaaS, Identity Provider",2,1,1,2,0,3
+9,TA0006,Credential Access,credential-access,T1557,Adversary-in-the-Middle,false,,"Linux, macOS, Network Devices, Windows",4,1,7,3,5,6
+9,TA0006,Credential Access,credential-access,T1557.001,Name Resolution Poisoning and SMB Relay,true,T1557,Windows,1,1,4,2,5,4
+9,TA0006,Credential Access,credential-access,T1557.002,ARP Cache Poisoning,true,T1557,"Linux, Windows, macOS",3,1,6,2,0,3
+9,TA0006,Credential Access,credential-access,T1557.003,DHCP Spoofing,true,T1557,"Linux, Windows, macOS",3,1,2,0,0,3
+9,TA0006,Credential Access,credential-access,T1557.004,Evil Twin,true,T1557,Network Devices,1,1,2,1,0,3
+9,TA0006,Credential Access,credential-access,T1558,Steal or Forge Kerberos Tickets,false,,"Linux, macOS, Windows",3,1,6,1,0,4
+9,TA0006,Credential Access,credential-access,T1558.001,Golden Ticket,true,T1558,Windows,1,1,2,1,4,3
+9,TA0006,Credential Access,credential-access,T1558.002,Silver Ticket,true,T1558,Windows,1,1,3,0,4,3
+9,TA0006,Credential Access,credential-access,T1558.003,Kerberoasting,true,T1558,Windows,1,1,3,4,6,4
+9,TA0006,Credential Access,credential-access,T1558.004,AS-REP Roasting,true,T1558,Windows,1,1,3,0,1,2
+9,TA0006,Credential Access,credential-access,T1558.005,Ccache Files,true,T1558,"Linux, macOS",2,1,2,0,1,2
+9,TA0006,Credential Access,credential-access,T1606,Forge Web Credentials,false,,"SaaS, Windows, macOS, Linux, IaaS, Office Suite, Identity Provider",7,1,4,0,0,6
+9,TA0006,Credential Access,credential-access,T1606.001,Web Cookies,true,T1606,"Linux, macOS, Windows, SaaS, IaaS",5,1,2,0,0,5
+9,TA0006,Credential Access,credential-access,T1606.002,SAML Tokens,true,T1606,"SaaS, Windows, IaaS, Office Suite, Identity Provider",5,1,4,0,1,5
+9,TA0006,Credential Access,credential-access,T1621,Multi-Factor Authentication Request Generation,false,,"Windows, Linux, macOS, IaaS, SaaS, Office Suite, Identity Provider",6,1,3,3,0,3
+9,TA0006,Credential Access,credential-access,T1649,Steal or Forge Authentication Certificates,false,,"Windows, Linux, macOS, Identity Provider",4,1,4,2,3,6
+9,TA0006,Credential Access,credential-access,T1697,Steal Application Specific Passwords,false,,"Office Suite, Identity Provider, SaaS",3,1,4,1,0,4
+10,TA0007,Discovery,discovery,T1007,System Service Discovery,false,,"Linux, macOS, Windows",3,1,0,16,52,2
+10,TA0007,Discovery,discovery,T1010,Application Window Discovery,false,,"Linux, macOS, Windows",3,1,0,3,34,4
+10,TA0007,Discovery,discovery,T1012,Query Registry,false,,Windows,1,1,0,20,99,3
+10,TA0007,Discovery,discovery,T1016,System Network Configuration Discovery,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,45,233,2
+10,TA0007,Discovery,discovery,T1016.001,Internet Connection Discovery,true,T1016,"Windows, Linux, macOS, ESXi",4,1,0,11,13,4
+10,TA0007,Discovery,discovery,T1016.002,Wi-Fi Discovery,true,T1016,"Linux, Windows, macOS",3,1,0,1,5,3
+10,TA0007,Discovery,discovery,T1018,Remote System Discovery,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,43,55,4
+10,TA0007,Discovery,discovery,T1033,System Owner/User Discovery,false,,"Linux, macOS, Network Devices, Windows",4,1,0,40,202,3
+10,TA0007,Discovery,discovery,T1040,Network Sniffing,false,,"IaaS, Linux, macOS, Network Devices, Windows",5,1,4,8,17,6
+10,TA0007,Discovery,discovery,T1046,Network Service Discovery,false,,"Containers, IaaS, Linux, macOS, Network Devices, Windows",4,1,3,33,36,4
+10,TA0007,Discovery,discovery,T1049,System Network Connections Discovery,false,,"ESXi, IaaS, Linux, macOS, Network Devices, Windows",6,1,0,33,61,4
+10,TA0007,Discovery,discovery,T1057,Process Discovery,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,42,273,5
+10,TA0007,Discovery,discovery,T1069,Permission Groups Discovery,false,,"Containers, IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",3,1,0,6,6,2
+10,TA0007,Discovery,discovery,T1069.001,Local Groups,true,T1069,"Linux, macOS, Windows",3,1,0,7,21,1
+10,TA0007,Discovery,discovery,T1069.002,Domain Groups,true,T1069,"Linux, macOS, Windows",3,1,0,13,24,3
+10,TA0007,Discovery,discovery,T1069.003,Cloud Groups,true,T1069,"SaaS, IaaS, Office Suite, Identity Provider",3,1,0,1,3,3
+10,TA0007,Discovery,discovery,T1082,System Information Discovery,false,,"ESXi, IaaS, Linux, macOS, Network Devices, Windows",6,1,0,59,363,4
+10,TA0007,Discovery,discovery,T1083,File and Directory Discovery,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,52,315,4
+10,TA0007,Discovery,discovery,T1087,Account Discovery,false,,"ESXi, IaaS, Identity Provider, Linux, macOS, Office Suite, SaaS, Windows",8,1,2,3,5,7
+10,TA0007,Discovery,discovery,T1087.001,Local Account,true,T1087,"ESXi, Linux, macOS, Windows",4,1,1,19,45,3
+10,TA0007,Discovery,discovery,T1087.002,Domain Account,true,T1087,"Linux, macOS, Windows",3,1,1,30,28,3
+10,TA0007,Discovery,discovery,T1087.003,Email Account,true,T1087,"Windows, Office Suite",2,1,0,4,9,5
+10,TA0007,Discovery,discovery,T1087.004,Cloud Account,true,T1087,"IaaS, Identity Provider, Office Suite, SaaS",4,1,2,2,4,4
+10,TA0007,Discovery,discovery,T1120,Peripheral Device Discovery,false,,"Linux, macOS, Windows",3,1,0,9,47,4
+10,TA0007,Discovery,discovery,T1124,System Time Discovery,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,15,86,11
+10,TA0007,Discovery,discovery,T1135,Network Share Discovery,false,,"Linux, macOS, Windows",3,1,1,16,59,6
+10,TA0007,Discovery,discovery,T1201,Password Policy Discovery,false,,"Windows, Linux, macOS, IaaS, Network Devices, Identity Provider, SaaS, Office Suite",7,1,1,3,4,4
+10,TA0007,Discovery,discovery,T1217,Browser Information Discovery,false,,"Linux, macOS, Windows",3,1,0,7,20,4
+10,TA0007,Discovery,discovery,T1482,Domain Trust Discovery,false,,Windows,1,1,2,10,21,5
+10,TA0007,Discovery,discovery,T1497,Virtualization/Sandbox Evasion,false,,"Linux, macOS, Windows",3,1,0,3,23,3
+10,TA0007,Discovery,discovery,T1497.001,System Checks,true,T1497,"Linux, macOS, Windows",3,1,0,7,63,3
+10,TA0007,Discovery,discovery,T1497.002,User Activity Based Checks,true,T1497,"Linux, macOS, Windows",3,1,0,2,5,6
+10,TA0007,Discovery,discovery,T1497.003,Time Based Checks,true,T1497,"Linux, macOS, Windows",3,1,0,0,49,4
+10,TA0007,Discovery,discovery,T1518,Software Discovery,false,,"ESXi, IaaS, Linux, macOS, Windows",5,1,0,12,39,4
+10,TA0007,Discovery,discovery,T1518.001,Security Software Discovery,true,T1518,"IaaS, Linux, macOS, Windows",3,1,0,27,112,3
+10,TA0007,Discovery,discovery,T1518.002,Backup Software Discovery,true,T1518,"Windows, macOS, Linux",3,1,0,1,0,4
+10,TA0007,Discovery,discovery,T1526,Cloud Service Discovery,false,,"IaaS, Identity Provider, Office Suite, SaaS",4,1,0,1,5,3
+10,TA0007,Discovery,discovery,T1538,Cloud Service Dashboard,false,,"IaaS, SaaS, Office Suite, Identity Provider",4,1,1,1,0,4
+10,TA0007,Discovery,discovery,T1580,Cloud Infrastructure Discovery,false,,IaaS,1,1,1,3,3,3
+10,TA0007,Discovery,discovery,T1613,Container and Resource Discovery,false,,Containers,1,1,3,1,4,2
+10,TA0007,Discovery,discovery,T1614,System Location Discovery,false,,"IaaS, Linux, macOS, Windows",4,1,0,2,26,4
+10,TA0007,Discovery,discovery,T1614.001,System Language Discovery,true,T1614,"Linux, macOS, Windows",3,1,0,5,35,4
+10,TA0007,Discovery,discovery,T1615,Group Policy Discovery,false,,Windows,1,1,0,1,5,4
+10,TA0007,Discovery,discovery,T1619,Cloud Storage Object Discovery,false,,IaaS,1,1,1,1,3,2
+10,TA0007,Discovery,discovery,T1622,Debugger Evasion,false,,"Linux, macOS, Windows",3,1,0,1,25,3
+10,TA0007,Discovery,discovery,T1652,Device Driver Discovery,false,,"Linux, macOS, Windows",3,1,0,1,3,4
+10,TA0007,Discovery,discovery,T1654,Log Enumeration,false,,"ESXi, IaaS, Linux, macOS, Windows",5,1,1,5,5,3
+10,TA0007,Discovery,discovery,T1673,Virtual Machine Discovery,false,,"ESXi, Linux, macOS, Windows",4,1,0,1,5,2
+10,TA0007,Discovery,discovery,T1680,Local Storage Discovery,false,,"ESXi, IaaS, Linux, macOS, Windows",4,1,0,10,90,3
+11,TA0008,Lateral Movement,lateral-movement,T1021,Remote Services,false,,"Linux, macOS, Windows, IaaS, ESXi",5,1,6,3,4,4
+11,TA0008,Lateral Movement,lateral-movement,T1021.001,Remote Desktop Protocol,true,T1021,Windows,1,1,8,39,18,4
+11,TA0008,Lateral Movement,lateral-movement,T1021.002,SMB/Windows Admin Shares,true,T1021,Windows,1,1,4,28,31,3
+11,TA0008,Lateral Movement,lateral-movement,T1021.003,Distributed Component Object Model,true,T1021,Windows,1,1,4,0,3,4
+11,TA0008,Lateral Movement,lateral-movement,T1021.004,SSH,true,T1021,"ESXi, Linux, macOS, Windows",3,1,3,19,5,6
+11,TA0008,Lateral Movement,lateral-movement,T1021.005,VNC,true,T1021,"Linux, Windows, macOS",3,1,4,4,7,4
+11,TA0008,Lateral Movement,lateral-movement,T1021.006,Windows Remote Management,true,T1021,Windows,1,1,3,5,3,4
+11,TA0008,Lateral Movement,lateral-movement,T1021.007,Cloud Services,true,T1021,"IaaS, Identity Provider, Office Suite, SaaS",4,1,2,3,1,3
+11,TA0008,Lateral Movement,lateral-movement,T1021.008,Direct Cloud VM Connections,true,T1021,IaaS,1,1,2,0,0,2
+11,TA0008,Lateral Movement,lateral-movement,T1072,Software Deployment Tools,false,,"Linux, macOS, Network Devices, SaaS, Windows",5,1,10,10,1,4
+11,TA0008,Lateral Movement,lateral-movement,T1080,Taint Shared Content,false,,"Windows, SaaS, Linux, macOS, Office Suite",5,1,4,5,7,3
+11,TA0008,Lateral Movement,lateral-movement,T1091,Replication Through Removable Media,false,,Windows,1,1,3,8,20,4
+11,TA0008,Lateral Movement,lateral-movement,T1210,Exploitation of Remote Services,false,,"Linux, Windows, macOS, ESXi",4,1,8,12,13,7
+11,TA0008,Lateral Movement,lateral-movement,T1534,Internal Spearphishing,false,,"Linux, macOS, Office Suite, SaaS, Windows",5,1,0,7,1,7
+11,TA0008,Lateral Movement,lateral-movement,T1550,Use Alternate Authentication Material,false,,"Containers, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows",7,1,7,0,1,6
+11,TA0008,Lateral Movement,lateral-movement,T1550.001,Application Access Token,true,T1550,"Containers, IaaS, Identity Provider, Office Suite, SaaS",5,1,5,4,6,2
+11,TA0008,Lateral Movement,lateral-movement,T1550.002,Pass the Hash,true,T1550,Windows,1,1,4,11,8,4
+11,TA0008,Lateral Movement,lateral-movement,T1550.003,Pass the Ticket,true,T1550,Windows,1,1,4,3,3,5
+11,TA0008,Lateral Movement,lateral-movement,T1550.004,Web Session Cookie,true,T1550,"IaaS, Office Suite, SaaS",3,1,1,1,0,3
+11,TA0008,Lateral Movement,lateral-movement,T1563,Remote Service Session Hijacking,false,,"Linux, macOS, Windows",3,1,5,0,0,6
+11,TA0008,Lateral Movement,lateral-movement,T1563.001,SSH Hijacking,true,T1563,"Linux, macOS",2,1,4,0,1,4
+11,TA0008,Lateral Movement,lateral-movement,T1563.002,RDP Hijacking,true,T1563,Windows,1,1,7,2,1,4
+11,TA0008,Lateral Movement,lateral-movement,T1570,Lateral Tool Transfer,false,,"ESXi, Linux, macOS, Windows",4,1,2,19,27,5
+12,TA0009,Collection,collection,T1005,Data from Local System,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,1,47,174,4
+12,TA0009,Collection,collection,T1025,Data from Removable Media,false,,"Linux, macOS, Windows",3,1,1,4,20,3
+12,TA0009,Collection,collection,T1039,Data from Network Shared Drive,false,,"Linux, macOS, Windows",3,1,0,9,4,4
+12,TA0009,Collection,collection,T1056,Input Capture,false,,"Linux, macOS, Network Devices, Windows",4,1,0,3,7,8
+12,TA0009,Collection,collection,T1056.001,Keylogging,true,T1056,"Linux, macOS, Network Devices, Windows",4,1,0,26,126,9
+12,TA0009,Collection,collection,T1056.002,GUI Input Capture,true,T1056,"Linux, macOS, Windows",3,1,1,3,14,3
+12,TA0009,Collection,collection,T1056.003,Web Portal Capture,true,T1056,"Linux, macOS, Windows",3,1,1,2,2,3
+12,TA0009,Collection,collection,T1056.004,Credential API Hooking,true,T1056,"Windows, Linux, macOS",3,1,0,1,11,5
+12,TA0009,Collection,collection,T1074,Data Staged,false,,"ESXi, IaaS, Linux, macOS, Windows",5,1,0,5,4,5
+12,TA0009,Collection,collection,T1074.001,Local Data Staging,true,T1074,"ESXi, Linux, macOS, Windows",4,1,0,29,102,5
+12,TA0009,Collection,collection,T1074.002,Remote Data Staging,true,T1074,"ESXi, IaaS, Linux, macOS, Windows",5,1,0,11,1,7
+12,TA0009,Collection,collection,T1113,Screen Capture,false,,"Linux, macOS, Windows",3,1,0,19,152,2
+12,TA0009,Collection,collection,T1114,Email Collection,false,,"Windows, macOS, Linux, Office Suite",4,1,4,4,2,7
+12,TA0009,Collection,collection,T1114.001,Local Email Collection,true,T1114,Windows,1,1,2,9,11,4
+12,TA0009,Collection,collection,T1114.002,Remote Email Collection,true,T1114,"Office Suite, Windows",2,1,3,13,4,4
+12,TA0009,Collection,collection,T1114.003,Email Forwarding Rule,true,T1114,"Linux, macOS, Office Suite, Windows",4,1,4,5,0,5
+12,TA0009,Collection,collection,T1115,Clipboard Data,false,,"Linux, macOS, Windows",3,1,0,4,41,2
+12,TA0009,Collection,collection,T1119,Automated Collection,false,,"IaaS, Linux, macOS, Office Suite, SaaS, Windows",4,1,2,21,50,5
+12,TA0009,Collection,collection,T1123,Audio Capture,false,,"Linux, macOS, Windows",3,1,0,2,30,5
+12,TA0009,Collection,collection,T1125,Video Capture,false,,"Linux, macOS, Windows",3,1,0,4,31,9
+12,TA0009,Collection,collection,T1185,Browser Session Hijacking,false,,Windows,1,1,2,1,15,7
+12,TA0009,Collection,collection,T1213,Data from Information Repositories,false,,"Linux, Windows, macOS, SaaS, IaaS, Office Suite",4,1,7,2,2,8
+12,TA0009,Collection,collection,T1213.001,Confluence,true,T1213,SaaS,1,1,3,1,1,3
+12,TA0009,Collection,collection,T1213.002,Sharepoint,true,T1213,"Office Suite, Windows",1,1,3,8,2,3
+12,TA0009,Collection,collection,T1213.003,Code Repositories,true,T1213,SaaS,1,1,4,4,5,3
+12,TA0009,Collection,collection,T1213.004,Customer Relationship Management Software,true,T1213,SaaS,1,1,4,0,0,2
+12,TA0009,Collection,collection,T1213.005,Messaging Applications,true,T1213,"Office Suite, SaaS",2,1,3,5,1,2
+12,TA0009,Collection,collection,T1213.006,Databases,true,T1213,"IaaS, Linux, macOS, SaaS, Windows",5,1,5,6,4,8
+12,TA0009,Collection,collection,T1530,Data from Cloud Storage,false,,"IaaS, Office Suite, SaaS",3,1,6,6,4,4
+12,TA0009,Collection,collection,T1557,Adversary-in-the-Middle,false,,"Linux, macOS, Network Devices, Windows",4,1,7,3,5,6
+12,TA0009,Collection,collection,T1557.001,Name Resolution Poisoning and SMB Relay,true,T1557,Windows,1,1,4,2,5,4
+12,TA0009,Collection,collection,T1557.002,ARP Cache Poisoning,true,T1557,"Linux, Windows, macOS",3,1,6,2,0,3
+12,TA0009,Collection,collection,T1557.003,DHCP Spoofing,true,T1557,"Linux, Windows, macOS",3,1,2,0,0,3
+12,TA0009,Collection,collection,T1557.004,Evil Twin,true,T1557,Network Devices,1,1,2,1,0,3
+12,TA0009,Collection,collection,T1560,Archive Collected Data,false,,"Linux, macOS, Windows",3,1,1,13,44,4
+12,TA0009,Collection,collection,T1560.001,Archive via Utility,true,T1560,"Linux, macOS, Windows",3,1,1,40,38,4
+12,TA0009,Collection,collection,T1560.002,Archive via Library,true,T1560,"Linux, macOS, Windows",3,1,0,3,13,4
+12,TA0009,Collection,collection,T1560.003,Archive via Custom Method,true,T1560,"Linux, macOS, Windows",3,1,0,7,31,5
+12,TA0009,Collection,collection,T1602,Data from Configuration Repository,false,,Network Devices,1,1,6,0,0,2
+12,TA0009,Collection,collection,T1602.001,SNMP (MIB Dump),true,T1602,Network Devices,1,1,6,1,0,3
+12,TA0009,Collection,collection,T1602.002,Network Device Configuration Dump,true,T1602,Network Devices,1,1,6,1,1,4
+13,TA0011,Command and Control,command-and-control,T1001,Data Obfuscation,false,,"ESXi, Linux, macOS, Windows",3,1,1,1,13,3
+13,TA0011,Command and Control,command-and-control,T1001.001,Junk Data,true,T1001,"ESXi, Linux, macOS, Windows",4,1,1,1,17,4
+13,TA0011,Command and Control,command-and-control,T1001.002,Steganography,true,T1001,"Linux, macOS, Windows, ESXi",4,1,1,1,11,5
+13,TA0011,Command and Control,command-and-control,T1001.003,Protocol or Service Impersonation,true,T1001,"ESXi, Linux, macOS, Windows",4,1,1,3,19,4
+13,TA0011,Command and Control,command-and-control,T1008,Fallback Channels,false,,"ESXi, Linux, macOS, Windows",4,1,1,5,52,2
+13,TA0011,Command and Control,command-and-control,T1071,Application Layer Protocol,false,,"Linux, macOS, Windows, Network Devices, ESXi",4,1,2,6,10,5
+13,TA0011,Command and Control,command-and-control,T1071.001,Web Protocols,true,T1071,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,58,352,5
+13,TA0011,Command and Control,command-and-control,T1071.002,File Transfer Protocols,true,T1071,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,6,20,5
+13,TA0011,Command and Control,command-and-control,T1071.003,Mail Protocols,true,T1071,"Linux, macOS, Network Devices, Windows",4,1,2,6,20,4
+13,TA0011,Command and Control,command-and-control,T1071.004,DNS,true,T1071,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,11,44,4
+13,TA0011,Command and Control,command-and-control,T1071.005,Publish/Subscribe Protocols,true,T1071,"macOS, Linux, Windows, Network Devices",4,1,2,0,1,4
+13,TA0011,Command and Control,command-and-control,T1090,Proxy,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,3,20,48,5
+13,TA0011,Command and Control,command-and-control,T1090.001,Internal Proxy,true,T1090,"ESXi, Linux, macOS, Network Devices, Windows",5,1,1,9,23,7
+13,TA0011,Command and Control,command-and-control,T1090.002,External Proxy,true,T1090,"ESXi, Linux, macOS, Network Devices, Windows",5,1,1,11,13,5
+13,TA0011,Command and Control,command-and-control,T1090.003,Multi-hop Proxy,true,T1090,"ESXi, Linux, macOS, Network Devices, Windows",5,1,1,13,23,5
+13,TA0011,Command and Control,command-and-control,T1090.004,Domain Fronting,true,T1090,"Linux, macOS, Windows, ESXi",4,1,1,1,4,3
+13,TA0011,Command and Control,command-and-control,T1092,Communication Through Removable Media,false,,"Linux, macOS, Windows",3,1,2,1,2,3
+13,TA0011,Command and Control,command-and-control,T1095,Non-Application Layer Protocol,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,4,13,88,3
+13,TA0011,Command and Control,command-and-control,T1102,Web Service,false,,"ESXi, Linux, macOS, Windows",4,1,2,15,31,3
+13,TA0011,Command and Control,command-and-control,T1102.001,Dead Drop Resolver,true,T1102,"ESXi, Linux, macOS, Windows",4,1,2,6,20,3
+13,TA0011,Command and Control,command-and-control,T1102.002,Bidirectional Communication,true,T1102,"ESXi, Linux, macOS, Windows",3,1,2,16,38,4
+13,TA0011,Command and Control,command-and-control,T1102.003,One-Way Communication,true,T1102,"Linux, macOS, Windows, ESXi",4,1,2,2,6,4
+13,TA0011,Command and Control,command-and-control,T1104,Multi-Stage Channels,false,,"Linux, macOS, Windows, ESXi",4,1,1,4,10,3
+13,TA0011,Command and Control,command-and-control,T1105,Ingress Tool Transfer,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,90,411,5
+13,TA0011,Command and Control,command-and-control,T1132,Data Encoding,false,,"ESXi, Linux, macOS, Windows",4,1,1,1,7,5
+13,TA0011,Command and Control,command-and-control,T1132.001,Standard Encoding,true,T1132,"ESXi, Linux, macOS, Windows",4,1,1,13,117,6
+13,TA0011,Command and Control,command-and-control,T1132.002,Non-Standard Encoding,true,T1132,"ESXi, Linux, macOS, Windows",4,1,1,1,17,6
+13,TA0011,Command and Control,command-and-control,T1205,Traffic Signaling,false,,"Linux, macOS, Network Devices, Windows",4,1,2,3,18,5
+13,TA0011,Command and Control,command-and-control,T1205.001,Port Knocking,true,T1205,"Linux, macOS, Network Devices, Windows",4,1,1,2,4,3
+13,TA0011,Command and Control,command-and-control,T1205.002,Socket Filters,true,T1205,"Linux, macOS, Windows",3,1,1,0,4,6
+13,TA0011,Command and Control,command-and-control,T1219,Remote Access Tools,false,,"Linux, macOS, Windows",3,1,5,13,7,6
+13,TA0011,Command and Control,command-and-control,T1219.001,IDE Tunneling,true,T1219,"Linux, macOS, Windows",3,1,1,1,0,3
+13,TA0011,Command and Control,command-and-control,T1219.002,Remote Desktop Software,true,T1219,"Linux, macOS, Windows",3,1,3,12,1,4
+13,TA0011,Command and Control,command-and-control,T1219.003,Remote Access Hardware,true,T1219,"Linux, macOS, Windows",3,1,1,0,0,1
+13,TA0011,Command and Control,command-and-control,T1568,Dynamic Resolution,false,,"ESXi, Linux, macOS, Windows",4,1,2,8,10,4
+13,TA0011,Command and Control,command-and-control,T1568.001,Fast Flux DNS,true,T1568,"Linux, macOS, Windows, ESXi",4,1,0,3,3,3
+13,TA0011,Command and Control,command-and-control,T1568.002,Domain Generation Algorithms,true,T1568,"ESXi, Linux, macOS, Windows",4,1,2,2,22,4
+13,TA0011,Command and Control,command-and-control,T1568.003,DNS Calculation,true,T1568,"ESXi, Linux, macOS, Windows",4,1,0,1,0,4
+13,TA0011,Command and Control,command-and-control,T1571,Non-Standard Port,false,,"ESXi, Linux, macOS, Windows",4,1,2,19,41,5
+13,TA0011,Command and Control,command-and-control,T1572,Protocol Tunneling,false,,"ESXi, Linux, macOS, Windows",4,1,2,15,22,5
+13,TA0011,Command and Control,command-and-control,T1573,Encrypted Channel,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,4,11,6
+13,TA0011,Command and Control,command-and-control,T1573.001,Symmetric Cryptography,true,T1573,"ESXi, Linux, macOS, Network Devices, Windows",5,1,1,14,167,6
+13,TA0011,Command and Control,command-and-control,T1573.002,Asymmetric Cryptography,true,T1573,"ESXi, Linux, macOS, Network Devices, Windows",5,1,2,12,82,6
+13,TA0011,Command and Control,command-and-control,T1659,Content Injection,false,,"Linux, macOS, Windows",3,1,2,1,1,4
+13,TA0011,Command and Control,command-and-control,T1665,Hide Infrastructure,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,2,3,6
+14,TA0010,Exfiltration,exfiltration,T1011,Exfiltration Over Other Network Medium,false,,"Linux, macOS, Windows",3,1,2,0,0,7
+14,TA0010,Exfiltration,exfiltration,T1011.001,Exfiltration Over Bluetooth,true,T1011,"Linux, macOS, Windows",3,1,2,0,1,5
+14,TA0010,Exfiltration,exfiltration,T1020,Automated Exfiltration,false,,"Linux, macOS, Network Devices, Windows",3,1,0,7,21,3
+14,TA0010,Exfiltration,exfiltration,T1020.001,Traffic Duplication,true,T1020,"Network Devices, IaaS",2,1,3,1,0,2
+14,TA0010,Exfiltration,exfiltration,T1029,Scheduled Transfer,false,,"Linux, macOS, Windows",3,1,1,1,17,4
+14,TA0010,Exfiltration,exfiltration,T1030,Data Transfer Size Limits,false,,"Linux, macOS, Windows, ESXi",3,1,1,5,14,2
+14,TA0010,Exfiltration,exfiltration,T1041,Exfiltration Over C2 Channel,false,,"ESXi, Linux, macOS, Windows",4,1,2,28,173,5
+14,TA0010,Exfiltration,exfiltration,T1048,Exfiltration Over Alternative Protocol,false,,"ESXi, IaaS, Linux, macOS, Network Devices, Office Suite, SaaS, Windows",5,1,6,2,7,9
+14,TA0010,Exfiltration,exfiltration,T1048.001,Exfiltration Over Symmetric Encrypted Non-C2 Protocol,true,T1048,"Linux, macOS, Windows, ESXi",4,1,3,0,0,5
+14,TA0010,Exfiltration,exfiltration,T1048.002,Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,true,T1048,"ESXi, Linux, macOS, Windows",4,1,4,5,3,6
+14,TA0010,Exfiltration,exfiltration,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,true,T1048,"ESXi, Linux, macOS, Network Devices, Windows",5,1,4,11,22,6
+14,TA0010,Exfiltration,exfiltration,T1052,Exfiltration Over Physical Medium,false,,"Linux, macOS, Windows",3,1,3,0,0,5
+14,TA0010,Exfiltration,exfiltration,T1052.001,Exfiltration over USB,true,T1052,"Linux, Windows, macOS",3,1,3,2,5,4
+14,TA0010,Exfiltration,exfiltration,T1537,Transfer Data to Cloud Account,false,,"IaaS, Office Suite, SaaS",3,1,4,3,0,7
+14,TA0010,Exfiltration,exfiltration,T1567,Exfiltration Over Web Service,false,,"ESXi, Linux, macOS, Office Suite, SaaS, Windows",5,1,2,6,8,8
+14,TA0010,Exfiltration,exfiltration,T1567.001,Exfiltration to Code Repository,true,T1567,"ESXi, Linux, macOS, Windows",4,1,1,0,4,6
+14,TA0010,Exfiltration,exfiltration,T1567.002,Exfiltration to Cloud Storage,true,T1567,"ESXi, Linux, macOS, Windows",4,1,1,25,16,6
+14,TA0010,Exfiltration,exfiltration,T1567.003,Exfiltration to Text Storage Sites,true,T1567,"Linux, macOS, Windows, ESXi",4,1,1,0,0,6
+14,TA0010,Exfiltration,exfiltration,T1567.004,Exfiltration Over Webhook,true,T1567,"ESXi, Linux, macOS, Office Suite, SaaS, Windows",5,1,1,0,1,7
+14,TA0010,Exfiltration,exfiltration,T1700,AI-Enabled Exfiltration,false,,"Windows, SaaS",3,1,3,0,0,5
+15,TA0040,Impact,impact,T1485,Data Destruction,false,,"Containers, ESXi, IaaS, Linux, macOS, Windows",6,1,3,8,30,7
+15,TA0040,Impact,impact,T1485.001,Lifecycle-Triggered Deletion,true,T1485,IaaS,1,1,2,0,0,1
+15,TA0040,Impact,impact,T1486,Data Encrypted for Impact,false,,"ESXi, IaaS, Linux, macOS, Windows",5,1,2,20,63,5
+15,TA0040,Impact,impact,T1489,Service Stop,false,,"ESXi, IaaS, Linux, macOS, Windows",4,1,5,7,50,6
+15,TA0040,Impact,impact,T1490,Inhibit System Recovery,false,,"Containers, ESXi, IaaS, Linux, macOS, Network Devices, Windows",5,1,4,7,49,7
+15,TA0040,Impact,impact,T1491,Defacement,false,,"Windows, IaaS, Linux, macOS, ESXi",5,1,1,0,0,6
+15,TA0040,Impact,impact,T1491.001,Internal Defacement,true,T1491,"ESXi, Linux, macOS, Windows",4,1,1,4,12,7
+15,TA0040,Impact,impact,T1491.002,External Defacement,true,T1491,"Windows, IaaS, Linux, macOS",4,1,1,2,0,7
+15,TA0040,Impact,impact,T1495,Firmware Corruption,false,,"Linux, macOS, Network Devices, Windows",4,1,3,0,2,4
+15,TA0040,Impact,impact,T1496,Resource Hijacking,false,,"Windows, IaaS, Linux, macOS, Containers, SaaS",6,1,0,0,0,8
+15,TA0040,Impact,impact,T1496.001,Compute Hijacking,true,T1496,"Windows, IaaS, Linux, macOS, Containers",5,1,0,4,9,8
+15,TA0040,Impact,impact,T1496.002,Bandwidth Hijacking,true,T1496,"Linux, Windows, macOS, IaaS, Containers",5,1,0,0,0,5
+15,TA0040,Impact,impact,T1496.003,SMS Pumping,true,T1496,SaaS,1,1,1,0,0,2
+15,TA0040,Impact,impact,T1496.004,Cloud Service Hijacking,true,T1496,SaaS,1,1,0,0,0,3
+15,TA0040,Impact,impact,T1498,Network Denial of Service,false,,"Windows, IaaS, Linux, macOS, Containers",2,1,1,1,2,3
+15,TA0040,Impact,impact,T1498.001,Direct Network Flood,true,T1498,"Windows, IaaS, Linux, macOS",4,1,1,0,0,4
+15,TA0040,Impact,impact,T1498.002,Reflection Amplification,true,T1498,"Windows, IaaS, Linux, macOS",4,1,1,0,0,6
+15,TA0040,Impact,impact,T1499,Endpoint Denial of Service,false,,"Windows, Linux, macOS, Containers, IaaS",5,1,1,1,2,5
+15,TA0040,Impact,impact,T1499.001,OS Exhaustion Flood,true,T1499,"Linux, macOS, Windows",3,1,1,0,0,4
+15,TA0040,Impact,impact,T1499.002,Service Exhaustion Flood,true,T1499,"Windows, IaaS, Linux, macOS",4,1,1,0,0,7
+15,TA0040,Impact,impact,T1499.003,Application Exhaustion Flood,true,T1499,"Windows, IaaS, Linux, macOS",4,1,1,0,0,5
+15,TA0040,Impact,impact,T1499.004,Application or System Exploitation,true,T1499,"Windows, IaaS, Linux, macOS",4,1,1,0,1,6
+15,TA0040,Impact,impact,T1529,System Shutdown/Reboot,false,,"ESXi, Linux, macOS, Network Devices, Windows",5,1,0,4,27,3
+15,TA0040,Impact,impact,T1531,Account Access Removal,false,,"Linux, macOS, Windows, SaaS, IaaS, Office Suite, ESXi",6,1,0,2,4,5
+15,TA0040,Impact,impact,T1561,Disk Wipe,false,,"Linux, macOS, Windows, Network Devices",4,1,1,0,0,7
+15,TA0040,Impact,impact,T1561.001,Disk Content Wipe,true,T1561,"Linux, macOS, Network Devices, Windows",4,1,1,3,14,7
+15,TA0040,Impact,impact,T1561.002,Disk Structure Wipe,true,T1561,"Linux, macOS, Network Devices, Windows",4,1,1,6,13,7
+15,TA0040,Impact,impact,T1565,Data Manipulation,false,,"Linux, macOS, Windows",3,1,4,1,1,6
+15,TA0040,Impact,impact,T1565.001,Stored Data Manipulation,true,T1565,"Linux, macOS, Windows",3,1,3,1,2,4
+15,TA0040,Impact,impact,T1565.002,Transmitted Data Manipulation,true,T1565,"Linux, macOS, Windows",3,1,1,1,4,5
+15,TA0040,Impact,impact,T1565.003,Runtime Data Manipulation,true,T1565,"Linux, macOS, Windows",3,1,2,1,0,5
+15,TA0040,Impact,impact,T1657,Financial Theft,false,,"Linux, macOS, Office Suite, SaaS, Windows",5,1,2,19,8,5
+15,TA0040,Impact,impact,T1667,Email Bombing,false,,"Linux, Office Suite, Windows, macOS",4,1,2,1,0,2

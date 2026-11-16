@@ -23,6 +23,28 @@
                     }
                 ]
             }
+        },
+        "input_version": {
+            "type": "input.dropdown",
+            "title": "ATT&CK の版",
+            "dataSources": {
+                "primary": "ds_versions"
+            },
+            "options": {
+                "token": "ver",
+                "items": ">frame(label, value) | objects()",
+                "selectFirstSearchResult": true,
+                "defaultValue": "20.1"
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"version\") | renameSeries(\"value\") | formatByType(formattedConfig)"
+            }
         }
     },
     "defaults": {},
@@ -85,34 +107,42 @@
         "ds_dsm_matrix": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| table source, total, *\n| rename source AS \"データソース\", total AS \"合計\" "
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator_v$ver$.csv technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| table source, total, *\n| rename source AS \"データソース\", total AS \"合計\" "
             },
             "name": "マトリクス"
         },
         "ds_dsm_column": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| head 30\n| fields - total"
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator_v$ver$.csv technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| xyseries source tactic techniques\n| fillnull value=0\n| addtotals fieldname=total\n| sort 0 -total, +source\n| head 30\n| fields - total"
             },
             "name": "縦棒グラフ"
         },
         "ds_dsm_tactic_pie": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by tactic\n| sort 0 - count"
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator_v$ver$.csv technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by tactic\n| sort 0 - count"
             },
             "name": "Tactic 別件数"
         },
         "ds_dsm_source_pie": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by source\n| sort 0 -count, +source\n| streamstats count as rank\n| eval source = if(rank <= 15, source, \"その他（16 位以下）\")\n| stats sum(count) as count, min(rank) as rank by source\n| sort 0 rank\n| fields source, count"
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| where isnotnull(technique_id) AND technique_id!=\"\"\n| eval source = if(\"$unit$\"==\"dc\", dc_id.\" \".dc_name, trim(log_source_name))\n| where isnotnull(source) AND source!=\"\"\n| stats count by source, technique_id\n| lookup attack_navigator_v$ver$.csv technique_id OUTPUT tactic_order, tactic_name\n| eval pair = mvzip(tactic_order, tactic_name, \"|\")\n| mvexpand pair\n| eval tactic = printf(\"%02d\", tonumber(mvindex(split(pair, \"|\"), 0))).\" \".mvindex(split(pair, \"|\"), 1)\n| stats dc(technique_id) as techniques by source, tactic\n| stats sum(techniques) as count by source\n| sort 0 -count, +source\n| streamstats count as rank\n| eval source = if(rank <= 15, source, \"その他（16 位以下）\")\n| stats sum(count) as count, min(rank) as rank by source\n| sort 0 rank\n| fields source, count"
             },
             "name": "データソース別件数"
+        },
+        "ds_versions": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_versions.csv\n| fields label, version"
+            },
+            "name": "ATT&CK の版一覧"
         }
     },
     "layout": {
         "globalInputs": [
+            "input_version",
             "input_unit"
         ],
         "tabs": {

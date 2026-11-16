@@ -26,6 +26,28 @@
                 "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
                 "value": ">primary | seriesByName(\"value\") | renameSeries(\"value\") | formatByType(formattedConfig)"
             }
+        },
+        "input_version": {
+            "type": "input.dropdown",
+            "title": "ATT&CK の版",
+            "dataSources": {
+                "primary": "ds_versions"
+            },
+            "options": {
+                "token": "ver",
+                "items": ">frame(label, value) | objects()",
+                "selectFirstSearchResult": true,
+                "defaultValue": "20.1"
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"version\") | renameSeries(\"value\") | formatByType(formattedConfig)"
+            }
         }
     },
     "defaults": {},
@@ -91,48 +113,56 @@
         "ds_scope_tech": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$)\n| stats dc(an_id) as analytics, dc(dc_id) as data_components, values(det_id) as det_ids by technique_id, technique_name\n| eval det_ids = mvjoin(det_ids, \", \")\n| sort 0 - analytics, technique_id\n| table technique_id, technique_name, det_ids, analytics, data_components\n| rename technique_id AS \"Technique ID\", technique_name AS \"Technique\", det_ids AS \"DET\", analytics AS \"AN 数\", data_components AS \"DC 数\" "
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$)\n| stats dc(an_id) as analytics, dc(dc_id) as data_components, values(det_id) as det_ids by technique_id, technique_name\n| eval det_ids = mvjoin(det_ids, \", \")\n| sort 0 - analytics, technique_id\n| table technique_id, technique_name, det_ids, analytics, data_components\n| rename technique_id AS \"Technique ID\", technique_name AS \"Technique\", det_ids AS \"DET\", analytics AS \"AN 数\", data_components AS \"DC 数\" "
             },
             "name": "検知経路から判明する Technique"
         },
         "ds_actor_via": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_relationships.csv\n| search relationship_type=\"uses\" AND (source_type=\"software\" OR source_type=\"group\" OR source_type=\"campaign\") [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_type, source_id, source_name\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_type, source_id\n| table source_type, source_id, source_name, technique_hits, techniques\n| rename source_type AS \"種別\", source_id AS \"ID\", source_name AS \"名称\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\" "
+                "query": "| inputlookup attack_relationships_v$ver$.csv\n| search relationship_type=\"uses\" AND (source_type=\"software\" OR source_type=\"group\" OR source_type=\"campaign\") [\n    | inputlookup attack_relationships_v$ver$.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques_v$ver$.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path_v$ver$.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_type, source_id, source_name\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_type, source_id\n| table source_type, source_id, source_name, technique_hits, techniques\n| rename source_type AS \"種別\", source_id AS \"ID\", source_name AS \"名称\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\" "
             },
             "name": "Technique 経由で関連する Software / Group / Campaign"
         },
         "ds_mit_via": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_relationships.csv\n| search relationship_type=\"mitigates\" AND source_type=\"mitigation\" [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| lookup attack_mitigations mitigation_id AS source_id OUTPUT description AS mitigation_description\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_id, source_name, mitigation_description\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_id\n| table source_id, source_name, technique_hits, techniques, mitigation_description\n| rename source_id AS \"Mitigation ID\", source_name AS \"Mitigation\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\", mitigation_description AS \"Mitigation の説明\" "
+                "query": "| inputlookup attack_relationships_v$ver$.csv\n| search relationship_type=\"mitigates\" AND source_type=\"mitigation\" [\n    | inputlookup attack_relationships_v$ver$.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval tech = if(source_id IN ($entity$), target_id, source_id)\n    | eval ptype = if(source_id IN ($entity$), target_type, source_type)\n    | where ptype == \"technique\"\n    | fields tech\n    | append [| inputlookup attack_techniques_v$ver$.csv | search technique_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| inputlookup attack_detection_path_v$ver$.csv | search dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) | eval tech = technique_id | fields tech]\n    | append [| makeresults count=1 | eval tech = \"__none__\"]\n    | dedup tech\n    | rename tech AS target_id\n    | fields target_id ]\n| lookup attack_mitigations_v$ver$.csv mitigation_id AS source_id OUTPUT description AS mitigation_description\n| stats dc(target_id) as technique_hits, values(target_id) as techniques by source_id, source_name, mitigation_description\n| eval techniques = mvjoin(techniques, \", \")\n| sort 0 - technique_hits, source_id\n| table source_id, source_name, technique_hits, techniques, mitigation_description\n| rename source_id AS \"Mitigation ID\", source_name AS \"Mitigation\", technique_hits AS \"該当 Technique 数\", techniques AS \"該当 Technique\", mitigation_description AS \"Mitigation の説明\" "
             },
             "name": "Technique 経由で関連する Mitigation"
         },
         "ds_rel_detect": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detection_path.csv\n| search technique_id IN ($entity$) OR dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) OR [\n    | inputlookup attack_relationships.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval technique_id = if(source_id IN ($entity$), target_id, source_id)\n    | eval peer_type = if(source_id IN ($entity$), target_type, source_type)\n    | where peer_type == \"technique\"\n    | append [| makeresults count=1 | eval technique_id=\"__none__\"]\n    | dedup technique_id\n    | fields technique_id ]\n| sort 0 technique_id, an_id, dc_id\n| table technique_id, technique_name, det_id, an_id, platforms, dc_id, dc_name, log_source_name, channel\n| rename technique_id AS \"Technique ID\", technique_name AS \"Technique\", det_id AS \"DET\", an_id AS \"AN\", platforms AS \"Platform\", dc_id AS \"DC\", dc_name AS \"Data Component\", log_source_name AS \"Log Source\", channel AS \"Channel（要求される内容）\" "
+                "query": "| inputlookup attack_detection_path_v$ver$.csv\n| search technique_id IN ($entity$) OR dc_id IN ($entity$) OR det_id IN ($entity$) OR an_id IN ($entity$) OR [\n    | inputlookup attack_relationships_v$ver$.csv\n    | search source_id IN ($entity$) OR target_id IN ($entity$)\n    | eval technique_id = if(source_id IN ($entity$), target_id, source_id)\n    | eval peer_type = if(source_id IN ($entity$), target_type, source_type)\n    | where peer_type == \"technique\"\n    | append [| makeresults count=1 | eval technique_id=\"__none__\"]\n    | dedup technique_id\n    | fields technique_id ]\n| sort 0 technique_id, an_id, dc_id\n| table technique_id, technique_name, det_id, an_id, platforms, dc_id, dc_name, log_source_name, channel\n| rename technique_id AS \"Technique ID\", technique_name AS \"Technique\", det_id AS \"DET\", an_id AS \"AN\", platforms AS \"Platform\", dc_id AS \"DC\", dc_name AS \"Data Component\", log_source_name AS \"Log Source\", channel AS \"Channel（要求される内容）\" "
             },
             "name": "検知経路（Technique → Detection Strategy → Analytic → Data Component → Log Source）"
         },
         "ds_entities": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_entities.csv\n| search entity_type=\"datacomponent\"\n| sort 0 entity_id\n| eval value = \"\\\"\".entity_id.\"\\\"\"\n| fields label, value"
+                "query": "| inputlookup attack_entities_v$ver$.csv\n| search entity_type=\"datacomponent\"\n| sort 0 entity_id\n| eval value = \"\\\"\".entity_id.\"\\\"\"\n| fields label, value"
             },
             "name": "Data Component 一覧"
         },
         "ds_entity": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_entities.csv\n| search entity_type=\"datacomponent\" AND entity_id IN ($entity$)\n| sort 0 entity_id\n| table entity_id, entity_name, description, url\n| rename entity_id AS \"ID\", entity_name AS \"名称\", description AS \"説明\", url AS \"URL\" "
+                "query": "| inputlookup attack_entities_v$ver$.csv\n| search entity_type=\"datacomponent\" AND entity_id IN ($entity$)\n| sort 0 entity_id\n| table entity_id, entity_name, description, url\n| rename entity_id AS \"ID\", entity_name AS \"名称\", description AS \"説明\", url AS \"URL\" "
             },
             "name": "対象の概要"
+        },
+        "ds_versions": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_versions.csv\n| fields label, version"
+            },
+            "name": "ATT&CK の版一覧"
         }
     },
     "layout": {
         "globalInputs": [
+            "input_version",
             "input_entity"
         ],
         "tabs": {

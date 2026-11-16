@@ -6,6 +6,12 @@
     python3 tools/build_lookups.py --version 18.1       # 別バージョン
     python3 tools/build_lookups.py --stix path/to.json  # ローカルの STIX を使う
 
+出力は版ごとの attack_<種別>_v<版>.csv（例: attack_techniques_v20.1.csv）。
+ダッシュボードはこの版付きのファイルを画面上で選んだ版で読む。
+取り込み済みの版のうち最も新しい版だけは、版なしの attack_<種別>.csv にも複製する
+（他アプリから `| inputlookup attack_techniques.csv` で最新版を引けるようにするため）。
+取り込み済みの版の一覧は attack_versions.csv に記録する。
+
 v18 以降 Technique と Data Component の間に直接の関係オブジェクトは無い。
 Technique -> Detection Strategy -> Analytic -> Data Component の 4 ホップを
 たどって attack_detection_path.csv に平坦化している。
@@ -17,6 +23,7 @@ import csv
 import json
 import os
 import re
+import shutil
 import sys
 import urllib.request
 from collections import Counter, defaultdict
@@ -76,8 +83,25 @@ def load_stix(args):
         return json.loads(resp.read().decode("utf-8")), os.path.basename(url)
 
 
+STIX_NAME_RE = re.compile(r"enterprise-attack-(\d+\.\d+)\.json$")
+VERSIONS_CSV = "attack_versions.csv"
+WRITTEN = []  # この実行で書いた版なしのファイル名
+VERSION_SUFFIX = ""
+
+
+def versioned(name, version):
+    """attack_techniques.csv -> attack_techniques_v20.1.csv"""
+    return name[: -len(".csv")] + f"_v{version}.csv"
+
+
+def version_key(version):
+    return tuple(int(x) for x in version.split("."))
+
+
 def write_csv(name, fieldnames, rows):
     os.makedirs(LOOKUP_DIR, exist_ok=True)
+    WRITTEN.append(name)
+    name = versioned(name, VERSION_SUFFIX)
     path = os.path.join(LOOKUP_DIR, name)
     with open(path, "w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
@@ -94,6 +118,22 @@ def main():
     args = parser.parse_args()
 
     bundle, source_name = load_stix(args)
+    if args.stix:
+        # 版はバンドル内の collection オブジェクトから取る。無ければファイル名から取る。
+        # --version の既定値（20.1）を別の版のデータに誤って付けないため。
+        collection_version = next(
+            (o.get("x_mitre_version") for o in bundle["objects"] if o["type"] == "x-mitre-collection"),
+            None,
+        )
+        match = STIX_NAME_RE.search(os.path.basename(args.stix))
+        if collection_version:
+            args.version = collection_version
+        elif match:
+            args.version = match.group(1)
+        else:
+            sys.exit(f"{args.stix} の版が分かりません（collection オブジェクトもファイル名の版もありません）")
+    global VERSION_SUFFIX
+    VERSION_SUFFIX = args.version
     objects = bundle["objects"]
     by_stix_id = {o["id"]: o for o in objects}
 
@@ -768,7 +808,40 @@ def main():
         ]
         + [{"key": f"rows_{k}", "value": v} for k, v in sorted(counts.items())],
     )
+    update_versions(args.version, source_name, len(objects), bundle)
     sys.stderr.write("done\n")
+
+
+def update_versions(version, source_name, object_count, bundle):
+    """attack_versions.csv を更新し、最新版なら版なしのファイルにも複製する。"""
+    path = os.path.join(LOOKUP_DIR, VERSIONS_CSV)
+    rows = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            rows = {r["version"]: r for r in csv.DictReader(fh)}
+    modified = next(
+        (o.get("modified", "") for o in bundle["objects"] if o["type"] == "x-mitre-collection"), ""
+    )
+    rows[version] = {
+        "version": version,
+        "label": f"v{version}",
+        "stix_bundle": source_name,
+        "stix_objects": object_count,
+        "released": modified[:10],
+    }
+    ordered = sorted(rows.values(), key=lambda r: version_key(r["version"]), reverse=True)
+    with open(path, "w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=["version", "label", "stix_bundle", "stix_objects", "released"])
+        writer.writeheader()
+        writer.writerows(ordered)
+    sys.stderr.write(f"  {VERSIONS_CSV:38s} {len(ordered):6d} rows\n")
+
+    if ordered[0]["version"] == version:
+        for name in WRITTEN:
+            shutil.copyfile(
+                os.path.join(LOOKUP_DIR, versioned(name, version)), os.path.join(LOOKUP_DIR, name)
+            )
+        sys.stderr.write(f"  v{version} が最新のため版なしの lookup にも複製しました\n")
 
 
 if __name__ == "__main__":

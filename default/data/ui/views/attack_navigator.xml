@@ -91,6 +91,28 @@
                     }
                 ]
             }
+        },
+        "input_version": {
+            "type": "input.dropdown",
+            "title": "ATT&CK の版",
+            "dataSources": {
+                "primary": "ds_versions"
+            },
+            "options": {
+                "token": "ver",
+                "items": ">frame(label, value) | objects()",
+                "selectFirstSearchResult": true,
+                "defaultValue": "20.1"
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"version\") | renameSeries(\"value\") | formatByType(formattedConfig)"
+            }
         }
     },
     "defaults": {},
@@ -179,62 +201,70 @@
         "ds_platforms": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| eval value = split(platforms, \", \")\n| mvexpand value\n| stats count by value\n| eval label = value\n| sort 0 label\n| fields label, value"
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| eval value = split(platforms, \", \")\n| mvexpand value\n| stats count by value\n| eval label = value\n| sort 0 label\n| fields label, value"
             },
             "name": "Platform 一覧"
         },
         "ds_version": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_about.csv\n| search key=\"attack_version\"\n| fields value"
+                "query": "| inputlookup attack_about_v$ver$.csv\n| search key=\"attack_version\"\n| fields value"
             },
             "name": "ATT&CK バージョン"
         },
         "ds_tech_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(technique_id) as techniques"
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(technique_id) as techniques"
             },
             "name": "Technique 数"
         },
         "ds_tactic_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(tactic_name) as tactics"
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| stats dc(tactic_name) as tactics"
             },
             "name": "Tactic 数"
         },
         "ds_matrix": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| sort 0 tactic_order, technique_id\n| streamstats count as row by tactic_name\n| eval col = printf(\"%02d\", tactic_order).\" \".tactic_name\n| eval cell = technique_id.\" \".technique_name.\" [\".metric.\"]\"\n| xyseries row col cell\n| fields - row"
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| sort 0 tactic_order, technique_id\n| streamstats count as row by tactic_name\n| eval col = printf(\"%02d\", tactic_order).\" \".tactic_name\n| eval cell = technique_id.\" \".technique_name.\" [\".metric.\"]\"\n| xyseries row col cell\n| fields - row"
             },
             "name": "マトリクス"
         },
         "ds_tactic_counts": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats count as techniques, sum(metric) as metric_total by tactic_order, tactic_name\n| sort 0 tactic_order\n| eval tactic = printf(\"%02d\", tactic_order).\" \".tactic_name\n| table tactic, techniques, metric_total\n| rename techniques as \"Technique 数\", metric_total as \"$metric$ 合計\" "
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats count as techniques, sum(metric) as metric_total by tactic_order, tactic_name\n| sort 0 tactic_order\n| eval tactic = printf(\"%02d\", tactic_order).\" \".tactic_name\n| table tactic, techniques, metric_total\n| rename techniques as \"Technique 数\", metric_total as \"$metric$ 合計\" "
             },
             "name": "Tactic 別件数"
         },
         "ds_coverage": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_navigator.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats values(tactic_name) as tactics, max(metric) as metric by technique_id, technique_name, platforms\n| eval tactics = mvjoin(tactics, \", \")\n| sort 0 - metric, technique_id\n| head 100\n| table technique_id, technique_name, tactics, platforms, metric\n| rename technique_id as \"Technique ID\", technique_name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", metric as \"$metric$\" "
+                "query": "| inputlookup attack_navigator_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| eval metric = $metric$\n| stats values(tactic_name) as tactics, max(metric) as metric by technique_id, technique_name, platforms\n| eval tactics = mvjoin(tactics, \", \")\n| sort 0 - metric, technique_id\n| head 100\n| table technique_id, technique_name, tactics, platforms, metric\n| rename technique_id as \"Technique ID\", technique_name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", metric as \"$metric$\" "
             },
             "name": "指標上位"
         },
         "ds_nav_detail": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_techniques.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| sort 0 technique_id\n| table technique_id, name, tactics, platforms, detection_strategies, analytics, data_components, mitigations, groups, software, campaigns\n| rename technique_id as \"Technique ID\", name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", detection_strategies as \"DET 数\", analytics as \"AN 数\", data_components as \"Data Component\", mitigations as \"Mitigation 数\", groups as \"Group 数\", software as \"Software 数\", campaigns as \"Campaign 数\" "
+                "query": "| inputlookup attack_techniques_v$ver$.csv\n| search is_sub_technique=\"$subtech$\" platforms=\"*$platform$*\"\n| sort 0 technique_id\n| table technique_id, name, tactics, platforms, detection_strategies, analytics, data_components, mitigations, groups, software, campaigns\n| rename technique_id as \"Technique ID\", name as \"Technique\", tactics as \"Tactic\", platforms as \"Platform\", detection_strategies as \"DET 数\", analytics as \"AN 数\", data_components as \"Data Component\", mitigations as \"Mitigation 数\", groups as \"Group 数\", software as \"Software 数\", campaigns as \"Campaign 数\" "
             },
             "name": "Technique 一覧"
+        },
+        "ds_versions": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_versions.csv\n| fields label, version"
+            },
+            "name": "ATT&CK の版一覧"
         }
     },
     "layout": {
         "globalInputs": [
+            "input_version",
             "input_platform",
             "input_subtech",
             "input_metric"

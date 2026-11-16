@@ -1,0 +1,3 @@
+version,label,stix_bundle,stix_objects,released
+20.1,v20.1,enterprise-attack-20.1.json,26699,2026-11-05
+20.0,v20.0,enterprise-attack-20.0.json,26690,2026-10-13

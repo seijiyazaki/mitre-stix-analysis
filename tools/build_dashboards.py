@@ -11,6 +11,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 from xml.sax.saxutils import escape
 
 APP_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -216,8 +217,39 @@ def grid(rows, width=1200):
     return structure
 
 
+# ---------------------------------------------------------------------------
+# ATT&CK の版の切り替え
+# ---------------------------------------------------------------------------
+# lookup は版ごとに attack_<種別>_v<版>.csv で置いてある（tools/build_lookups.py）。
+# 全画面に「ATT&CK の版」を付け、各クエリの lookup 名を $ver$ 付きに書き換える。
+INPUTLOOKUP_RE = re.compile(r"\binputlookup attack_(\w+)\.csv\b")
+LOOKUP_RE = re.compile(r"\| lookup attack_(\w+) ")
+
+
+def latest_version():
+    with open(os.path.join(LOOKUP_DIR, "attack_versions.csv"), encoding="utf-8") as fh:
+        return next(csv.DictReader(fh))["version"]
+
+
+def add_version_selector(definition):
+    for ds_def in definition["dataSources"].values():
+        query = ds_def["options"]["query"]
+        query = INPUTLOOKUP_RE.sub(r"inputlookup attack_\1_v$ver$.csv", query)
+        query = LOOKUP_RE.sub(r"| lookup attack_\1_v$ver$.csv ", query)
+        ds_def["options"]["query"] = query
+    definition["dataSources"]["ds_versions"] = ds(
+        "| inputlookup attack_versions.csv\n| fields label, version",
+        "ATT&CK の版一覧",
+    )
+    definition["inputs"]["input_version"] = dynamic_input(
+        "ds_versions", "ver", "ATT&CK の版", "label", "version", default=latest_version()
+    )
+    definition["layout"]["globalInputs"].insert(0, "input_version")
+
+
 def write_view(filename, label, description, definition):
     os.makedirs(VIEW_DIR, exist_ok=True)
+    add_version_selector(definition)
     body = json.dumps(definition, ensure_ascii=False, indent=4)
     xml = (
         '<dashboard version="2">\n'

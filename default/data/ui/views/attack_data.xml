@@ -13,6 +13,28 @@
                 "token": "q",
                 "defaultValue": "*"
             }
+        },
+        "input_version": {
+            "type": "input.dropdown",
+            "title": "ATT&CK の版",
+            "dataSources": {
+                "primary": "ds_versions"
+            },
+            "options": {
+                "token": "ver",
+                "items": ">frame(label, value) | objects()",
+                "selectFirstSearchResult": true,
+                "defaultValue": "20.1"
+            },
+            "context": {
+                "formattedConfig": {
+                    "number": {
+                        "prefix": ""
+                    }
+                },
+                "label": ">primary | seriesByName(\"label\") | renameSeries(\"label\") | formatByType(formattedConfig)",
+                "value": ">primary | seriesByName(\"version\") | renameSeries(\"value\") | formatByType(formattedConfig)"
+            }
         }
     },
     "defaults": {},
@@ -248,160 +270,168 @@
         "ds_analytics": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_analytics.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 an_id\n| table an_id, det_id, det_name, technique_id, technique_name, platforms, log_source_names, data_components, mutable_elements, mutable_detail, url, description"
+                "query": "| inputlookup attack_analytics_v$ver$.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 an_id\n| table an_id, det_id, det_name, technique_id, technique_name, platforms, log_source_names, data_components, mutable_elements, mutable_detail, url, description"
             },
             "name": "analytics 一覧"
         },
         "ds_analytics_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_analytics.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_analytics_v$ver$.csv\n| eval _raw = coalesce(an_id,\"\").\" \".coalesce(det_id,\"\").\" \".coalesce(det_name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(mutable_elements,\"\").\" \".coalesce(mutable_detail,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "analytics 件数"
         },
         "ds_campaigns": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_campaigns.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 campaign_id\n| table campaign_id, name, first_seen, last_seen, aliases, techniques, software, groups, url, description"
+                "query": "| inputlookup attack_campaigns_v$ver$.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 campaign_id\n| table campaign_id, name, first_seen, last_seen, aliases, techniques, software, groups, url, description"
             },
             "name": "campaigns 一覧"
         },
         "ds_campaigns_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_campaigns.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_campaigns_v$ver$.csv\n| eval _raw = coalesce(campaign_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(first_seen,\"\").\" \".coalesce(last_seen,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "campaigns 件数"
         },
         "ds_datacomponents": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_datacomponents.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 dc_id\n| table dc_id, name, log_sources, log_source_names, analytics, techniques, url, description"
+                "query": "| inputlookup attack_datacomponents_v$ver$.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 dc_id\n| table dc_id, name, log_sources, log_source_names, analytics, techniques, url, description"
             },
             "name": "datacomponents 一覧"
         },
         "ds_datacomponents_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_datacomponents.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_datacomponents_v$ver$.csv\n| eval _raw = coalesce(dc_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(log_sources,\"\").\" \".coalesce(log_source_names,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "datacomponents 件数"
         },
         "ds_detectionstrategies": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detectionstrategies.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 det_id\n| table det_id, name, technique_id, technique_name, analytics, analytic_ids, platforms, url"
+                "query": "| inputlookup attack_detectionstrategies_v$ver$.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 det_id\n| table det_id, name, technique_id, technique_name, analytics, analytic_ids, platforms, url"
             },
             "name": "detectionstrategies 一覧"
         },
         "ds_detectionstrategies_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_detectionstrategies.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_detectionstrategies_v$ver$.csv\n| eval _raw = coalesce(det_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(technique_id,\"\").\" \".coalesce(technique_name,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(analytic_ids,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "detectionstrategies 件数"
         },
         "ds_groups": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_groups.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 group_id\n| table group_id, name, aliases, techniques, software, campaigns, url, description"
+                "query": "| inputlookup attack_groups_v$ver$.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 group_id\n| table group_id, name, aliases, techniques, software, campaigns, url, description"
             },
             "name": "groups 一覧"
         },
         "ds_groups_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_groups.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_groups_v$ver$.csv\n| eval _raw = coalesce(group_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "groups 件数"
         },
         "ds_matrices": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_matrices.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 tactic_order\n| table matrix_id, matrix_name, tactic_order, tactic_id, tactic_name, tactic_shortname, techniques, url"
+                "query": "| inputlookup attack_matrices_v$ver$.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| sort 0 tactic_order\n| table matrix_id, matrix_name, tactic_order, tactic_id, tactic_name, tactic_shortname, techniques, url"
             },
             "name": "matrices 一覧"
         },
         "ds_matrices_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_matrices.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_matrices_v$ver$.csv\n| eval _raw = coalesce(matrix_id,\"\").\" \".coalesce(matrix_name,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(tactic_id,\"\").\" \".coalesce(tactic_name,\"\").\" \".coalesce(tactic_shortname,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "matrices 件数"
         },
         "ds_mitigations": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_mitigations.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 mitigation_id\n| table mitigation_id, name, techniques, url, description"
+                "query": "| inputlookup attack_mitigations_v$ver$.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 mitigation_id\n| table mitigation_id, name, techniques, url, description"
             },
             "name": "mitigations 一覧"
         },
         "ds_mitigations_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_mitigations.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_mitigations_v$ver$.csv\n| eval _raw = coalesce(mitigation_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "mitigations 件数"
         },
         "ds_relationships": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_relationships.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 source_id\n| table relationship_type, source_id, source_name, source_type, target_id, target_name, target_type, description"
+                "query": "| inputlookup attack_relationships_v$ver$.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 source_id\n| table relationship_type, source_id, source_name, source_type, target_id, target_name, target_type, description"
             },
             "name": "relationships 一覧"
         },
         "ds_relationships_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_relationships.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_relationships_v$ver$.csv\n| eval _raw = coalesce(relationship_type,\"\").\" \".coalesce(source_id,\"\").\" \".coalesce(source_name,\"\").\" \".coalesce(source_type,\"\").\" \".coalesce(target_id,\"\").\" \".coalesce(target_name,\"\").\" \".coalesce(target_type,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "relationships 件数"
         },
         "ds_software": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_software.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 software_id\n| table software_id, name, software_type, platforms, aliases, techniques, groups, campaigns, url, description"
+                "query": "| inputlookup attack_software_v$ver$.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 software_id\n| table software_id, name, software_type, platforms, aliases, techniques, groups, campaigns, url, description"
             },
             "name": "software 一覧"
         },
         "ds_software_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_software.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_software_v$ver$.csv\n| eval _raw = coalesce(software_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(software_type,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(aliases,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "software 件数"
         },
         "ds_tactics": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_tactics.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 tactic_order\n| table tactic_id, name, shortname, tactic_order, techniques, url, description"
+                "query": "| inputlookup attack_tactics_v$ver$.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 tactic_order\n| table tactic_id, name, shortname, tactic_order, techniques, url, description"
             },
             "name": "tactics 一覧"
         },
         "ds_tactics_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_tactics.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_tactics_v$ver$.csv\n| eval _raw = coalesce(tactic_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(shortname,\"\").\" \".coalesce(tactic_order,\"\").\" \".coalesce(techniques,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "tactics 件数"
         },
         "ds_techniques": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_techniques.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 technique_id\n| table technique_id, name, is_sub_technique, parent_id, parent_name, tactics, platforms, detection_strategies, analytics, data_components, data_component_count, mitigations, groups, software, campaigns, url, description"
+                "query": "| inputlookup attack_techniques_v$ver$.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| sort 0 technique_id\n| table technique_id, name, is_sub_technique, parent_id, parent_name, tactics, platforms, detection_strategies, analytics, data_components, data_component_count, mitigations, groups, software, campaigns, url, description"
             },
             "name": "techniques 一覧"
         },
         "ds_techniques_count": {
             "type": "ds.search",
             "options": {
-                "query": "| inputlookup attack_techniques.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
+                "query": "| inputlookup attack_techniques_v$ver$.csv\n| eval _raw = coalesce(technique_id,\"\").\" \".coalesce(name,\"\").\" \".coalesce(is_sub_technique,\"\").\" \".coalesce(parent_id,\"\").\" \".coalesce(parent_name,\"\").\" \".coalesce(tactics,\"\").\" \".coalesce(platforms,\"\").\" \".coalesce(detection_strategies,\"\").\" \".coalesce(analytics,\"\").\" \".coalesce(data_components,\"\").\" \".coalesce(data_component_count,\"\").\" \".coalesce(mitigations,\"\").\" \".coalesce(groups,\"\").\" \".coalesce(software,\"\").\" \".coalesce(campaigns,\"\").\" \".coalesce(url,\"\").\" \".coalesce(description,\"\")\n| search $q$\n| stats count as rows"
             },
             "name": "techniques 件数"
+        },
+        "ds_versions": {
+            "type": "ds.search",
+            "options": {
+                "query": "| inputlookup attack_versions.csv\n| fields label, version"
+            },
+            "name": "ATT&CK の版一覧"
         }
     },
     "layout": {
         "globalInputs": [
+            "input_version",
             "input_q"
         ],
         "tabs": {

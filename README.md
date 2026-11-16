@@ -3,7 +3,8 @@
 MITRE ATT&CK の STIX バンドルを Splunk の CSV lookup として取り込み、Dashboard Studio の
 各画面で参照する Splunk アプリです。アプリ ID は `miter_stix_analysis` です。
 
-現在の同梱データは **Enterprise ATT&CK v20.1**（`enterprise-attack-20.1.json`、26,699 オブジェクト）です。
+現在の同梱データは **Enterprise ATT&CK v20.1 と v20.0** です。各画面上部の「ATT&CK の版」で切り替えて表示できます。
+新しい版は `tools/download_stix.py` で MITRE から取得して追加できます（[tools/README.md](tools/README.md)）。
 
 ## 目的
 
@@ -22,6 +23,7 @@ Splunk の中で、手元のデータと並べて考えたい場面が多くあ�
   どのログを取れば多くの Technique を検知できるか、どの Tactic にどのログが効くかを把握します。
 - **Group / Software / Campaign / Mitigation から関係をたどる。** 脅威アクター起点の調査や、
   緩和策の優先度付けに使います。
+- **版の違いを確認する。** 複数の ATT&CK の版を取り込み、画面で切り替えて比べられます。
 
 ## 想定する利用者
 
@@ -84,6 +86,9 @@ ATT&CK v18 以降、**Technique と Data Component の間に直接の関係オ�
 
 ## lookup 一覧
 
+下の表は版なしのファイル（最新版の複製）です。画面は版付きの `attack_<種別>_v<版>.csv` を読みます。
+取り込み済みの版の一覧は `attack_versions.csv` にあります。詳しくは [tools/README.md](tools/README.md) を参照してください。
+
 | ファイル | 行数 | 主キー |
 | --- | --- | --- |
 | `attack_techniques.csv` | 706 | `technique_id` |
@@ -119,15 +124,16 @@ ATT&CK v18 以降、**Technique と Data Component の間に直接の関係オ�
 ### 方法 B: サーバに直接配置
 
 ```sh
-tar xzf dist/miter_stix_analysis-1.2.1.tgz -C "$SPLUNK_HOME/etc/apps/"
+tar xzf dist/miter_stix_analysis-1.3.0.tgz -C "$SPLUNK_HOME/etc/apps/"
 "$SPLUNK_HOME/bin/splunk" restart
 ```
 
 ### tgz を作り直す
 
 ```sh
-COPYFILE_DISABLE=1 tar czf dist/miter_stix_analysis-1.2.1.tgz \
-  --exclude='.DS_Store' --exclude='__pycache__' --exclude='dist' \
+COPYFILE_DISABLE=1 tar czf dist/miter_stix_analysis-1.3.0.tgz \
+  --exclude='.DS_Store' --exclude='__pycache__' --exclude='dist' --exclude='stix' \
+  --exclude='.git' --exclude='.gitignore' \
   -C .. miter_stix_analysis
 ```
 
@@ -219,15 +225,17 @@ COPYFILE_DISABLE=1 tar czf dist/miter_stix_analysis-1.2.1.tgz \
 ## データの更新
 
 ```sh
-# 最新版を取得して lookup を作り直す
-python3 tools/build_lookups.py --version 20.1
+# 取得できる版を確認する
+python3 tools/download_stix.py --list
 
-# ローカルの STIX バンドルを使う
-python3 tools/build_lookups.py --stix /path/to/enterprise-attack-20.1.json
+# 最新版を取得して lookup を作る（版付きのファイルが追加される）
+python3 tools/download_stix.py --latest --build
 
 # ダッシュボード定義を作り直す（UI で編集した内容は上書きされる）
 python3 tools/build_dashboards.py
 ```
+
+手順の詳細、出力されるファイル、版の削除方法は [tools/README.md](tools/README.md) にまとめています。
 
 `tools/build_dashboards.py` は書き出し前に JSON を自己チェックする。Splunk 10.x のスキーマバリデータは
 フラットな `"layout": {"type": ...}` を受け付けないため、タブが 1 枚のビューでも
@@ -244,10 +252,11 @@ Tactic が 14 個から 15 個に増えている。`Defense Evasion` が `Stealt
 ```
 miter_stix_analysis/
 ├── default/            app.conf、transforms.conf、ナビゲーション、ダッシュボード（views）
-├── lookups/            STIX から生成した CSV lookup（16 ファイル）
+├── lookups/            STIX から生成した CSV lookup（版ごとに 16 ファイル＋最新版の複製＋版の一覧）
 ├── metadata/           権限と公開範囲（lookup はグローバル公開）
 ├── static/             アプリのアイコンとロゴ
-└── tools/              lookup・ダッシュボード・アイコンの生成スクリプトと確認用 SPL
+├── stix/               ダウンロードした STIX バンドル（Git・tgz には含めない）
+└── tools/              STIX の取得、lookup・ダッシュボード・アイコンの生成スクリプトと確認用 SPL
 ```
 
 ## 出典と利用条件
